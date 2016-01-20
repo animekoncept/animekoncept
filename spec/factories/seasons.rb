@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :season do
-    name "MyString"
+    name  {Faker::Name.name}
   end
 
 end
