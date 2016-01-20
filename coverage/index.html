@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-01-20T14:56:57-08:00">2016-01-20T14:56:57-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-01-20T15:06:33-08:00">2016-01-20T15:06:33-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.03
+         1.02
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>26</b> files in total.
-    <b>118</b> relevant lines. 
-    <span class="green"><b>118</b> lines covered</span> and
+    <b>27</b> files in total.
+    <b>121</b> relevant lines. 
+    <span class="green"><b>121</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -81,9 +81,9 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#7cf5ccb7c5afa6a3945c6c0a6ea3b536b78bff52" class="src_link" title="app/models/season.rb">app/models/season.rb</a></td>
+        <td class="strong"><a href="#6bb7221d4b5016bc0480de094e2a096bae61cfe7" class="src_link" title="app/models/producer.rb">app/models/producer.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>4</td>
+        <td>5</td>
         <td>2</td>
         <td>2</td>
         <td>0</td>
@@ -261,6 +261,16 @@
       </tr>
       
       <tr>
+        <td class="strong"><a href="#d28cfc9b8240382568d25ed670af63980c0bd9ae" class="src_link" title="spec/factories/producers.rb">spec/factories/producers.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>6</td>
+        <td>3</td>
+        <td>3</td>
+        <td>0</td>
+        <td>1.0</td>
+      </tr>
+      
+      <tr>
         <td class="strong"><a href="#4d9d211f9f0b336c95df1cf43304336d1436e665" class="src_link" title="spec/factories/seasons.rb">spec/factories/seasons.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>6</td>
@@ -291,7 +301,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#1699bd9f1f59f0efa1d7b57d3fdf81b20dacf987" class="src_link" title="spec/models/season_spec.rb">spec/models/season_spec.rb</a></td>
+        <td class="strong"><a href="#4611f64c87ba1582f6890ac1c5f5c7dd3a23edc5" class="src_link" title="spec/models/producer_spec.rb">spec/models/producer_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>5</td>
         <td>3</td>
@@ -476,9 +486,9 @@
   </pre>
 </div>
       
-        <div class="source_table" id="7cf5ccb7c5afa6a3945c6c0a6ea3b536b78bff52">
+        <div class="source_table" id="6bb7221d4b5016bc0480de094e2a096bae61cfe7">
   <div class="header">
-    <h3>app/models/season.rb</h3>
+    <h3>app/models/producer.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>2</b> relevant lines. 
@@ -493,7 +503,7 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class Season &lt; ActiveRecord::Base</code>
+          <code class="ruby">class Producer &lt; ActiveRecord::Base</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
@@ -509,6 +519,12 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby">end</code>
@@ -4664,6 +4680,60 @@
   </pre>
 </div>
       
+        <div class="source_table" id="d28cfc9b8240382568d25ed670af63980c0bd9ae">
+  <div class="header">
+    <h3>spec/factories/producers.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>3</b> relevant lines. 
+      <span class="green"><b>3</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">FactoryGirl.define do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  factory :producer do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    name  {Faker::Name.name}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
         <div class="source_table" id="4d9d211f9f0b336c95df1cf43304336d1436e665">
   <div class="header">
     <h3>spec/factories/seasons.rb</h3>
@@ -4886,9 +4956,9 @@
   </pre>
 </div>
       
-        <div class="source_table" id="1699bd9f1f59f0efa1d7b57d3fdf81b20dacf987">
+        <div class="source_table" id="4611f64c87ba1582f6890ac1c5f5c7dd3a23edc5">
   <div class="header">
-    <h3>spec/models/season_spec.rb</h3>
+    <h3>spec/models/producer_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>3</b> relevant lines. 
@@ -4915,7 +4985,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe Season, type: :model do</code>
+          <code class="ruby">RSpec.describe Producer, type: :model do</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="4">
