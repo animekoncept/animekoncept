@@ -1,10 +1,20 @@
 {
   "RSpec": {
     "coverage": {
-      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/controllers/users_controller_spec.rb": [
+      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/features/users/create_spec.rb": [
         1,
         null,
         1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
         null
       ],
       "/Applications/MAMP/htdocs/Sites/chibichibi/spec/rails_helper.rb": [
@@ -669,6 +679,18 @@
         null,
         null
       ],
+      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/factories/animes.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Applications/MAMP/htdocs/Sites/chibichibi/spec/factories/users.rb": [
         1,
         1,
@@ -756,7 +778,17 @@
         1,
         null
       ],
-      "/Applications/MAMP/htdocs/Sites/chibichibi/app/controllers/users_controller.rb": [
+      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/models/anime_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        null
+      ],
+      "/Applications/MAMP/htdocs/Sites/chibichibi/app/models/anime.rb": [
         1,
         null
       ],
@@ -773,50 +805,8 @@
         2,
         null,
         null
-      ],
-      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/features/users/create_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        null
-      ],
-      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/helpers/users_helper_spec.rb": [
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/models/user_spec.rb": [
-        1,
-        null,
-        1,
-        2,
-        2,
-        2,
-        null
       ]
     },
-    "timestamp": 1453319722
+    "timestamp": 1453327509
   }
 }
