@@ -778,20 +778,6 @@
         1,
         null
       ],
-      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/models/anime_spec.rb": [
-        1,
-        null,
-        1,
-        2,
-        2,
-        2,
-        2,
-        null
-      ],
-      "/Applications/MAMP/htdocs/Sites/chibichibi/app/models/anime.rb": [
-        1,
-        null
-      ],
       "/Applications/MAMP/htdocs/Sites/chibichibi/app/controllers/application_controller.rb": [
         1,
         null,
@@ -807,6 +793,6 @@
         null
       ]
     },
-    "timestamp": 1453327509
+    "timestamp": 1453328728
   }
 }
