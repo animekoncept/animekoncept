@@ -1,10 +1,20 @@
 {
   "RSpec": {
     "coverage": {
-      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/controllers/users_controller_spec.rb": [
+      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/features/users/create_spec.rb": [
         1,
         null,
         1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
         null
       ],
       "/Applications/MAMP/htdocs/Sites/chibichibi/spec/rails_helper.rb": [
@@ -457,6 +467,96 @@
         null,
         1
       ],
+      "/Applications/MAMP/htdocs/Sites/chibichibi/config/initializers/friendly_id.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Applications/MAMP/htdocs/Sites/chibichibi/config/initializers/inflections.rb": [
         null,
         null,
@@ -669,6 +769,42 @@
         null,
         null
       ],
+      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/factories/animes.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/factories/genres.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/factories/producers.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/factories/seasons.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Applications/MAMP/htdocs/Sites/chibichibi/spec/factories/users.rb": [
         1,
         1,
@@ -746,6 +882,9 @@
         1,
         null,
         1,
+        null,
+        1,
+        1,
         null
       ],
       "/Applications/MAMP/htdocs/Sites/chibichibi/app/helpers/application_helper.rb": [
@@ -754,40 +893,6 @@
       ],
       "/Applications/MAMP/htdocs/Sites/chibichibi/app/helpers/users_helper.rb": [
         1,
-        null
-      ],
-      "/Applications/MAMP/htdocs/Sites/chibichibi/app/controllers/users_controller.rb": [
-        1,
-        null
-      ],
-      "/Applications/MAMP/htdocs/Sites/chibichibi/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        1,
-        1,
-        2,
-        2,
-        null,
-        null
-      ],
-      "/Applications/MAMP/htdocs/Sites/chibichibi/spec/features/users/create_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
         null
       ],
       "/Applications/MAMP/htdocs/Sites/chibichibi/spec/helpers/users_helper_spec.rb": [
@@ -804,7 +909,6 @@
         null,
         null,
         1,
-        1,
         null
       ],
       "/Applications/MAMP/htdocs/Sites/chibichibi/spec/models/user_spec.rb": [
@@ -815,8 +919,22 @@
         2,
         2,
         null
+      ],
+      "/Applications/MAMP/htdocs/Sites/chibichibi/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        2,
+        2,
+        null,
+        null
       ]
     },
-    "timestamp": 1453320001
+    "timestamp": 1453333548
   }
 }
