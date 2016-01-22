@@ -19,6 +19,9 @@ gem 'simple_form'
 #Pretty urls
 gem 'friendly_id', '~> 5.1.0'
 
+#Admin
+gem "administrate"
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4'
