@@ -6,6 +6,9 @@
 # you're free to overwrite the RESTful controller actions.
 class Admin::ApplicationController < Administrate::ApplicationController
   before_filter :authenticate_admin
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
 
   def authenticate_admin
     # TODO Add authentication logic here.
