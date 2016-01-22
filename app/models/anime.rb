@@ -6,6 +6,8 @@ class Anime < ActiveRecord::Base
   validates_presence_of :ended_on
   validates_presence_of :duration
 
+  belongs_to :season
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 end
