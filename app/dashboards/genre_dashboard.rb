@@ -13,6 +13,7 @@ class GenreDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     slug: Field::String,
+    anime: Field::BelongsTo,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -25,6 +26,7 @@ class GenreDashboard < Administrate::BaseDashboard
     :name,
     :created_at,
     :updated_at,
+    :anime,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,6 +39,7 @@ class GenreDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :slug,
+    :anime,
   ]
 
   # Overwrite this method to customize how genres are displayed

@@ -1,4 +1,4 @@
-class Anime < ActiveRecord::Base
+  class Anime < ActiveRecord::Base
 
   validates_presence_of :name
   validates_presence_of :synopsis
@@ -7,6 +7,7 @@ class Anime < ActiveRecord::Base
   validates_presence_of :duration
 
   belongs_to :season
+  has_many :genres
 
   extend FriendlyId
   friendly_id :name, use: :slugged

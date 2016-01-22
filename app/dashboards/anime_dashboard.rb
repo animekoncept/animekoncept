@@ -18,6 +18,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
     slug: Field::String,
     season: Field::BelongsTo,
+    genres: Field::HasMany,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -31,6 +32,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :synopsis,
     :aired_on,
     :season,
+    :genres,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -48,6 +50,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :duration,
     :slug,
     :season,
+    :genres,
   ]
 
   # Overwrite this method to customize how animes are displayed
