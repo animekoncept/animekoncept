@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   before_create :set_default_role
 
   private
-    def det_default_role
+    def set_default_role
       self.role ||= Role.find_by_name('user')
     end
 end
