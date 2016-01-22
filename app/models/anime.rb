@@ -6,8 +6,8 @@
   validates_presence_of :ended_on
   validates_presence_of :duration
 
-  belongs_to :season
-  has_many :genres
+  has_many :anime_genre_relation
+  has_many :genres, through: :anime_genre_relation
 
   extend FriendlyId
   friendly_id :name, use: :slugged

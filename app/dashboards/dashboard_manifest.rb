@@ -16,6 +16,7 @@ class DashboardManifest
     :roles,
     :seasons,
     :users,
+    :anime_genre_relations,
   ]
 
   # `ROOT_DASHBOARD`

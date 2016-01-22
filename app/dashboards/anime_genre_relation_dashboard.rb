@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class GenreDashboard < Administrate::BaseDashboard
+class AnimeGenreRelationDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,11 +9,10 @@ class GenreDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    name: Field::String,
+    anime: Field::BelongsTo,
+    genre: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    slug: Field::String,
-    animes: Field::HasMany,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -23,10 +22,8 @@ class GenreDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :name,
-    :created_at,
-    :updated_at,
-    :animes,
+    :anime,
+    :genre,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,15 +34,14 @@ class GenreDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :name,
-    :slug,
-    :animes,
+    :anime,
+    :genre,
   ]
 
-  # Overwrite this method to customize how genres are displayed
+  # Overwrite this method to customize how animes are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(genre)
-  #   "Genre ##{genre.id}"
+  # def display_resource(anime)
+  #   "Anime ##{anime.id}"
   # end
 end
