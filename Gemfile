@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #Authentication
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 
 gem 'simple_form'
 

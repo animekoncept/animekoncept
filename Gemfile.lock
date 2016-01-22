@@ -60,6 +60,7 @@ GEM
       thor (~> 0.19)
     builder (3.2.2)
     byebug (8.2.1)
+    cancancan (1.13.1)
     capybara (2.5.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -271,6 +272,7 @@ PLATFORMS
 DEPENDENCIES
   administrate
   byebug
+  cancancan (~> 1.10)
   capybara (~> 2.5)
   coffee-rails (~> 4.1.0)
   database_cleaner (~> 1.5)
