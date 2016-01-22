@@ -13,6 +13,7 @@ class SeasonDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     slug: Field::String,
+    animes: Field::HasMany
   }
 
   # COLLECTION_ATTRIBUTES
@@ -25,6 +26,7 @@ class SeasonDashboard < Administrate::BaseDashboard
     :name,
     :created_at,
     :updated_at,
+    :animes,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,6 +39,7 @@ class SeasonDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :slug,
+    :animes,
   ]
 
   # Overwrite this method to customize how seasons are displayed
