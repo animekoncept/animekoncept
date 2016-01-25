@@ -8,8 +8,7 @@ class GenreDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    anime_genre_relation: Field::HasMany,
-    anime: Field::HasMany,
+    animes: Field::HasMany,
     id: Field::Number,
     name: Field::String,
     created_at: Field::DateTime,
@@ -23,10 +22,10 @@ class GenreDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :anime_genre_relation,
-    :anime,
+    :animes,
     :id,
     :name,
+    :created_at,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,8 +36,7 @@ class GenreDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :anime_genre_relation,
-    :anime,
+    :animes,
     :name,
     :slug,
   ]

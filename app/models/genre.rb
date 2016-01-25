@@ -1,8 +1,7 @@
 class Genre < ActiveRecord::Base
   validates_presence_of :name
 
-  has_many :anime_genre_relation
-  has_many :anime, through: :anime_genre_relation
+  has_and_belongs_to_many :animes
 
   extend FriendlyId
   friendly_id :name, use: :slugged

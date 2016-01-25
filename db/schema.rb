@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122200929) do
+ActiveRecord::Schema.define(version: 20160125052031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "anime_genre_relations", force: :cascade do |t|
-    t.integer  "anime_id"
-    t.integer  "genre_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "animes", force: :cascade do |t|
     t.string   "name"
@@ -36,6 +29,11 @@ ActiveRecord::Schema.define(version: 20160122200929) do
   end
 
   add_index "animes", ["slug"], name: "index_animes_on_slug", unique: true, using: :btree
+
+  create_table "animes_genres", force: :cascade do |t|
+    t.integer "anime_id"
+    t.integer "genre_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
