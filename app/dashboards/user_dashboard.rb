@@ -8,6 +8,7 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    role: Field::BelongsTo,
     id: Field::Number,
     email: Field::String,
     encrypted_password: Field::String,
@@ -23,7 +24,6 @@ class UserDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
     username: Field::String,
     slug: Field::String,
-    role_id: Field::Number,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -32,10 +32,10 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :role,
     :id,
     :email,
     :encrypted_password,
-    :reset_password_token,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -46,6 +46,7 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :role,
     :email,
     :encrypted_password,
     :reset_password_token,
@@ -58,7 +59,6 @@ class UserDashboard < Administrate::BaseDashboard
     :last_sign_in_ip,
     :username,
     :slug,
-    :role_id,
   ]
 
   # Overwrite this method to customize how users are displayed

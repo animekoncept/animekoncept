@@ -8,9 +8,9 @@ class AnimeGenreRelationDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    id: Field::Number,
     anime: Field::BelongsTo,
     genre: Field::BelongsTo,
+    id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }
@@ -21,9 +21,10 @@ class AnimeGenreRelationDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :id,
     :anime,
     :genre,
+    :id,
+    :created_at,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -38,10 +39,10 @@ class AnimeGenreRelationDashboard < Administrate::BaseDashboard
     :genre,
   ]
 
-  # Overwrite this method to customize how animes are displayed
+  # Overwrite this method to customize how anime genre relations are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(anime)
-  #   "Anime ##{anime.id}"
+  # def display_resource(anime_genre_relation)
+  #   "AnimeGenreRelation ##{anime_genre_relation.id}"
   # end
 end
