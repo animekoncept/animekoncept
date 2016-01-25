@@ -7,4 +7,5 @@ RSpec.describe Anime, type: :model do
   it  {is_expected.to validate_presence_of(:ended_on)}
   it  {should belong_to(:season)}
   it  {should have_and_belong_to_many(:genres)}
+  it  {should have_and_belong_to_many(:producers)}
 end

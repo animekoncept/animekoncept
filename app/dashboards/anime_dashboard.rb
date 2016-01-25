@@ -9,6 +9,7 @@ class AnimeDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     genres: Field::HasMany,
+    producers: Field::HasMany,
     id: Field::Number,
     name: Field::String,
     synopsis: Field::Text,
@@ -28,6 +29,7 @@ class AnimeDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :genres,
+    :producers,
     :id,
     :name,
     :synopsis,
@@ -42,6 +44,7 @@ class AnimeDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :genres,
+    :producers,
     :name,
     :synopsis,
     :aired_on,

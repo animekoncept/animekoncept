@@ -13,6 +13,7 @@ class ProducerDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     slug: Field::String,
+    animes: Field::HasMany,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -23,6 +24,7 @@ class ProducerDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :name,
+    :animes,
     :created_at,
     :updated_at,
   ]
@@ -37,6 +39,7 @@ class ProducerDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :slug,
+    :animes,
   ]
 
   # Overwrite this method to customize how producers are displayed
