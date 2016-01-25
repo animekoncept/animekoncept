@@ -1,6 +1,5 @@
 module Admin
   class RolesController < Admin::ApplicationController
-    load_and_authorize_resource :find_by => :slug
     # To customize the behavior of this controller,
     # simply overwrite any of the RESTful actions. For example:
     #
