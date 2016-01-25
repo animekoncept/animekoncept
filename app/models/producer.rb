@@ -10,4 +10,6 @@ class Producer < ActiveRecord::Base
       write_attribute(:slug, value)
     end
   end
+
+  has_and_belongs_to_many :animes
 end
