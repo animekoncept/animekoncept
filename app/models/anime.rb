@@ -39,6 +39,9 @@
     end
   end
 
-  has_attached_file :cover_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :cover_image, styles: { large: "200x288>", medium: "162x230>" thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\Z/
+
+  has_attached_file :header_image, styles: { large: "1440x350>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :header_image, content_type: /\Aimage\/.*\Z/
 end
