@@ -25,6 +25,7 @@ class UserDashboard < Administrate::BaseDashboard
     username: Field::String,
     slug: Field::String,
     avatar: PaperclipField,
+    header_image: PaperclipField,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -38,6 +39,7 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :encrypted_password,
     :avatar,
+    :header_image,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -62,6 +64,7 @@ class UserDashboard < Administrate::BaseDashboard
     :username,
     :slug,
     :avatar,
+    :header_image,
   ]
 
   # Overwrite this method to customize how users are displayed
