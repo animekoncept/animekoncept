@@ -25,6 +25,9 @@ gem 'annotate'
 #Admin
 gem "administrate"
 
+# Attachments
+gem "paperclip", "~> 4.3"
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4'

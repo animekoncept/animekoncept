@@ -2,16 +2,20 @@
 #
 # Table name: animes
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  synopsis   :text
-#  aired_on   :date
-#  ended_on   :date
-#  duration   :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  slug       :string
-#  season_id  :integer
+#  id                       :integer          not null, primary key
+#  name                     :string
+#  synopsis                 :text
+#  aired_on                 :date
+#  ended_on                 :date
+#  duration                 :string
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#  slug                     :string
+#  season_id                :integer
+#  cover_image_file_name    :string
+#  cover_image_content_type :string
+#  cover_image_file_size    :integer
+#  cover_image_updated_at   :datetime
 #
 
   class Anime < ActiveRecord::Base
@@ -34,4 +38,7 @@
       write_attribute(:slug, value)
     end
   end
+
+  has_attached_file :cover_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\Z/
 end
