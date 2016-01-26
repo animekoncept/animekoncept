@@ -8,8 +8,8 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    role: Field::BelongsTo,
     id: Field::Number,
+    role: Field::BelongsTo,
     email: Field::String,
     encrypted_password: Field::String,
     reset_password_token: Field::String,
@@ -24,6 +24,7 @@ class UserDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
     username: Field::String,
     slug: Field::String,
+    avatar: PaperclipField,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -36,6 +37,7 @@ class UserDashboard < Administrate::BaseDashboard
     :id,
     :email,
     :encrypted_password,
+    :avatar,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -59,6 +61,7 @@ class UserDashboard < Administrate::BaseDashboard
     :last_sign_in_ip,
     :username,
     :slug,
+    :avatar,
   ]
 
   # Overwrite this method to customize how users are displayed
