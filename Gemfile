@@ -20,6 +20,8 @@ gem 'simple_form'
 #Pretty urls
 gem 'friendly_id', '~> 5.1.0'
 
+gem 'annotate'
+
 #Admin
 gem "administrate"
 
