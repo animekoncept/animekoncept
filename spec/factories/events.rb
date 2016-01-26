@@ -6,9 +6,8 @@
 #  name        :string
 #  description :text
 #  location    :string
-#  date_on     :date
-#  start_at    :datetime
-#  end_at      :datetime
+#  starts_on   :date
+#  ends_on     :date
 #  age         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -16,16 +15,12 @@
 
 FactoryGirl.define do
   factory :event do
-    name "MyString"
-description "MyText"
-location "MyString"
-date_on "2016-01-26"
-start_at "2016-01-26 09:08:35"
-end_at "2016-01-26 09:08:35"
-hosting "MyString"
-attire "MyString"
-price 1
-age "MyString"
+    name        {Factory::Name.name}
+    description {Factory::Internet.description}
+    location    {Factory::Internet.location}
+    starts_on   {Factory::Date.between(2.days.ago, Date.today)}
+    ends_on     {Factory::Date.between(2.days.ago, Date.today)}
+    age         {Factory::Internet.age}
   end
 
 end

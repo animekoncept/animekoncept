@@ -12,6 +12,7 @@ class DashboardManifest
   DASHBOARDS = [
     :users,
     :animes,
+    :events,
     :genres,
     :producers,
     :roles,

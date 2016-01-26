@@ -6,9 +6,8 @@
 #  name        :string
 #  description :text
 #  location    :string
-#  date_on     :date
-#  start_at    :datetime
-#  end_at      :datetime
+#  starts_on   :date
+#  ends_on     :date
 #  age         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -20,7 +19,7 @@ RSpec.describe Event, type: :model do
   it {is_expected.to validate_presence_of(:name)}
   it {is_expected.to validate_presence_of(:description)}
   it {is_expected.to validate_presence_of(:location)}
-  it {is_expected.to validate_presence_of(:date_on)}
-  it {is_expected.to validate_presence_of(:start_at)}
-  it {is_expected.to validate_presence_of(:end_at)}
+  it {is_expected.to validate_presence_of(:starts_on)}
+  it {is_expected.to validate_presence_of(:ends_on)}
+  it {is_expected.to validate_presence_of(:age)}
 end

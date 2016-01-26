@@ -4,9 +4,8 @@ class CreateEvents < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :location
-      t.date :date_on
-      t.datetime :start_at
-      t.datetime :end_at
+      t.date :starts_on
+      t.date :ends_on
       t.string :age
 
       t.timestamps null: false

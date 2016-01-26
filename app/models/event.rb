@@ -6,13 +6,18 @@
 #  name        :string
 #  description :text
 #  location    :string
-#  date_on     :date
-#  start_at    :datetime
-#  end_at      :datetime
+#  starts_on   :date
+#  ends_on     :date
 #  age         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
 class Event < ActiveRecord::Base
+  validates_presence_of :name
+  validates_presence_of :description
+  validates_presence_of :location
+  validates_presence_of :starts_on
+  validates_presence_of :ends_on
+  validates_presence_of :age
 end

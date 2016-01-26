@@ -44,9 +44,8 @@ ActiveRecord::Schema.define(version: 20160126170835) do
     t.string   "name"
     t.text     "description"
     t.string   "location"
-    t.date     "date_on"
-    t.datetime "start_at"
-    t.datetime "end_at"
+    t.date     "starts_on"
+    t.date     "ends_on"
     t.string   "age"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
