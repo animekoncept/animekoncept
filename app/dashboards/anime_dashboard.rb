@@ -21,6 +21,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     slug: Field::String,
     season_id: Field::Number,
     cover_image: PaperclipField,
+    header_image: PaperclipField,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -35,6 +36,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :name,
     :synopsis,
     :cover_image,
+    :header_image,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -55,6 +57,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :slug,
     :season_id,
     :cover_image,
+    :header_image,
   ]
 
   # Overwrite this method to customize how animes are displayed
