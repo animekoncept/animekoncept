@@ -28,6 +28,9 @@ gem "administrate"
 # Attachments
 gem "paperclip", "~> 4.3"
 
+#Front-end framework
+gem 'foundation-rails'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4'
