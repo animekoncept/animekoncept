@@ -1,0 +1,17 @@
+.user-profile {
+  .header-image {
+    img {
+      -webkit-filter: blur(5px);
+    }
+  }
+  .avatar {
+    margin-top: -50px;
+    img {
+      border-radius: 50%;
+      position: relative;
+    }
+  }
+  .username {
+    padding-left: 10px;
+  }
+}

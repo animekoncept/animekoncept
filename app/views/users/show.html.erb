@@ -1,0 +1,16 @@
+<div class="user-profile">
+  <div class="header-image">
+    <%= image_tag @user.header_image.url(:large) %>
+  </div>
+  <div class="column row">
+    <div class="avatar">
+      <%= image_tag(@user.avatar.url(:large)) %>
+    </div>
+    <div class="username">
+      <strong><%= @user.username %></strong>
+    </div>
+    <div class="follow-button">
+      <button class="hollow button">Follow</button>
+    </div>
+  </div>
+</div>

@@ -31,6 +31,8 @@ gem "paperclip", "~> 4.3"
 #Front-end framework
 gem 'foundation-rails'
 
+gem 'easy_translate'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4'
