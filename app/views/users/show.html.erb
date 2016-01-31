@@ -7,7 +7,7 @@
       <%= image_tag(@user.avatar.url(:large)) %>
     </div>
     <div class="username">
-      <strong><%= @user.username %></strong>
+      <strong><%= @user.username.upcase %></strong>
     </div>
     <div class="follow-button">
       <button class="primary button">Follow</button>
@@ -20,6 +20,17 @@
     </div>
     <div class="forum-button">
       <button class="primary button">Forum</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns">
+      <h4>Bio</h4>
+    </div>
+    <div class="medium-4 columns">
+      <h4>Some favorite Anime</h4>
+    </div>
+    <div class="medium-4 columns">
+
     </div>
   </div>
 </div>
