@@ -1,5 +1,39 @@
 <div class="anime">
-  <div class="header-image">
+  <div class="header-image hide-for-small-only">
     <%= image_tag @anime.header_image.url(:large) %>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-4 columns">
+      <div class="cover-image">
+        <%= image_tag @anime.cover_image.url(:large, class: 'thumbnail') %>
+      </div>
+      <div class="small-12 columns">
+        <div class="anime-name">
+          <h1><%= @anime.name %></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-7 columns">
+      <div class="anime-synopsis">
+        <p>
+          <%= truncate(@anime.synopsis, length: 200) %>
+        </p>
+      </div>
+    </div>
+    <div class="small-12 medium-12 columns">
+      <div class="anime-info">
+        <h3>Anime info</h3>
+        <div class="small-12 columns">
+          <div class="bar">Aired on</div>
+          <p><%= @anime.aired_on %></p>
+        </div>
+        <div class="small-12 columns">
+          <div class="bar">Ended on</div>
+          <p><%= @anime.ended_on %></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

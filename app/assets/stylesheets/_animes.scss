@@ -1,8 +1,51 @@
 .anime {
+  background-color: #F9F9F9;
   .header-image {
     background-color: #1b2023;
     img {
-      opacity: 0.4;
+      opacity: 0.3;
+    }
+  }
+  .cover-image {
+    top: -325px;
+    position: relative;
+    @media screen and (max-width: 39.9375em) {
+      top: 10px;
+      left: 90px;
+    }
+  }
+  .anime-name {
+    h1 {
+      top: -200px;
+      position: relative;
+      background-color: #1b2023;
+      @media screen and (max-width: 39.9375em) {
+        text-align: center;
+        background-color: transparent;
+        top: 10px
+
+      }
+    }
+  }
+  .anime-synopsis {
+    p {
+      @media screen and (max-width: 39.9375em) {
+        text-align: center;
+      }
+    }
+  }
+  .anime-info {
+    .bar {
+      background-color: #33332D;
+      color: #ffffff;
+      font-size: 1.5em;
+      text-align: center;
+    }
+    p {
+      text-align: center;
+    }
+    h3 {
+      text-align: center;
     }
   }
 }
