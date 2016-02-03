@@ -1,5 +1,5 @@
 <div class="anime">
-  <div class=" small-12 medium-12 large-12">
+  <div class="large-12">
     <div class="header-image hide-for-small-only large-expand">
       <%# image_tag @anime.header_image.url(:large) %>
       <%= image_tag "",
@@ -12,27 +12,29 @@
       %>
     </div>
   </div>
+
   <div class="row">
-    <div class="small-12 medium-3 columns">
+    <div class="small-12 medium-4 columns">
       <div class="cover-image">
         <%= image_tag @anime.cover_image.url(:large, class: 'thumbnail') %>
       </div>
     </div>
-    <div class="small-12 medium-3 columns">
+    <div class="small-12 medium-4 ">
       <div class="anime-name">
         <h1><%= @anime.name %></h1>
       </div>
     </div>
   </div>
+
   <div class="row">
-    <div class="small-12 medium-7 columns">
+    <div class="small-12 medium-6 columns">
       <div class="anime-synopsis">
         <p>
           <%= truncate(@anime.synopsis, length: 200) %>
         </p>
       </div>
     </div>
-    <div class="small-12 medium-12 columns">
+    <div class="small-12 medium-6 columns">
       <div class="anime-info">
         <h3>Anime info</h3>
         <div class="small-12 columns">
