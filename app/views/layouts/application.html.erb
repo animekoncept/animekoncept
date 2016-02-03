@@ -9,11 +9,72 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
+
   </head>
 
   <body>
     <%# render 'layouts/nav' %>
-    <%= yield %>
+    <div class="off-canvas-wrapper">
+      <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+        <!-- off-canvas title bar for 'small' screen -->
+        <div class="title-bar" data-responsive-toggle="widemenu" data-hide-for="medium">
+          <div class="title-bar-left">
+            <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
+            <span class="title-bar-title">ChibiChibi</span>
+          </div>
+          <div class="title-bar-right">
+            <span class="title-bar-title">Login</span>
+            <button class="menu-icon" type="button" data-open="offCanvasRight"></button>
+          </div>
+        </div>
+
+        <!-- off-canvas left menu -->
+        <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
+          <ul class="vertical dropdown menu" data-dropdown-menu>
+            <li><a href="left_item_1">Left item 1</a></li>
+            <li><a href="left_item_2">Left item 2</a></li>
+            <li><a href="left_item_3">Left item 3</a></li>
+          </ul>
+        </div>
+
+        <!-- off-canvas right menu -->
+        <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
+          <ul class="vertical dropdown menu" data-dropdown-menu>
+            <li><a href="right_item_1">Right item 1</a></li>
+            <li><a href="right_item_2">Right item 2</a></li>
+            <li><a href="right_item_3">Right item 3</a></li>
+          </ul>
+        </div>
+
+        <!-- "wider" top-bar menu for 'medium' and up -->
+        <div id="widemenu" class="top-bar">
+          <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+              <li class="menu-text">ChibiChibi</li>
+              <li><%= link_to "Anime", '#' %></li>
+              <li><%= link_to "Manga", '#' %></li>
+              <li><%= link_to "Events", '#' %></li>
+              <li><%= link_to "Forum", '#' %></li>
+            </ul>
+          </div>
+          <div class="top-bar-right">
+            <ul class="menu">
+              <li><input type="search" placeholder="Search"></li>
+              <li><button class="button">Search</button></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- original content goes in this container -->
+        <div class="off-canvas-content" data-off-canvas-content>
+          <%= yield %>
+        </div>
+
+      <!-- close wrapper, no more content after this -->
+      </div>
+    </div>
 
   </body>
 </html>
