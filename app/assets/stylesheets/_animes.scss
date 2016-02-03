@@ -14,18 +14,24 @@
       left: 90px;
     }
     @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-      top: -150px;
+      top: -200px;
     }
   }
   .anime-name {
     h1 {
       top: -200px;
       position: relative;
-      background-color: #1b2023;
       @media screen and (max-width: 39.9375em) {
         text-align: center;
         background-color: transparent;
         top: 10px
+
+      }
+      @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        top: -130px;
+        background-color: gray;
+        font-size: 1.9em;
+        text-align: center;
 
       }
     }
