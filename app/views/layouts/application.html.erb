@@ -25,7 +25,13 @@
             <span class="title-bar-title">ChibiChibi</span>
           </div>
           <div class="title-bar-right">
-            <span class="title-bar-title">Login</span>
+            <% if user_signed_in? %>
+              <%= current_user.username %>
+            <% else %>
+              <span class="title-bar-title">
+                <%= link_to "Login", new_user_session_path %>
+              </span>
+            <% end %>
             <button class="menu-icon" type="button" data-open="offCanvasRight"></button>
           </div>
         </div>
@@ -33,18 +39,23 @@
         <!-- off-canvas left menu -->
         <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
           <ul class="vertical dropdown menu" data-dropdown-menu>
-            <li><a href="left_item_1">Left item 1</a></li>
-            <li><a href="left_item_2">Left item 2</a></li>
-            <li><a href="left_item_3">Left item 3</a></li>
+            <li><%= link_to "Anime", '#'%></li>
+            <li><%= link_to "Manga", '#'%></li>
+            <li><%= link_to "Events", '#' %></li>
+            <li><%= link_to "Forum", '#' %></li>
           </ul>
         </div>
 
         <!-- off-canvas right menu -->
         <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
           <ul class="vertical dropdown menu" data-dropdown-menu>
-            <li><a href="right_item_1">Right item 1</a></li>
-            <li><a href="right_item_2">Right item 2</a></li>
-            <li><a href="right_item_3">Right item 3</a></li>
+            <% if user_signed_in? %>
+              <%= image_tag current_user.avatar.url(:thumb), class: 'float-center' %>
+              <li><%= link_to "Profile", current_user%></li>
+              <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <% end %>
           </ul>
         </div>
 
