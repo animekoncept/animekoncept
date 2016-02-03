@@ -13,6 +13,9 @@
       top: 10px;
       left: 90px;
     }
+    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+      top: -150px;
+    }
   }
   .anime-name {
     h1 {
