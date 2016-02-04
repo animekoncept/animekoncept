@@ -31,7 +31,7 @@ gem "paperclip", "~> 4.3"
 #Front-end framework
 gem 'foundation-rails'
 
-gem 'easy_translate'
+gem 'readmorejs-rails'
 
 group :development, :test do
   gem 'byebug'
