@@ -38,20 +38,36 @@
       <div class="anime-info">
         <h3>Anime info</h3>
         <div class="small-12 columns">
-          <div class="bar">Aired on</div>
-          <p><%= @anime.aired_on %></p>
+          <div class="medium-6 columns">
+            <div class="bar">Aired on</div>
+          </div>
+          <div class="medium-6 columns">
+            <p class="white-bar"><%= @anime.aired_on %></p>
+          </div>
         </div>
         <div class="small-12 columns">
-          <div class="bar">Ended on</div>
-          <p><%= @anime.ended_on %></p>
+          <div class="medium-6 columns">
+            <div class="bar">Ended on</div>
+          </div>
+          <div class="medium-6 columns">
+            <p class="white-bar"><%= @anime.ended_on %></p>
+          </div>
         </div>
         <div class="small-12 columns">
-          <div class="bar">Season</div>
-          <p><%= @anime.season.name %></p>
+          <div class="medium-6 columns">
+            <div class="bar">Season</div>
+          </div>
+          <div class="medium-6 columns">
+            <p class="white-bar"><%= @anime.season.name %></p>
+          </div>
         </div>
         <div class="small-12 columns">
-          <div class="bar">Duration</div>
-          <p><%= @anime.duration %></p>
+          <div class="medium-6 columns">
+            <div class="bar">Duration</div>
+          </div>
+          <div class="medium-6 columns">
+            <p class="white-bar"><%= @anime.duration %></p>
+          </div>
         </div>
       </div>
     </div>
