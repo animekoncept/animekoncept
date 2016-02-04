@@ -22,10 +22,10 @@ $(function(){ $(document).foundation(); });
 
 
 $(document).ready(function() {
-  $('.anime-synopsis').readmore({
-      collapsedHeight: 100,
+  $('.anime-synopsis p').readmore({
+      collapsedHeight: 150,
       speed: 1000,
-      heightMargin: 16
+      heightMargin: 16,
+      moreLink: '<a href="#">Read more</a>'
     });
-    $('#anime-synopsis').removeClass('hidden');
 });

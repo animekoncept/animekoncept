@@ -3,27 +3,38 @@
     background-color: #1b2023;
     img {
       opacity: 0.3;
+      /* medium screen */
+      @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        width: auto;
+        height: auto;
+        max-width: 100000px;
+        max-height: 450px;
+        display: block;
+      }
     }
   }
   .cover-image {
     top: -325px;
     position: relative;
+    /* small screen */
     @media screen and (max-width: 39.9375em) {
       top: 10px;
       left: 90px;
     }
+    /* medium screen */
     @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-      top: 100px;
+      top: 140px;
       position: absolute;
     }
   }
   .anime-name {
     h1 {
+      /* small screen */
       @media screen and (max-width: 39.9375em) {
         text-align: center;
-        background-color: transparent;
-        top: 10px;
+        margin-top: 15px;
       }
+      /* medium screen */
       @media screen and (min-width: 40em) and (max-width: 63.9375em) {
         top: 150px;
         background-color: gray;
@@ -34,9 +45,11 @@
   }
   .anime-synopsis {
     p {
+      /* small screen */
       @media screen and (max-width: 39.9375em) {
         text-align: center;
       }
+      /* medium screen */
       @media screen and (min-width: 40em) and (max-width: 63.9375em) {
         top: 20px;
         position: relative;
@@ -44,24 +57,28 @@
     }
   }
   .anime-info {
-    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-      top: 10px;
-      position: relative;
+    .bar, .white-bar {
+      text-align: center;
+      /* small screen */
+      @media screen and (max-width: 39.9375em) {
+        font-size: 1.5em;
+      }
+      /* small screen */
+      @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        font-size: 1.1em;
+      }
     }
     .bar {
       background-color: #33332D;
       color: #ffffff;
-      font-size: 1.5em;
-      text-align: center;
     }
     .white-bar {
       background-color: #DADADA;
-      font-size: 1.5em;
     }
     p {
       text-align: center;
     }
-    h3 {
+    h4 {
       text-align: center;
     }
   }
