@@ -1,6 +1,11 @@
 .anime {
   .header-image {
     background-color: #1b2023;
+    @media screen and (max-width: 39.9375em) {
+      .small-background-color {
+        background-color: #DADADA;
+      }
+    }
     img {
       opacity: 0.3;
       /* medium screen */
@@ -19,9 +24,6 @@
         display: block;
       }
     }
-  }
-  .small-background-color {
-    background-color: #DADADA;
   }
   .cover-image {
     /* small screen */
@@ -50,6 +52,14 @@
         top: 150px;
         background-color: gray;
         font-size: 3em;
+        position: absolute;
+      }
+    }
+  }
+  .favorite-button {
+    a {
+      @media screen and (min-width: 40em) {
+        top: 150px;
         position: absolute;
       }
     }
