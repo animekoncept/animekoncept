@@ -14,12 +14,12 @@
   </div>
 
   <div class="row">
-    <div class="small-12 medium-4 columns">
+    <div class="small-12 medium-4 large-3 columns">
       <div class="cover-image">
-        <%= image_tag @anime.cover_image.url(:large, class: 'thumbnail') %>
+        <%= image_tag @anime.cover_image.url(:large) %>
       </div>
     </div>
-    <div class="small-12 medium-4 ">
+    <div class="small-12 medium-4 large-3 columns">
       <div class="anime-name">
         <h1><%= @anime.name %></h1>
       </div>
