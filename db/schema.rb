@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126233810) do
+ActiveRecord::Schema.define(version: 20160208173726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "animelists", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "anime_id"
+    t.string   "status"
+    t.integer  "episodes_watched",                         default: 0
+    t.decimal  "rating",           precision: 2, scale: 1
+    t.integer  "rewatched",                                default: 0
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+  end
+
+  add_index "animelists", ["anime_id"], name: "index_animelists_on_anime_id", using: :btree
+  add_index "animelists", ["user_id"], name: "index_animelists_on_user_id", using: :btree
 
   create_table "animes", force: :cascade do |t|
     t.string   "name"
@@ -136,5 +150,7 @@ ActiveRecord::Schema.define(version: 20160126233810) do
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
+  add_foreign_key "animelists", "animes"
+  add_foreign_key "animelists", "users"
   add_foreign_key "users", "roles"
 end
