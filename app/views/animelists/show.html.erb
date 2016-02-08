@@ -10,15 +10,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <% @animelists.each do |list| %>
+    <% @animelists.each do |list| %>
+      <tr>
         <td><%= link_to list.anime.name, anime_path(list.anime) %></td>
         <td><%= list.status %></td>
         <td><%= list.episodes_watched %></td>
         <td><div class="star-rating" data-score= <%= list.rating %> ></div></td>
         <td><%= list.rewatched %></td>
-      <% end %>
-    </tr>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
