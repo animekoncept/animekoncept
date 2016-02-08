@@ -1,9 +1,26 @@
 <%= @user.username %>
-
-<% @animelists.each do |list| %>
-  <%= list.status %>
-  <div class="star-rating" data-score= <%= list.rating %> ></div>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Anime</th>
+      <th>Status</th>
+      <th>Episodes_watched</th>
+      <th>Rating</th>
+      <th>Rewatched</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @animelists.each do |list| %>
+        <td><%= list.anime.name %></td>
+        <td><%= list.status %></td>
+        <td><%= list.episodes_watched %></td>
+        <td><div class="star-rating" data-score= <%= list.rating %> ></div></td>
+        <td><%= list.rewatched %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
 
 <script>
 $('.star-rating').raty({
