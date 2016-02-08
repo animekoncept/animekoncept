@@ -1,0 +1,17 @@
+<%= @user.username %>
+
+<% @animelists.each do |list| %>
+  <%= list.status %>
+  <div class="star-rating" data-score= <%= list.rating %> ></div>
+<% end %>
+
+<script>
+$('.star-rating').raty({
+  path: '/assets/',
+  readOnly: true,
+  score: function() {
+          return $(this).attr('data-score');
+  }
+});
+
+</script>
