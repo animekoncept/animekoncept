@@ -28,6 +28,9 @@
       <div class="favorite-button">
         <%= link_to "Favorite", '#', class: 'button' %>
       </div>
+      <div class="animelist-button">
+        <p><a data-open="exampleModal1">Add to Animelist</a></p>
+      </div>
     </div>
   </div>
 
@@ -78,4 +81,11 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="reveal" id="exampleModal1" data-reveal>
+  <%= render partial: 'animelists/form' %>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>

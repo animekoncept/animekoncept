@@ -5,5 +5,6 @@ class AnimesController < ApplicationController
 
   def show
     @anime = Anime.friendly.find(params[:id])
+    @animelist = Animelist.new
   end
 end

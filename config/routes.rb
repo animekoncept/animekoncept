@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only: [:show]
-  resources :animes
+  resources :animes do
+    resources :animelists
+  end
 
   get 'animelist/:user_id' => 'animelists#show', as: 'animelist/user', path: 'animelist/:user_id'
   # The priority is based upon order of creation: first created -> highest priority.
