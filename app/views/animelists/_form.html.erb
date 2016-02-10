@@ -2,6 +2,14 @@
   <%= f.input :status %>
   <%= f.input :episodes_watched %>
   <%= f.input :rewatched %>
-  <%= f.input :rating %>
+  <div class="star-rating"></div>
+  <hr>
   <%= f.submit %>
 <% end %>
+
+<script>
+$('.star-rating').raty({
+  path: '/assets/',
+  scoreName: 'review[rating]'
+});
+</script>
