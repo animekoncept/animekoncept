@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   belongs_to :role
   before_create :set_default_role
   has_many :animelists
+  has_many :animes, through: :animelists
 
   has_attached_file :avatar, styles: { large: "109x109#", thumb: "50x50#" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/

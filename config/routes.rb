@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
   resources :animes do
-    resources :animelists
+    resources :animelists#-> url.com/animes/:anime_id/add
   end
 
   get 'animelist/:user_id' => 'animelists#show', as: 'animelist/user', path: 'animelist/:user_id'

@@ -1,4 +1,4 @@
-<%= simple_form_for [@anime, Animelist.new] do |f| %>
+<%= simple_form_for animelist, url: anime_animelists_path(@anime), remote: true do |f| %>
   <%= f.input :status %>
   <%= f.input :episodes_watched %>
   <%= f.input :rewatched %>

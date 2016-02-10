@@ -5,26 +5,22 @@ class AnimelistsController < ApplicationController
     @animelists = @user.animelists
   end
 
-  def new
-    @anime = Anime.friendly.find(params[:anime_id])
-    @animelist = Animelist.new
-  end
-
   def create
-    @anime = Anime.friendly.find(params[:anime_id])
-    @animelist = Animelist.new(animelist_params)
-    @animelist.user_id = current_user.id
-    @animelist.anime_id = @anime.id
+    @anime = Anime.find params[:anime_id]
+    @animelist = current_user.animelists.new animelist_params
     if @animelist.save
       redirect_to @anime
-    else
-      render :new
     end
+  end
+
+  def destroy
+    @anime = Anime.find params[:anime_id]
+    @animelist = current_user.animelists.find(params[:id]).destroy
   end
 
   private
 
     def animelist_params
-      params.require(:animelist).permit(:status, :rating, :episodes_watched, :rewatched)
+      params.require(:animelist).permit(:status, :rating, :episodes_watched, :rewatched).merge(anime_id: @anime.id)
     end
 end
