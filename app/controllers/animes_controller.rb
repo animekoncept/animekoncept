@@ -7,4 +7,24 @@ class AnimesController < ApplicationController
     @anime = Anime.find params[:id]
     @animelist = current_user.animelists.new
   end
+
+  def favorite
+    @anime = Anime.find params[:id]
+    current_user.mark_as_favorite @anime
+
+    respond_to do |format|
+			format.html {redirect_to @anime}
+			format.js
+    end
+  end
+
+  def unfavorite
+    @anime = Anime.find params[:id]
+    current_user.unmark :favorite, :by => current_user
+
+    respond_to do |format|
+      format.html {redirect_to @anime}
+      format.json
+    end
+  end
 end

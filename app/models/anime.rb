@@ -30,6 +30,7 @@
   has_and_belongs_to_many :genres
   has_and_belongs_to_many :producers
   has_many :animelists
+  markable_as :favorite
 
   extend FriendlyId
   friendly_id :name, use: :slugged
