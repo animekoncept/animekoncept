@@ -25,10 +25,7 @@
       </div>
     </div>
     <div class="large-6 large-offset-10 columns">
-      <div class="favorite-button">
-        <%= link_to "Favorite", '#', class: 'button' %>
-      </div>
-      <div div id="anime_<%= @anime.id %>_favorite">
+      <div div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
 			  <%= render partial: 'favorite', locals: {anime: @anime} %>
 			</div>
       <div class="animelist-button">
