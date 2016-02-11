@@ -20,11 +20,11 @@ class AnimesController < ApplicationController
 
   def unfavorite
     @anime = Anime.find params[:id]
-    current_user.unmark :favorite, :by => current_user
+    @anime.unmark :favorite, :by => current_user
 
     respond_to do |format|
       format.html {redirect_to @anime}
-      format.json
+      format.js
     end
   end
 end

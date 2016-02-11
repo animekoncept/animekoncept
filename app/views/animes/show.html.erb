@@ -28,6 +28,9 @@
       <div class="favorite-button">
         <%= link_to "Favorite", '#', class: 'button' %>
       </div>
+      <div div id="anime_<%= @anime.id %>_favorite">
+			  <%= render partial: 'favorite', locals: {anime: @anime} %>
+			</div>
       <div class="animelist-button">
         <p><a data-open="exampleModal1">Add to Animelist</a></p>
       </div>

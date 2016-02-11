@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   resources :animes do
     resources :animelists#-> url.com/animes/:anime_id/add
     member do
-      put "favorite", to: "animes#favorite"
-      put "unfavorite", to: "animes#unfavorite"
+      put 'favorite', to: 'animes#favorite'
+      put 'unfavorite', to: 'animes#unfavorite'
+    end
   end
 
   get 'animelist/:user_id' => 'animelists#show', as: 'animelist/user', path: 'animelist/:user_id'
