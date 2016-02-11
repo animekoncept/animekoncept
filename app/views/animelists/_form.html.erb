@@ -1,10 +1,21 @@
-<%= simple_form_for animelist, url: anime_animelists_path(@anime), remote: true do |f| %>
-  <%= f.input :status %>
-  <%= f.input :episodes_watched %>
-  <%= f.input :rewatched %>
-  <div class="star-rating"></div>
-  <hr>
-  <%= f.submit %>
+<% if animelist %>
+  <%= simple_form_for [@anime, animelist], :html => { :multipart => true }, remote: true do |f| %>
+    <%= f.input :status %>
+    <%= f.input :episodes_watched %>
+    <%= f.input :rewatched %>
+    <div class="star-rating"></div>
+    <hr>
+    <%= f.submit %>
+  <% end %>
+<% else %>
+  <%= simple_form_for [@anime, animelist], :html => { :multipart => true }, remote: true do |f| %>
+    <%= f.input :status %>
+    <%= f.input :episodes_watched %>
+    <%= f.input :rewatched %>
+    <div class="star-rating"></div>
+    <hr>
+    <%= f.submit %>
+  <% end %>
 <% end %>
 
 <script>

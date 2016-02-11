@@ -10,18 +10,19 @@ class AnimelistsController < ApplicationController
     @animelist = current_user.animelists.new animelist_params
     if @animelist.save
       respond_to do |format|
-        format.js
         format.html
+        format.js
       end
     end
   end
 
   def update
     @anime = Anime.find params[:anime_id]
+    @animelist = current_user.animelists.find(params[:id])
     if @animelist.update animelist_params
       respond_to do |format|
-        format.html
-        format.json
+  			format.html
+  			format.js
       end
     end
   end

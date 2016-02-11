@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
   resources :animes do
-    resources :animelists#-> url.com/animes/:anime_id/add
+    #resources :animelists, only: [:create, :destroy, :update], path_names: { create: "add", destroy: "remove", update: "edit" }#-> url.com/animes/:anime_id/add
+    #patch 'animes/:anime_id/animelists/:id', controller: 'animelists', action: :update
+    #put 'animes/:anime_id/animelists/:id', controller: 'animelists', action: :update
+    resources :animelists
     member do
       put 'favorite', to: 'animes#favorite'
       put 'unfavorite', to: 'animes#unfavorite'
