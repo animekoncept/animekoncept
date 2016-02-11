@@ -10,7 +10,7 @@ class AnimelistsController < ApplicationController
     @animelist = current_user.animelists.new animelist_params
     if @animelist.save
       respond_to do |format|
-        format.html
+        format.html {redirect_to @anime}
         format.js
       end
     end
@@ -21,7 +21,7 @@ class AnimelistsController < ApplicationController
     @animelist = current_user.animelists.find(params[:id])
     if @animelist.update animelist_params
       respond_to do |format|
-  			format.html
+  			format.html {redirect_to @anime}
   			format.js
       end
     end

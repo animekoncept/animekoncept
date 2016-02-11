@@ -15,8 +15,7 @@ Rails.application.routes.draw do
   resources :animes do
     #resources :animelists, only: [:create, :destroy, :update], path_names: { create: "add", destroy: "remove", update: "edit" }#-> url.com/animes/:anime_id/add
     #patch 'animes/:anime_id/animelists/:id', controller: 'animelists', action: :update
-    #put 'animes/:anime_id/animelists/:id', controller: 'animelists', action: :update
-    resources :animelists
+    resources :animelists, only: [:create, :destroy, :update], path_names: { create: "add", destroy: "remove", update: "edit" }
     member do
       put 'favorite', to: 'animes#favorite'
       put 'unfavorite', to: 'animes#unfavorite'
