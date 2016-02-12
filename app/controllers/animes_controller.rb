@@ -5,7 +5,9 @@ class AnimesController < ApplicationController
 
   def show
     @anime = Anime.find params[:id]
-    @animelist = current_user.animelists.new
+    if user_signed_in?
+      @animelist = current_user.animelists.new
+    end
   end
 
   def favorite

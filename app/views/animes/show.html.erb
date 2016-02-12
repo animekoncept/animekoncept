@@ -25,12 +25,14 @@
       </div>
     </div>
     <div class="large-6 large-offset-10 columns">
-      <div div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
-			  <%= render partial: 'favorite', locals: {anime: @anime} %>
-			</div>
-      <div class="animelist-button">
-        <p><a data-open="exampleModal1">Add to Animelist</a></p>
-      </div>
+      <% if user_signed_in? %>
+        <div div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
+  			  <%= render partial: 'favorite', locals: {anime: @anime} %>
+  			</div>
+        <div class="animelist-button">
+          <p><a data-open="exampleModal1">Add to Animelist</a></p>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -82,12 +84,13 @@
     </div>
   </div>
 </div>
-
-<div class="reveal form" id="exampleModal1" data-reveal>
-  <div div id="animelist">
-    <%= render partial: 'animelists/form', locals: {animelist: @animelist} %>
+<% if user_signed_in? %>
+  <div class="reveal form" id="exampleModal1" data-reveal>
+    <div div id="animelist">
+      <%= render partial: 'animelists/form', locals: {animelist: @animelist} %>
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
-  <button class="close-button" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+<% end %>
