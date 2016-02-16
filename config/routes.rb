@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
+  get 'search/index'
 
   devise_for :users
   resources :users, only: [:show]
