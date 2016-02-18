@@ -1,4 +1,3 @@
 <%= form_tag search_index_path, method: :get do %>
-  <%= text_field_tag :query, params[:query] %>
-  <button type="seach" class="button">Search</button>
+  <%= text_field_tag :query, params[:query], placeholder: 'Search Anime/Manga' %>
 <% end %>
