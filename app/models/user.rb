@@ -36,10 +36,10 @@ class User < ActiveRecord::Base
   has_many :animes, through: :animelists
   acts_as_marker
 
-  has_attached_file :avatar, styles: { large: "109x109#", thumb: "50x50#" }, default_url: "/images/:style/missing.png"
+  has_attached_file :avatar, styles: { large: "209x209#", medium: "109x109#", thumb: "50x50#" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
-  has_attached_file :header_image, styles: { large: "1920x400#" }, default_url: "/images/:style/missing.png"
+  has_attached_file :header_image, styles: { large: "1920x600#", medium: "1920x850#", small: "1920x500#" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :header_image, content_type: /\Aimage\/.*\Z/
 
 

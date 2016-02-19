@@ -10,10 +10,25 @@
     img {
       border-radius: 50%;
       position: relative;
+      @media screen and (max-width: 39.9375em) {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+      @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        position: relative;
+        top: -25px;
+      }
+      @media screen and (min-width: 64em) {
+        position: relative;
+        top: -50px;
+      }
     }
   }
   .username {
-    padding-left: 10px;
+    @media screen and (max-width: 39.9375em) {
+      text-align: center;
+    }
   }
   .follow-button, .anime-list-button,.manga-list-button, .forum-button {
     margin-top: -50px;
