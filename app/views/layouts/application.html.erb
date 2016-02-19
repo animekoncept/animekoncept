@@ -64,7 +64,7 @@
           <div class="top-bar-left">
             <ul class="dropdown menu" data-dropdown-menu>
               <li class="menu-text">ChibiChibi</li>
-              <li><%= link_to "Anime", '#' %></li>
+              <li><%= link_to "Anime", animes_path %></li>
               <li><%= link_to "Manga", '#' %></li>
               <li><%= link_to "Events", '#' %></li>
               <li><%= link_to "Forum", '#' %></li>
@@ -77,10 +77,15 @@
               </li>
               <% if user_signed_in? %>
                 <li>
-                  <%# link_to image_tag(current_user.avatar.url(:thumb)), current_user %>
-                </li>
-                <li>
-                  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                  <ul class="dropdown menu" data-dropdown-menu>
+                    <li>
+                      <%= link_to image_tag(current_user.avatar.url(:thumb)), current_user %>
+                      <ul class="menu">
+                        <li><%= link_to "Profile", current_user %></li>
+                        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                      </ul>
+                  </li>
+                </ul>
                 </li>
               <% else %>
                 <li>
