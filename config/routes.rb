@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'search/index'
 
+  resources :activities
+
   devise_for :users
   resources :users, only: [:show]
   resources :animes do

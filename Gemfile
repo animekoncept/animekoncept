@@ -37,6 +37,8 @@ gem 'markable', :git => 'git://github.com/effektz/markable'
 
 gem 'pg_search'
 
+gem 'public_activity'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4'

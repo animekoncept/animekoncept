@@ -31,4 +31,11 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="large-6 columns"></div>
+    <div class="large-6 columns">
+      <h3><%= @user.username.pluralize %> Activity</h3>
+      <%= render partial: 'activities/activity' %>
+    </div>
+  </div>
 </div>

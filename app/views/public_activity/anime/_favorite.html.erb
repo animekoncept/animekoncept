@@ -1,0 +1,6 @@
+favorited
+<% if activity %>
+  <%= link_to activity.trackable.name, activity.trackable(:anime) %>
+<% else %>
+something that has been unfavorited
+<% end %>

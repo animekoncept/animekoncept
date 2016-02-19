@@ -14,6 +14,8 @@ class AnimesController < ApplicationController
     @anime = Anime.find params[:id]
     current_user.mark_as_favorite @anime
 
+    @anime.create_activity :favorite, owner: current_user
+
     respond_to do |format|
 			format.html {redirect_to @anime}
 			format.js
@@ -23,6 +25,8 @@ class AnimesController < ApplicationController
   def unfavorite
     @anime = Anime.find params[:id]
     @anime.unmark :favorite, :by => current_user
+
+    @anime.create_activity :unfavorite, owner: current_user
 
     respond_to do |format|
       format.html {redirect_to @anime}
