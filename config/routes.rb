@@ -8,7 +8,15 @@ Rails.application.routes.draw do
     root controller: DashboardManifest::ROOT_DASHBOARD, action: :index
   end
 
-  root 'home#index'
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'animes#index'
+    end
+    unauthenticated :user do
+      root :to => 'devise/registrations#new', as: :unauthenticated_root
+    end
+  end
+  #root 'home#index'
   get 'search/index'
 
   resources :activities
