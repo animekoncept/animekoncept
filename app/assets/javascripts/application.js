@@ -29,3 +29,19 @@ $(document).ready(function() {
       moreLink: '<a href="#">Read more</a>'
     });
 });
+
+
+$(document).foundation();
+$(window).on('load', function() {
+	$('.previews-scroll').krakatoa({
+		width: '100%',
+		height: 'auto',
+		autoplay: true,
+		arrows: false,
+		items: 6,
+		loop: true,
+		buttons: false,
+		duration: 500,
+		delay: 3500
+	});
+});

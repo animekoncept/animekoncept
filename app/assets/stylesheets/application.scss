@@ -1,10 +1,31 @@
 @import "foundation_and_overrides";
 @import "variables";
 @import "nav";
+@import "home";
 @import "users";
 @import "animes";
 @import "anime";
-@import "home";
+@import "krakatoa-style";
 
-$sidebar-width: 114px;
-$nav-color: #333;
+
+@font-face {
+  font-family: 'ProximaNovaRegular';
+  // No need any embeded Ruby code here
+  src: url('fonts/proximanova-regular') format('opentype');
+}
+
+@font-face {
+  font-family: 'ProximaNovaLight';
+  // No need any embeded Ruby code here
+  src: url('fonts/proximanova-light') format('opentype');
+}
+
+@font-face {
+  font-family: 'ProximaNovaBold';
+  // No need any embeded Ruby code here
+  src: url('fonts/proximanova-bold') format('opentype');
+}
+
+.full-width {
+    max-width: 100%;
+}
