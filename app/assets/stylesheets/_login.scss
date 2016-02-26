@@ -1,4 +1,4 @@
-.main {
+section.login {
     background: url('/assets/main-bg.jpg') no-repeat;
     background-size: cover;
     background-position: center;
@@ -48,12 +48,12 @@
     }
     .robot {
         position: absolute;
-        top: 450px;
+        top: 350px;
         left: 120px;
     }
     .girl {
         position: absolute;
-        top: 450px;
+        top: 370px;
         left: 1000px;
     }
 }

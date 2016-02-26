@@ -1,4 +1,4 @@
-<section class='main'>
+<section class='registration'>
   <div class='row'>
     <div class='medium-12 columns'>
       <h1>Your #1 Anime Source</h1>
@@ -20,7 +20,7 @@
         </div>
         <div class='row'>
           <div class='small-12 medium-6 columns'>
-            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+            <%= f.input :password, required: true%>
           </div>
           <div class='small-12 medium-6 columns'>
             <%= f.input :password_confirmation, required: true %>
