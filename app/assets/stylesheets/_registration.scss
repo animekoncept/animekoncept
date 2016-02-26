@@ -2,6 +2,7 @@ section.registration {
     background: url('/assets/main-bg.jpg') no-repeat;
     background-size: cover;
     background-position: center;
+    height: 652px;
     h1 {
         text-align: center;
         color: #fff;
@@ -47,14 +48,14 @@ section.registration {
         }
     }
     .robot {
-        position: absolute;
-        top: 430px;
-        left: 120px;
+        position: relative;
+        top: -300px;
+        left: -10px;
     }
     .girl {
-        position: absolute;
-        top: 450px;
-        left: 1000px;
+        position: relative;
+        top: -280px;
+        left: 260px;
     }
 }
 
