@@ -39,6 +39,8 @@ gem 'pg_search'
 
 gem 'public_activity'
 
+gem 'searchkick'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4'

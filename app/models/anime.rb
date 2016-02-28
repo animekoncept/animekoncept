@@ -35,8 +35,10 @@
   has_many :animelists, dependent: :destroy
   markable_as :favorite
 
-  include PgSearch
-  multisearchable :against => [:name]
+  searchkick fields: ["name^10"]
+
+  #include PgSearch
+  #multisearchable :against => [:name]
 
   extend FriendlyId
   friendly_id :name, use: :slugged

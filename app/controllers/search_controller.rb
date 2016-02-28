@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
   def index
-    @search = PgSearch.multisearch(params[:query])
+    @search = Searchkick.search(params[:query])
   end
 end

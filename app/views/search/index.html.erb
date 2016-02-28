@@ -1,4 +1,4 @@
 <% @search.each do |search| %>
-  <%= search.searchable.name %>
-  <%= image_tag(search.searchable.cover_image.url(:large)) %>
+  <%= search.name %>
+  <%= image_tag(search.cover_image.url(:large)) %>
 <% end %>
