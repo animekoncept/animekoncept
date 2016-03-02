@@ -11,9 +11,11 @@
 
 class Season < ActiveRecord::Base
 
+  searchkick fields: ["name^10"]
+
   validates_presence_of :name
 
-  has_many :animes
+  has_many :animes, :dependent => :destroy
 
   extend FriendlyId
   friendly_id :name, use: :slugged

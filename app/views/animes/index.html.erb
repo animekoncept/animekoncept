@@ -1,5 +1,41 @@
+<div class="large-2 columns">
+
+  <% if @animes.aggs["aired_on"].present? %>
+      <div>
+          <ul>
+          <% @animes.aggs["aired_on"]["buckets"].each do |filter| %>
+            <li><%= link_to "#{filter["key_as_string"]} (#{filter["doc_count"]})", "/animes?aired_on=#{filter["key_as_string"]}" %></li>
+          <% end %>
+          </ul>
+      </div>
+  <% end %>
+
+  <% if @animes.aggs["season_name"].present? %>
+      <div>
+        <h2>Seasons</h2>
+          <ul>
+          <% @animes.aggs["season_name"]["buckets"].each do |filter| %>
+            <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?season_name=#{filter["key"]}" %></li>
+          <% end %>
+          </ul>
+      </div>
+  <% end %>
+
+  <% if @animes.aggs["genres"].present? %>
+      <div>
+        <h2>Genres</h2>
+          <ul>
+          <% @animes.aggs["genres"]["buckets"].each do |filter| %>
+            <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?genres=#{filter["key"]}" %></li>
+          <% end %>
+          </ul>
+      </div>
+  <% end %>
+
+</div>
+
 <div class="animes">
-  <div class="large-12 columns">
+  <div class="large-10 columns">
     <% @animes.each do |anime| %>
       <div class="small-6 large-2 columns">
         <div class="cover-image">

@@ -1,6 +1,7 @@
 class AnimesController < ApplicationController
   def index
-    @animes = Anime.all
+    @animes = Anime.facets_search(params)
+
   end
 
   def show

@@ -29,13 +29,35 @@
   validates_presence_of :ended_on
   validates_presence_of :duration
 
-  belongs_to :season
-  has_and_belongs_to_many :genres
-  has_and_belongs_to_many :producers
+  belongs_to :season, :dependent => :destroy
+  has_and_belongs_to_many :genres, :dependent => :destroy
+  has_and_belongs_to_many :producers, :dependent => :destroy
   has_many :animelists, dependent: :destroy
-  markable_as :favorite
+  markable_as :favorite, :dependent => :destroy
 
   searchkick fields: ["name^10"]
+
+  def search_data
+    attributes.merge(
+      season_name:  season.name,
+      aired_on:     aired_on,
+      genres:       genres.map(&:name)
+    )
+  end
+
+
+
+  def self.facets_search(params)
+    query = params[:query].presence || "*"
+    conditions = {}
+    conditions[:aired_on] = params[:aired_on] if params[:aired_on].present?
+    conditions[:season_name] = params[:season_name] if params[:season_name].present?
+    conditions[:genres] = params[:genres] if params[:genres].present?
+
+    animes = Anime.search query, where: conditions,
+      aggs: [:aired_on, :season_name, :genres]
+    animes
+  end
 
   #include PgSearch
   #multisearchable :against => [:name]
