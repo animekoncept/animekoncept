@@ -1,4 +1,20 @@
-<% @search.each do |search| %>
-  <%= search.name %>
-  <%= image_tag(search.cover_image.url(:large)) %>
-<% end %>
+<div class="animes">
+  <div class="large-10 columns">
+    <% @search.each do |search| %>
+      <div class="small-6 large-2 columns">
+        <div class="cover-image">
+          <span data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover='false' tabindex=1 title="<%= search.name %>">
+            <%= link_to image_tag("",
+              data: {
+                interchange: "
+                [#{search.cover_image.url(:medium)}, small],
+                [#{search.cover_image.url(:large)}, large]
+                "
+              }), search
+             %>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
