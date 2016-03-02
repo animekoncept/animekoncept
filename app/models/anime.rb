@@ -40,7 +40,7 @@
   def search_data
     attributes.merge(
       season_name:  season.name,
-      aired_on:     aired_on,
+      aired_on:     aired_on.strftime("%Y"),
       genres:       genres.map(&:name)
     )
   end

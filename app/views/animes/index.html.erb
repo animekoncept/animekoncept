@@ -2,9 +2,10 @@
 
   <% if @animes.aggs["aired_on"].present? %>
       <div>
+        <h2>Year</h2>
           <ul>
           <% @animes.aggs["aired_on"]["buckets"].each do |filter| %>
-            <li><%= link_to "#{filter["key_as_string"]} (#{filter["doc_count"]})", "/animes?aired_on=#{filter["key_as_string"]}" %></li>
+            <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?aired_on=#{filter["key_as_string"]}" %></li>
           <% end %>
           </ul>
       </div>
