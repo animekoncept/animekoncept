@@ -35,8 +35,6 @@ gem 'readmorejs-rails'
 
 gem 'markable', :git => 'git://github.com/effektz/markable'
 
-gem 'pg_search'
-
 gem 'public_activity'
 
 gem 'searchkick'
