@@ -29,11 +29,11 @@
   validates_presence_of :ended_on
   validates_presence_of :duration
 
-  belongs_to :season, :dependent => :destroy
-  has_and_belongs_to_many :genres, :dependent => :destroy
-  has_and_belongs_to_many :producers, :dependent => :destroy
-  has_many :animelists, dependent: :destroy
-  markable_as :favorite, :dependent => :destroy
+  belongs_to :season
+  has_and_belongs_to_many :genres
+  has_and_belongs_to_many :producers
+  has_many :animelists
+  markable_as :favorite
 
   searchkick fields: ["name^10"]
 
@@ -68,9 +68,9 @@
     end
   end
 
-  has_attached_file :cover_image, styles: { large: "200x288#", medium: "162x230#", thumb: "100x100#" }, default_url: "/images/:style/missing.png"
+  has_attached_file :cover_image, styles: { large: "200x288#", medium: "162x230#", thumb: "100x100#" }
   validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\Z/
 
-  has_attached_file :header_image, styles: { large: "1920x600#", medium: "1920x850#" }, default_url: "/images/:style/missing.png"
+  has_attached_file :header_image, styles: { large: "1920x600#", medium: "1920x850#" }
   validates_attachment_content_type :header_image, content_type: /\Aimage\/.*\Z/
 end
