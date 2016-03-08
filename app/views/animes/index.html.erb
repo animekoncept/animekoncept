@@ -1,57 +1,23 @@
-<div class="large-2 columns">
-
-  <% if @animes.aggs["aired_on"].present? %>
-      <div>
-        <h2>Year</h2>
-          <ul>
-          <% @animes.aggs["aired_on"]["buckets"].each do |filter| %>
-            <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?aired_on=#{filter["key"]}" %></li>
-          <% end %>
-          </ul>
-      </div>
-  <% end %>
-
-  <% if @animes.aggs["season_name"].present? %>
-      <div>
-        <h2>Seasons</h2>
-          <ul>
-          <% @animes.aggs["season_name"]["buckets"].each do |filter| %>
-            <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?season_name=#{filter["key"]}" %></li>
-          <% end %>
-          </ul>
-      </div>
-  <% end %>
-
-  <% if @animes.aggs["genres"].present? %>
-      <div>
-        <h2>Genres</h2>
-          <ul>
-          <% @animes.aggs["genres"]["buckets"].each do |filter| %>
-            <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?genres=#{filter["key"]}" %></li>
-          <% end %>
-          </ul>
-      </div>
-  <% end %>
-
-</div>
-
-<div class="animes">
-  <div class="large-10 columns">
-    <% @animes.each do |anime| %>
-      <div class="small-6 large-2 columns">
-        <div class="cover-image">
-          <span data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover='false' tabindex=1 title="<%= anime.name %>">
-            <%= link_to image_tag("",
-              data: {
-                interchange: "
-                [#{anime.cover_image.url(:medium)}, small],
-                [#{anime.cover_image.url(:large)}, large]
-                "
-              }), anime
-             %>
-          </span>
+<div class="animes full-width">
+  <%= render "sidenav" %>
+  <div class="medium-10 large-10 columns">
+    <div class="anime-cover">
+      <% @animes.each do |anime| %>
+        <div class="small-2 large-2 columns">
+          <div class="anime-list">
+            <span data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover='false' tabindex=1 title="<%= anime.name %>">
+              <%= link_to image_tag("",
+                data: {
+                  interchange: "
+                  [#{anime.cover_image.url(:medium)}, small],
+                  [#{anime.cover_image.url(:large)}, large]
+                  "
+                }), anime
+               %>
+            </span>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

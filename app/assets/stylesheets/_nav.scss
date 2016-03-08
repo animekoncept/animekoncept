@@ -1,13 +1,24 @@
-.top-bar {
-  background-color: #1A1A1A;
-  padding: 20px 0 20px 0;
-  .top-bar-left, ul {
-    background-color: #1A1A1A;
+.sidebar {
+  background-color: #47b8e0;
+  height: 100%;
+  width: 100px;
+  margin-left: -15px;
+  position: fixed;
+  .menu {
     li, a {
-      color: #ffffff;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 60px;
+      font-family: ProximaNovaBold;
+      font-size: 1.1em;
     }
-  }
-  .top-bar-right {
-    margin-top: -15px;
+    a {
+      img {
+        border-radius: 50%;
+      }
+    }
+    .title {
+      font-family: ProximaNovaLight;
+    }
   }
 }

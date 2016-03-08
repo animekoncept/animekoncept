@@ -1,0 +1,35 @@
+<div class="large-2 columns">
+  <div class="facets-nav">
+      <h4 class="browse-anime">Browse Anime</h4>
+    <% if @animes.aggs["aired_on"].present? %>
+        <div class="section">
+          <h4>Year</h4>
+            <ul>
+            <% @animes.aggs["aired_on"]["buckets"].each do |filter| %>
+              <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?aired_on=#{filter["key"]}" %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <% if @animes.aggs["season_name"].present? %>
+        <<div class="section">
+          <h4>Seasons</h4>
+            <ul>
+            <% @animes.aggs["season_name"]["buckets"].each do |filter| %>
+              <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?season_name=#{filter["key"]}" %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <% if @animes.aggs["genres"].present? %>
+        <<div class="section">
+          <h4>Genres</h4>
+            <ul>
+            <% @animes.aggs["genres"]["buckets"].each do |filter| %>
+              <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?genres=#{filter["key"]}" %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,35 @@
 .animes {
-  margin-top: 20px;
-  .cover-image {
+  .anime-list {
+    @media screen and (min-width: 64em) {
+      left: 135px;
+      position: relative;
+      padding-top: 20px;
+      a {
+        img {
+        }
+      }
+    }
+  }
+  .facets-nav {
+    background-color: #32334b;
+    height: 100%;
+    position: fixed;
+    padding-left: 50px;
+    padding-right: 50px;
+    left: 100px;
+    h3, h4 {
+      color: #fff;
+    }
+    .browse-anime {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      font-family: ProximaNovaBold;
+    }
+    li, a {
+      color: #fff
+    }
+    .section {
+      padding-bottom: 40px;
+    }
   }
 }

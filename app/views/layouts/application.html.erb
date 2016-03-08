@@ -14,7 +14,13 @@
   </head>
 
   <body>
-    <%# render 'layouts/nav' %>
+    <div class="medium-2 large-1 columns">
+      <%= render 'layouts/nav' %>
+    </div>
+    <div class="small-10 large-11 columns">
+      <%= yield %>
+    </div>
+    <% if false %>
     <div class="off-canvas-wrapper">
       <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
 
@@ -107,6 +113,6 @@
       <!-- close wrapper, no more content after this -->
       </div>
     </div>
-
+  <% end %>
   </body>
 </html>
