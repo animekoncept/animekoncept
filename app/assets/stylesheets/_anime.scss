@@ -1,4 +1,12 @@
 .anime {
+  @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+    margin-left: 10px;
+    margin-right: -15px;
+  }
+  @media screen and (min-width: 64em) {
+    margin-left: -35px;
+    margin-right: -15px;
+  }
   .header-image {
     background-color: #1b2023;
     @media screen and (max-width: 39.9375em) {
@@ -10,18 +18,12 @@
       opacity: 0.3;
       /* medium screen */
       @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-        width: auto;
-        height: auto;
-        max-width: 100000px;
-        max-height: 450px;
+        height: 400px;
         display: block;
       }
       @media screen and (min-width: 64em) {
-        width: auto;
-        height: auto;
-        max-width: 100000px;
-        max-height: 450px;
-        display: block;
+        height: 600px;
+        max-height: 419px;
       }
     }
   }
@@ -34,27 +36,59 @@
         margin-right: auto;
       }
       /* medium and  screen */
-      @media screen and (min-width: 40em) {
+      @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        position: absolute;
+        top: 112px;
+        left: 180px;
+      }
+      @media screen and (min-width: 64em) {
         position: absolute;
         top: 130px;
+        left: 220px;
       }
     }
   }
   .anime-name {
-    h1 {
       /* small screen */
-      @media screen and (max-width: 39.9375em) {
-        text-align: center;
-        margin-top: 15px;
-      }
-      /* medium screen */
-      @media screen and (min-width: 40em) {
-        top: 150px;
-        background-color: gray;
-        font-size: 3em;
-        position: absolute;
-      }
+    @media screen and (max-width: 39.9375em) {
+      text-align: center;
+      margin-top: 15px;
     }
+    /* medium screen */
+    @media screen and (min-width: 40em) {
+      font-family: ProximaNovaLight;
+      text-align: center;
+    }
+  }
+  .japanese-name {
+    text-align: center;
+    margin-top: -20px;
+  }
+  .aired_on, .ended_on, .duration {
+    background-color: #ccc;
+    margin-bottom: 10px;
+    border: #ccc 5px solid;
+    text-align: center;
+  }
+  .favorite, .add-to-list {
+    margin-left: 50px;
+    margin-top: 10px;
+  }
+  .favorite {
+    padding-left: 55px;
+    padding-right: 55px;
+    background-color: #f1837a;
+    font-family: ProximaNovaRegular;
+  }
+  .add-to-list {
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #47b8e0;
+    font-family: ProximaNovaRegular;
+  }
+  .synopsis {
+    font-family: ProximaNovaLight;
+    margin-top: 10px;
   }
   .favorite-button {
     a {
@@ -71,29 +105,6 @@
     }
       /* medium screen */
     @media screen and (min-width: 40em) {
-    }
-  }
-  .anime-info {
-    .bar, .white-bar, h4 {
-      text-align: center;
-      /* small screen */
-      @media screen and (max-width: 39.9375em) {
-        font-size: 1.5em;
-      }
-      /* small screen */
-      @media screen and (min-width: 40em) {
-        font-size: 1.1em;
-      }
-    }
-    .bar {
-      background-color: #33332D;
-      color: #ffffff;
-    }
-    .white-bar {
-      background-color: #DADADA;
-    }
-    p {
-      text-align: center;
     }
   }
 }

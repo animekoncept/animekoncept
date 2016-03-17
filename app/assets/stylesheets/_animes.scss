@@ -23,7 +23,10 @@
     .browse-anime {
       padding-top: 20px;
       padding-bottom: 20px;
-      font-family: ProximaNovaBold;
+      font-family: ProximaNovaLight;
+      span {
+        font-family: ProximaNovaBold;
+      }
     }
     li, a {
       color: #fff
