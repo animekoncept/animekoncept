@@ -1,27 +1,31 @@
 .sidebar {
-  background-color: #47b8e0;
+  background-color: $dark-gray;
   height: 100%;
   width: 100px;
   margin-left: -15px;
   position: fixed;
+  border-right: 2px solid #232730;
   .menu {
     li, a {
       text-align: center;
-      color: #fff;
+      color: $white;
       margin-bottom: 40px;
       font-family: ProximaNovaBold;
-      font-size: 1.1em;
+      font-size: 1em;
     }
     a {
+      padding-top: 30px;
+      padding-bottom: 30px;
       img {
         border-radius: 50%;
         position: relative;
-        top: 150px;
+        top: 60px;
       }
     }
     .title {
       font-family: ProximaNovaLight;
       margin-top: 5px;
+      color: $white;
     }
   }
 }

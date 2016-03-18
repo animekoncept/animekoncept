@@ -3,7 +3,7 @@
       <h4 class="browse-anime">Browse <span>Anime</span></h4>
     <% if @animes.aggs["aired_on"].present? %>
         <div class="section">
-          <h4>Year</h4>
+          <div class="year">Year</div>
             <ul>
             <% @animes.aggs["aired_on"]["buckets"].each do |filter| %>
               <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?aired_on=#{filter["key"]}" %></li>
@@ -12,8 +12,8 @@
         </div>
     <% end %>
     <% if @animes.aggs["season_name"].present? %>
-        <<div class="section">
-          <h4>Seasons</h4>
+        <div class="section">
+          <div class="seasons">Seasons</div>
             <ul>
             <% @animes.aggs["season_name"]["buckets"].each do |filter| %>
               <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?season_name=#{filter["key"]}" %></li>
@@ -22,8 +22,8 @@
         </div>
     <% end %>
     <% if @animes.aggs["genres"].present? %>
-        <<div class="section">
-          <h4>Genres</h4>
+        <div class="section">
+          <div class="genres">Genres</div>
             <ul>
             <% @animes.aggs["genres"]["buckets"].each do |filter| %>
               <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?genres=#{filter["key"]}" %></li>

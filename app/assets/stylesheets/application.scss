@@ -30,5 +30,12 @@ body {
   height: 100%;
 }
 .full-width {
-    max-width: 100%;
+  max-width: 100%;
+}
+
+.active_class {
+  background-color: $red;
+}
+.active_link {
+  color: $white;
 }
