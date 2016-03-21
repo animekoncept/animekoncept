@@ -6,7 +6,15 @@
           <div class="year">Year</div>
             <ul>
             <% @animes.aggs["aired_on"]["buckets"].each do |filter| %>
-              <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?aired_on=#{filter["key"]}" %></li>
+              <li>
+                <div class="year-name float-left">
+                  <%= link_to "#{filter["key"]}", "/animes?aired_on=#{filter["key"]}" %>
+                </div>
+                <div class="year-count float-right">
+                  <%= "#{filter["doc_count"]}" %>
+                </div>
+              </li>
+              <br>
             <% end %>
             </ul>
         </div>
@@ -16,7 +24,15 @@
           <div class="seasons">Seasons</div>
             <ul>
             <% @animes.aggs["season_name"]["buckets"].each do |filter| %>
-              <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?season_name=#{filter["key"]}" %></li>
+              <li>
+                <div class="season-name float-left">
+                  <%= link_to "#{filter["key"]}", "/animes?season_name=#{filter["key"]}", class: 'float-left' %>
+                </div>
+                <div class="season-count float-right">
+                  <%= "#{filter["doc_count"]}" %>
+                </div>
+              </li>
+              <br>
             <% end %>
             </ul>
         </div>
@@ -26,7 +42,15 @@
           <div class="genres">Genres</div>
             <ul>
             <% @animes.aggs["genres"]["buckets"].each do |filter| %>
-              <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/animes?genres=#{filter["key"]}" %></li>
+              <li>
+                <div class="genre-name float-left">
+                  <%= link_to "#{filter["key"]}", "/animes?genres=#{filter["key"]}" %>
+                </div>
+                <div class="genre-count float-right">
+                  <%= "#{filter["doc_count"]}" %>
+                </div>
+              </li>
+              <br>
             <% end %>
             </ul>
         </div>

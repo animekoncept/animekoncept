@@ -3,6 +3,14 @@ section.login {
     background-size: cover;
     background-position: center;
     height: 570px;
+    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        margin-left: 10px;
+        margin-right: -15px;
+    }
+    @media screen and (min-width: 64em) {
+        margin-left: -35px;
+        margin-right: -15px;
+    }
     h1 {
         text-align: center;
         color: #fff;
@@ -63,6 +71,14 @@ section.login {
     background: #e3e3e3;
     padding-bottom: 45px;
     height: auto;
+    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        margin-left: 10px;
+        margin-right: -15px;
+    }
+    @media screen and (min-width: 64em) {
+        margin-left: -35px;
+        margin-right: -15px;
+    }
     img {
         padding-top: 90px;
         padding-bottom: 50px;
@@ -82,6 +98,14 @@ section.login {
 
 .previews {
     background: #33363e;
+    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        margin-left: 10px;
+        margin-right: -15px;
+    }
+    @media screen and (min-width: 64em) {
+        margin-left: -35px;
+        margin-right: -15px;
+    }
     .previews-scroll {
         width: 100%;
         position: relative;
