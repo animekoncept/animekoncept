@@ -17,6 +17,7 @@ class EventDashboard < Administrate::BaseDashboard
     age:          Field::String,
     created_at:   Field::DateTime,
     updated_at:   Field::DateTime,
+    header_image: PaperclipField,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -31,6 +32,7 @@ class EventDashboard < Administrate::BaseDashboard
     :starts_on,
     :ends_on,
     :age,
+    :header_image,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -47,6 +49,7 @@ class EventDashboard < Administrate::BaseDashboard
     :starts_on,
     :ends_on,
     :age,
+    :header_image,
   ]
 
   # Overwrite this method to customize how animes are displayed
