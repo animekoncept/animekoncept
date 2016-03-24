@@ -70,15 +70,14 @@
     border: #ccc 5px solid;
     text-align: center;
   }
-  .favorite, .add-to-list {
-    margin-left: 50px;
-    margin-top: 10px;
-  }
   .favorite {
     padding-left: 55px;
     padding-right: 55px;
     background-color: #f1837a;
     font-family: ProximaNovaRegular;
+  }
+  .favorite-button {
+    margin-top: 15px;
   }
   .add-to-list {
     padding-left: 50px;
@@ -89,14 +88,6 @@
   .synopsis {
     font-family: ProximaNovaLight;
     margin-top: 10px;
-  }
-  .favorite-button {
-    a {
-      @media screen and (min-width: 40em) {
-        top: 150px;
-        position: absolute;
-      }
-    }
   }
   .anime-synopsis {
       /* small screen */

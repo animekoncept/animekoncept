@@ -1,5 +1,5 @@
 <% if anime.marked_as_favorite? by: current_user  %>
-  <%= link_to "unfavorite", unfavorite_anime_path(anime), method: :put, remote: true, class: 'button' %>
+  <%= link_to "unfavorite", unfavorite_anime_path(anime), method: :put, remote: true, class: 'button favorite' %>
 <% else%>
-  <%= link_to "Favorite", favorite_anime_path(anime), method: :put, remote: true, class: 'button' %>
+  <%= link_to "Favorite", favorite_anime_path(anime), method: :put, remote: true, class: 'button favorite' %>
 <% end %>

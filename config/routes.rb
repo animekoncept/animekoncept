@@ -33,7 +33,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :events
+  resources :events do
+    member do
+      put 'attending', to: 'events#attending'
+      put 'notattending', to: 'events#notattending'
+    end
+  end
 
   get 'animelist/:user_id' => 'animelists#show', as: 'animelist/user', path: 'animelist/:user_id'
   # The priority is based upon order of creation: first created -> highest priority.

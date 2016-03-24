@@ -23,5 +23,12 @@
     @media screen and (min-width: 40em) and (max-width: 63.9375em) {
       margin-left: 80px;
     }
+    .attending-button {
+      background-color: $red;
+      padding-left: 50px;
+      padding-right: 50px;
+      font-family: ProximaNovaRegular;
+      font-size: 1.1em;
+    }
   }
 }

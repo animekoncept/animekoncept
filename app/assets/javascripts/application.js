@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require foundation
 //= require readmore
-//= require masonry/jquery.masonry
 //# require turbolinks
 //= require_tree .
 

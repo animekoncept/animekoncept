@@ -1,0 +1,7 @@
+Attending: <%= @event.users_have_marked_as_attending.count %>
+<br>
+<% if event.marked_as_attending? by: current_user  %>
+  <%= link_to "Not Attending", notattending_event_path(event), method: :put, remote: true, class: 'button attending-button' %>
+<% else %>
+  <%= link_to "Attending", attending_event_path(event), method: :put, remote: true, class: 'button attending-button' %>
+<% end %>

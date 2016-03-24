@@ -18,6 +18,9 @@
       </div>
     </div>
     <div class="medium-6 large-6 columns">
+      <div id="event_<%= @event.id %>_attending">
+        <%= render partial: 'attending', locals: {event: @event} %>
+      </div>
       <div class="location">
         Location: <%= link_to @event.location, "https://www.google.com/maps/place/#{@event.address}"%>
       </div>
