@@ -1,0 +1,38 @@
+<div class="event">
+  <div class="header-image ">
+    <%# image_tag @anime.header_image.url(:large) %>
+    <%= image_tag "",
+        data: {
+          interchange: "
+          [#{@event.header_image.url(:large)}, small],
+          [#{@event.header_image.url(:medium)}, medium],
+          [#{@event.header_image.url(:large)}, large]
+          "
+        }
+    %>
+  </div>
+  <div class="row information">
+    <div class="medium-6 large-6 columns">
+      <div class="description">
+        <%= @event.description %>
+      </div>
+    </div>
+    <div class="medium-6 large-6 columns">
+      <div class="location">
+        Location: <%= link_to @event.location, "https://www.google.com/maps/place/#{@event.address}"%>
+      </div>
+      <div class="starts-on">
+        Starts on: <%= @event.starts_on.strftime("%b %d, %Y") %>
+      </div>
+      <div class="ends-on">
+        Ends on: <%= @event.ends_on.strftime("%b %d, %Y") %>
+      </div>
+      <div class="age">
+        Age: <%= @event.age %>
+      </div>
+      <div class="website">
+        Website: <%= link_to @event.website, "http://#{@event.website}" %>
+      </div>
+    </div>
+  </div>
+</div>

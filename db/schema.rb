@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323230527) do
+ActiveRecord::Schema.define(version: 20160324172057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20160323230527) do
     t.integer  "header_image_file_size"
     t.datetime "header_image_updated_at"
     t.string   "website"
+    t.string   "address"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
