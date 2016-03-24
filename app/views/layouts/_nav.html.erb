@@ -9,10 +9,10 @@
     <li>
       <%= link_to "Manga", "#" %>
     </li>
-    <li>
+    <li class="<%= active_class(events_path) %>">
       <%= link_to "Events", events_path %>
     </li>
-    <li class="<%= active_class(events_path) %>">
+    <li>
       <%= link_to "Forum", "#" %>
     </li>
     <% if user_signed_in? %>
