@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Created</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @topics.each do |topic| %>
+        <td><%= link_to topic.title, topic %></td>
+        <td><%= time_ago_in_words(topic.created_at) %> ago</td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
