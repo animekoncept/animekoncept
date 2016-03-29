@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'categories/index'
-
   namespace :admin do
     DashboardManifest::DASHBOARDS.each do |dashboard_resource|
       resources dashboard_resource
@@ -34,6 +32,8 @@ Rails.application.routes.draw do
       put 'unfavorite', to: 'animes#unfavorite'
     end
   end
+
+  resource :categories, path: 'c'
 
   resources :events do
     member do
