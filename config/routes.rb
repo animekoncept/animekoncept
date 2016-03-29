@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :categories, path: 'c'
+  resources :categories, path: 'c'
 
   resources :events do
     member do
