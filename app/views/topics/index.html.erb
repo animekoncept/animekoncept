@@ -1,0 +1,14 @@
+<div class="row">
+  <table>
+    <tbody>
+      <% @topics.each do |topic| %>
+        <tr>
+          <td width="700px" class='title'><%= link_to topic.title, topic %></td>
+          <td class='category'><%= link_to topic.category.title, category_path(topic.category.id) unless topic.category == nil %></td>
+          <td class='created-at'><%= time_ago_in_words(topic.created_at) %> ago</td>
+          <td class='avatar float-right'><%= link_to image_tag(topic.user.avatar.url(:thumb)) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
