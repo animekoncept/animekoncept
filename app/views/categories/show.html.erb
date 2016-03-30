@@ -1,3 +1,4 @@
+<%= link_to "New topic", new_category_topic_path(@category), class: 'button' if user_signed_in? %>
 <table>
   <thead>
     <tr>
@@ -6,11 +7,11 @@
     </tr>
   </thead>
   <tbody>
+    <% @topics.each do |topic| %>
     <tr>
-      <% @topics.each do |topic| %>
-        <td><%= link_to topic.title, topic %></td>
-        <td><%= time_ago_in_words(topic.created_at) %> ago</td>
-      <% end %>
+      <td><%= link_to topic.title, topic %></td>
+      <td><%= time_ago_in_words(topic.created_at) %> ago</td>
     </tr>
+    <% end %>
   </tbody>
 </table>

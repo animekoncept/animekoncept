@@ -6,11 +6,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <% @categories.each do |category| %>
+    <% @categories.each do |category| %>
+      <tr>
         <td><%= link_to category.title, category %></td>
         <td><%= time_ago_in_words(category.created_at) %> ago</td>
-      <% end %>
-    </tr>
+      </tr>
+    <% end %>
   </tbody>
 </table>

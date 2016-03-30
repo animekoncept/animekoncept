@@ -1,0 +1,21 @@
+<div class="media-object">
+  <div class="media-object-section">
+    <div class="thumbnail">
+      <%= image_tag @topic.user.avatar.url(:medium) %>
+    </div>
+  </div>
+  <div class="media-object-section">
+    <div class="username">
+      <%= @topic.user.username %> - <%= time_ago_in_words(@topic.created_at) %>
+    </div>
+    <div class="title">
+      <%= @topic.title %>
+    </div>
+    <div class="content">
+      <%= @topic.content %>
+    </div>
+  </div>
+</div>
+
+<div class="media-object">
+</div>
