@@ -2,6 +2,8 @@
   <thead>
     <tr>
       <th>Category</th>
+      <th>Topics</th>
+      <th>Posts</th>
       <th>Created</th>
     </tr>
   </thead>
@@ -9,6 +11,8 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= link_to category.title, category %></td>
+        <td><%= category.topics.count %></td>
+        <td></td>
         <td><%= time_ago_in_words(category.created_at) %> ago</td>
       </tr>
     <% end %>
