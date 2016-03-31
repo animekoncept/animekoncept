@@ -6,7 +6,7 @@
   </div>
   <div class="media-object-section">
     <div class="username">
-      <%= @topic.user.username %> - <%= time_ago_in_words(@topic.created_at) %>
+      <%= link_to @topic.user.username, user_path(@topic.user) %> - <%= time_ago_in_words(@topic.created_at) %>
     </div>
     <div class="title">
       <%= @topic.title %>
@@ -26,7 +26,7 @@
     </div>
     <div class="media-object-section">
       <div class="username">
-        <%= post.user.username %> - <%= time_ago_in_words(post.created_at) %> ago
+        <%= link_to post.user.username, user_path(post.user) %> - <%= time_ago_in_words(post.created_at) %> ago
       </div>
       <div class="content">
         <%= post.content %>
