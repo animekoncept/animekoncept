@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   resources :categories, path: 'c' do
     resources :topics, path: 't'
   end
-  
+
   resources :events do
     member do
       put 'attending', to: 'events#attending'
@@ -44,7 +44,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :topics, path: 't'
+  resources :topics, path: 't' do
+    resources :posts
+  end
+
+  resources :posts
 
   get 'animelist/:user_id' => 'animelists#show', as: 'animelist/user', path: 'animelist/:user_id'
   # The priority is based upon order of creation: first created -> highest priority.

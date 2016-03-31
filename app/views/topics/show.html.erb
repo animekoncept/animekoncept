@@ -17,5 +17,29 @@
   </div>
 </div>
 
-<div class="media-object">
+<% @posts.each do |post| %>
+  <div class="media-object">
+    <div class="media-object-section">
+      <div class="thumbnail">
+        <%= image_tag post.user.avatar.url(:thumb) %>
+      </div>
+    </div>
+    <div class="media-object-section">
+      <div class="username">
+        <%= post.user.username %> - <%= time_ago_in_words(post.created_at) %> ago
+      </div>
+      <div class="content">
+        <%= post.content %>
+      </div>
+      <div class="delete-button">
+        <%= link_to "Delete", [@topic, post], method: :delete, confirm: "Are you sure?" %>
+      </div>
+      <div class="edit-button">
+        <%= link_to "Edit", [:edit, @topic, post] %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div class="post-form">
+  <%= render 'posts/form' if user_signed_in? %>
 </div>
