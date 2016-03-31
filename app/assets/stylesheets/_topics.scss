@@ -1,0 +1,24 @@
+.topics {
+  .title {
+    a {
+      font-size: 1.0em;
+      font-family: ProximaNovaRegular;
+      color: $black;
+    }
+  }
+  .avatar {
+    img {
+      border-radius: 50%;
+      height: 40px;
+    }
+  }
+  .category {
+    a {
+      color: $orange;
+      font-size: .9em;
+    }
+  }
+  .created-at {
+    font-size: .8em;
+  }
+}
