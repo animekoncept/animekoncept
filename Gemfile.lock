@@ -246,6 +246,7 @@ GEM
       json (~> 1.4)
     readmorejs-rails (0.0.12)
       railties (>= 3.2, < 5.0)
+    redcarpet (3.3.4)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     rspec (3.4.0)
@@ -346,6 +347,7 @@ DEPENDENCIES
   public_activity
   rails (= 4.2.5)
   readmorejs-rails
+  redcarpet
   rspec-rails (~> 3.4)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

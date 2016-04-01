@@ -29,17 +29,20 @@
         <%= link_to post.user.username, user_path(post.user) %> - <%= time_ago_in_words(post.created_at) %> ago
       </div>
       <div class="content">
-        <%= post.content %>
+        <%= markdown(post.content) %>
       </div>
-      <div class="delete-button">
-        <%= link_to "Delete", [@topic, post], method: :delete, confirm: "Are you sure?" %>
-      </div>
-      <div class="edit-button">
-        <%= link_to "Edit", [:edit, @topic, post] %>
-      </div>
+      <% if user_signed_in? && post.user_id == current_user.id %>
+        <%= link_to "Delete", [@topic, post], method: :delete, confirm: "Are you sure?", class: 'delete-button' %>
+        /
+        <%= link_to "Edit", [:edit, @topic, post], class: 'edit-button' %>
+      <% else %>
+      <% end %>
     </div>
   </div>
 <% end %>
 <div class="post-form">
-  <%= render 'posts/form' if user_signed_in? %>
+  <div class="large-6 columns">
+    Markdown :)
+    <%= render 'posts/form' if user_signed_in? %>
+  </div>
 </div>
