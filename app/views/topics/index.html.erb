@@ -1,8 +1,7 @@
+<div class="menu">
+  <li><i class="fa fa-th-large"> <%= link_to 'Categories', categories_path %></i></li>
+</div>
 <div class="topics">
-  <div class="header">
-    <i class="fa fa-th-large"></i><%= link_to 'Categories', categories_path %>
-    <%= link_to '' %>
-  </div>
   <table>
     <tbody>
       <% @topics.each do |topic| %>
