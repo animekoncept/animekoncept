@@ -1,4 +1,5 @@
 <%= simple_form_for [@topic, @post] do |f| %>
-  <%= f.input :content, input_html: {rows: 10, cols: 50}, label: '' %>
-  <%= f.submit "Post", class: 'button' %>
+  <%# f.input :content, input_html: {rows: 10, cols: 50}, label: '' %>
+  <%= f.input :content, as: :pagedown, input_html: { preview: true, rows: 10 }, label: 'Markdown' %>
+  <%= f.submit "Post", class: 'button expanded' %>
 <% end %>
