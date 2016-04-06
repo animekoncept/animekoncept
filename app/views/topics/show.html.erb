@@ -1,47 +1,53 @@
-<div class="media-object">
-  <div class="media-object-section">
-    <div class="thumbnail">
-      <%= image_tag @topic.user.avatar.url(:medium) %>
-    </div>
-  </div>
-  <div class="media-object-section">
-    <div class="username">
-      <%= link_to @topic.user.username, user_path(@topic.user) %> - <%= time_ago_in_words(@topic.created_at) %>
-    </div>
-    <div class="title">
-      <%= @topic.title %>
-    </div>
-    <div class="content">
-      <%= @topic.content %>
-    </div>
-  </div>
-</div>
-
-<% @posts.each do |post| %>
-  <div class="media-object">
+<div class="topic">
+  <div class="main media-object">
     <div class="media-object-section">
-      <div class="thumbnail">
-        <%= image_tag post.user.avatar.url(:thumb) %>
+      <div class="avatar">
+        <%= image_tag @topic.user.avatar.url(:medium) %>
       </div>
     </div>
     <div class="media-object-section">
       <div class="username">
-        <%= link_to post.user.username, user_path(post.user) %> - <%= time_ago_in_words(post.created_at) %> ago
+        <%= link_to @topic.user.username, user_path(@topic.user) %> - <%= time_ago_in_words(@topic.created_at) %>
+      </div>
+      <div class="title">
+        <%= @topic.title %>
       </div>
       <div class="content">
-        <%= markdown(post.content) %>
+        <%= @topic.content %>
       </div>
-      <% if user_signed_in? && post.user_id == current_user.id %>
-        <%= link_to "Delete", [@topic, post], method: :delete, confirm: "Are you sure?", class: 'delete-button' %>
-        /
-        <%= link_to "Edit", [:edit, @topic, post], class: 'edit-button' %>
-      <% else %>
-      <% end %>
     </div>
   </div>
-<% end %>
-<div class="row">
-  <div class="medium-7 medium-centered columns ">
-    <%= render 'posts/form' if user_signed_in? %>
+
+  <div class="posts">
+    <% @posts.each do |post| %>
+      <div class="post media-object">
+        <div class="media-object-section">
+          <div class="avatar">
+            <%= image_tag post.user.avatar.url(:thumb) %>
+          </div>
+        </div>
+        <div class="media-object-section">
+          <div class="username">
+            <%= link_to post.user.username, user_path(post.user) %> - <%= time_ago_in_words(post.created_at) %> ago
+          </div>
+          <div class="content">
+            <%= markdown(post.content) %>
+          </div>
+          <% if user_signed_in? && post.user_id == current_user.id %>
+            <%= link_to "Delete", [@topic, post], method: :delete, confirm: "Are you sure?", class: 'delete-button' %>
+            /
+            <%= link_to "Edit", [:edit, @topic, post], class: 'edit-button' %>
+          <% else %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
+
+  <div class="row">
+    <div class="medium-7 medium-centered columns ">
+      <%= render 'posts/form' if user_signed_in? %>
+    </div>
+  </div>
+
 </div>
