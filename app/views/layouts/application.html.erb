@@ -14,11 +14,21 @@
   </head>
 
   <body>
-    <div class="hide-for-small-only medium-1 large-1 columns">
-      <%= render 'layouts/nav' %>
-    </div>
-    <div class="small-12 medium-11 large-11 columns">
-      <%= yield %>
+    <div class="off canvas-wrapper">
+      <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+        <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
+          <%= render 'layouts/nav' %>
+        </div>
+        <div class="off-canvas-content" data-off-canvas-content>
+          <div class="title-bar hide-for-large">
+            <div class="title-bar-left">
+              <button class="menu-icon" type="button" data-open="my-info"></button>
+              <span class="title-bar-title"></span>
+            </div>
+          </div>
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

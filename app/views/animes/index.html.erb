@@ -1,9 +1,9 @@
-<div class="animes full-width">
+<div class="animes expanded row">
   <%= render "facets" %>
-  <div class="medium-10 large-10 columns">
+  <div class="medium-9 large-10 columns">
     <div class="anime-cover">
       <% @animes.each do |anime| %>
-        <div class="small-2 large-2 columns">
+        <div class="small-2 medium-3 large-2 columns">
           <div class="anime-list">
             <span data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover='false' tabindex=1 title="<%= anime.name %>">
               <%= link_to image_tag("",

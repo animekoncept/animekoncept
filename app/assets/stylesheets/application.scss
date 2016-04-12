@@ -32,7 +32,7 @@
   // No need any embeded Ruby code here
   src: url('fonts/proximanova-bold') format('opentype');
 }
-body {
+html, body {
   height: 100%;
 }
 .full-width {
@@ -44,4 +44,17 @@ body {
 }
 .active_link {
   color: $white;
+}
+.off-canvas-content {
+  box-shadow: none;
+}
+
+.off-canvas.position-left {
+  width: 100px;
+}
+
+@media screen and (min-width: 64em) {
+  .position-left.reveal-for-large ~ .off-canvas-content {
+    margin-left: 100px;
+  }
 }

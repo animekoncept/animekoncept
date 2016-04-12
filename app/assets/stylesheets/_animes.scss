@@ -1,22 +1,20 @@
 .animes {
-  .anime-list {
-    @media screen and (min-width: 64em) {
-      left: 135px;
-      position: relative;
-      padding-top: 20px;
-      a {
-        img {
-        }
-      }
-    }
-  }
   .facets-nav {
     background-color: $black;
     height: 100%;
-    position: fixed;
-    padding-left: 50px;
-    padding-right: 50px;
     left: 100px;
+    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+      height: 100%;
+      width: 200px;
+      padding-left: 30px;
+      padding-right: 30px;
+      text-align: center;
+    }
+    @media screen and (min-width: 64em) {
+      position: fixed;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
     h4 {
       color: $white;
     }
