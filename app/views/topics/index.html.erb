@@ -3,15 +3,31 @@
 </div>
 <div class="topics">
   <table>
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Category</th>
+        <th>Replies</th>
+        <th>Users</th>
+        <th>Created</th>
+        <th>OP</th>
+      </tr>
+    </thead>
     <tbody>
       <% @topics.each do |topic| %>
         <tr>
-          <td width="940px" class='title'><%= link_to topic.title, topic %></td>
-          <td class="category label <%= topic.category.label_class %>">
+          <td class='title'><%= link_to topic.title, topic %></td>
+          <td class="category text-center label <%= topic.category.label_class %>">
             <%= link_to topic.category.title, category_path(topic.category.id) unless topic.category == nil %>
           </td>
+          <td class="count text-center"><%= topic.posts.count %></td>
+          <td class="users">
+            <% topic.posts.limit(5).uniq(&:user_id).each do |post| %>
+              <%= link_to image_tag(post.user.avatar.url(:thumb)), user_path(post.user.id) %>
+            <% end %>
+          </td>
           <td class='created-at'><%= time_ago_in_words(topic.created_at) %> ago</td>
-          <td class='avatar float-right'><%= link_to image_tag(topic.user.avatar.url(:thumb)), user_path(topic.user.id) %></td>
+          <td class='avatar'><%= link_to image_tag(topic.user.avatar.url(:thumb)), user_path(topic.user.id) %></td>
         </tr>
       <% end %>
     </tbody>
