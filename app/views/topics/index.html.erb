@@ -1,5 +1,9 @@
 <div class="menu">
-  <li><i class="fa fa-th-large"> <%= link_to 'Categories', categories_path %></i></li>
+  <div class="button-group">
+    <%= link_to 'Categories', categories_path, class: 'secondary button' %>
+    <a class="success button">Top</a>
+    <a class="warning button">New</a>
+  </div>
 </div>
 <div class="topics">
   <table>

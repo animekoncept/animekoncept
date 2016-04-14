@@ -8,14 +8,14 @@ class Category < ActiveRecord::Base
   private
     def label_class_map
       {
-        'site news' => 'alert',
+        'site news' => 'site_news',
         'industry news' => 'industry_news',
         'general' => 'general',
-        'anime' => 'anime',
-        'manga' => 'manga',
+        'anime' => 'anime_',
+        'manga' => 'manga_',
         'visual novels' => 'visual_novels',
         'feedback' => 'feedback',
-        'events' => 'events',
+        'events' => 'events_',
         'gaming' => 'gaming',
         'music' => 'music',
         'recommendation' => 'recommendation',
