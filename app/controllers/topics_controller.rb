@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
   def index
-    @topics = Topic.all.order("created_at desc")
+    @topics = Topic.includes(:posts).order("posts.created_at")
   end
 
   def show
@@ -24,6 +24,15 @@ class TopicsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def top
+    #Top views
+    @topics = Topic.all
+  end
+
+  def latest
+    @topics = Topic.all.order("created_at desc")
   end
 
   private

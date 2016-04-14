@@ -47,6 +47,8 @@ Rails.application.routes.draw do
   resources :topics, path: 't' do
     resources :posts
   end
+  get 'topics/top' => 'topics#top', path: 'top', as: 'top_topics'
+  get 'topics/latest' => 'topics#latest', path: 'latest', as: 'latest_topics'
 
   resources :posts
 
