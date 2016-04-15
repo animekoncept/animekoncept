@@ -8,6 +8,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find params[:id]
     @post = Post.new
     @posts = @topic.posts
+    @topic.punch(request)
   end
 
   def new
