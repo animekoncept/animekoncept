@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
   def index
-    @topics = Topic.includes(:posts).order("posts.created_at")
+    @topics = Topic.descending.includes(:posts)
   end
 
   def show
@@ -29,7 +29,7 @@ class TopicsController < ApplicationController
 
   def top
     #Top views
-    @topics = Topic.all
+    @topics = Topic.most_hit(7.day.ago, 100)
   end
 
   def latest

@@ -6,4 +6,8 @@ class Topic < ActiveRecord::Base
   has_many :posts
 
   acts_as_punchable
+
+  scope :descending, ->() {
+    joins(:posts).merge( Post.descending )
+  }
 end
