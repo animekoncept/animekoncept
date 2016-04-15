@@ -154,6 +154,7 @@ GEM
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
     hashie (3.4.3)
+    httpclient (2.7.0.1)
     i18n (0.7.0)
     inline_svg (0.6.1)
       activesupport (>= 4.0.4)
@@ -216,6 +217,9 @@ GEM
       activerecord (>= 3.0)
       i18n (>= 0.5.0)
       railties (>= 3.0.0)
+    punching_bag (0.4.0)
+      railties (>= 3.2, < 5)
+      voight_kampff (~> 0.2)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -315,6 +319,9 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    voight_kampff (0.2.2)
+      httpclient (~> 2.2)
+      nokogiri (~> 1.6)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.2.1)
@@ -352,6 +359,7 @@ DEPENDENCIES
   paperclip (~> 4.3)
   pg (~> 0.15)
   public_activity
+  punching_bag
   rails (= 4.2.5)
   readmorejs-rails
   redcarpet

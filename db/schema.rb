@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329221933) do
+ActiveRecord::Schema.define(version: 20160415024708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,22 @@ ActiveRecord::Schema.define(version: 20160329221933) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -163,6 +179,18 @@ ActiveRecord::Schema.define(version: 20160329221933) do
   end
 
   add_index "producers", ["slug"], name: "index_producers_on_slug", unique: true, using: :btree
+
+  create_table "punches", force: :cascade do |t|
+    t.integer  "punchable_id",                          null: false
+    t.string   "punchable_type", limit: 20,             null: false
+    t.datetime "starts_at",                             null: false
+    t.datetime "ends_at",                               null: false
+    t.datetime "average_time",                          null: false
+    t.integer  "hits",                      default: 1, null: false
+  end
+
+  add_index "punches", ["average_time"], name: "index_punches_on_average_time", using: :btree
+  add_index "punches", ["punchable_type", "punchable_id"], name: "punchable_index", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"

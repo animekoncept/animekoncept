@@ -47,6 +47,7 @@ gem 'pagedown-bootstrap-rails'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
+gem "punching_bag"
 
 group :development, :test do
   gem 'byebug'
