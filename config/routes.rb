@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   resources :activities
 
   devise_for :users
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    get '/forum' => 'users#forum'
+  end
   resources :animes do
     #resources :animelists, only: [:create, :destroy, :update], path_names: { create: "add", destroy: "remove", update: "edit" }#-> url.com/animes/:anime_id/add
     #patch 'animes/:anime_id/animelists/:id', controller: 'animelists', action: :update

@@ -27,4 +27,21 @@ class UsersController < ApplicationController
     @activities = PublicActivity::Activity.order("created_at desc")
           .where(owner_id: @user.id, owner_type: "User")
   end
+
+  def forum
+    @user = User.find params[:user_id]
+    @topics = @user.topics
+  end
+
+  def events
+    #code
+  end
+
+  def animelist
+    #code
+  end
+
+  def friends
+    #code
+  end
 end

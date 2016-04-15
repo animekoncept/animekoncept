@@ -30,12 +30,46 @@
         <strong><%= @user.username.upcase %></strong>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="large-6 columns"></div>
-    <div class="large-6 columns">
-      <h3><%= @user.username.pluralize %> Activity</h3>
-      <%= render partial: 'activities/activity' %>
+    <div class="large-8 columns">
+      <ul class="vertical medium-horizontal menu">
+      <li><%= link_to "Forum" %></li>
+      <li><%= link_to "Events" %></li>
+      <li><%= link_to "Anime List" %></li>
+      <li><%= link_to "Friends" %></li>
+    </ul>
     </div>
   </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <div class="favorite-anime">
+        <h6 class="text-center">Favorite Anime</h6>
+        <% @user.animes_marked_as_favorite.limit(3).each do |anime| %>
+          <div class="large-4 columns">
+            <%= link_to image_tag(anime.cover_image.url(:medium)) %>
+            <h6><%= anime.name %></h6>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="large-6 columns">
+      <div class="favorite-events">
+        <h6 class="text-center">Events attending</h6>
+        <% @user.events_marked_as_attending.limit(2).each do |event| %>
+          <div class="large-6 columns">
+            <%= link_to image_tag(event.header_image.url(:medium)) %>
+            <h6><%= event.name %></h6>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% if nil %>
+    <div class="row">
+      <div class="large-6 columns"></div>
+      <div class="large-6 columns">
+        <h3><%= @user.username.pluralize %> Activity</h3>
+        <%= render partial: 'activities/activity' %>
+      </div>
+    </div>
+  <% end %>
 </div>
