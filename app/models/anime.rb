@@ -35,6 +35,8 @@
   has_many :animelists
   markable_as :favorite
 
+  acts_as_punchable
+
   searchkick fields: ["name^10"]
 
   def search_data

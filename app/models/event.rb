@@ -21,6 +21,8 @@ class Event < ActiveRecord::Base
   validates_presence_of :ends_on
   validates_presence_of :age
 
+  acts_as_punchable
+
   markable_as :attending
 
   has_attached_file :header_image, styles: { large: "1920x600#", medium: "1920x850#" }

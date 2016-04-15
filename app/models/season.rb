@@ -17,6 +17,8 @@ class Season < ActiveRecord::Base
 
   has_many :animes, :dependent => :destroy
 
+  acts_as_punchable
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 
