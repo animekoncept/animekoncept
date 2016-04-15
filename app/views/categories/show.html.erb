@@ -1,17 +1,40 @@
-<%= link_to "New topic", new_category_topic_path(@category), class: 'button' if user_signed_in? %>
-<table>
-  <thead>
-    <tr>
-      <th>Topic</th>
-      <th>Created</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @topics.each do |topic| %>
-    <tr>
-      <td><%= link_to topic.title, topic %></td>
-      <td><%= time_ago_in_words(topic.created_at) %> ago</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="menu">
+  <div class="expanded button-group">
+    <%= link_to 'Categories', categories_path, class: 'secondary button' %>
+    <%= link_to "Top", top_topics_path, class: 'success button' %>
+    <%= link_to "Latest", latest_topics_path, class: 'warning button' %>
+    <%= link_to "New topic", new_category_topic_path(@category), class: 'button' if user_signed_in? %>
+  </div>
+</div>
+<div class="topics">
+  <table>
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Category</th>
+        <th>Replies</th>
+        <th>Users</th>
+        <th>Views</th>
+        <th>Activity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @topics.each do |topic| %>
+        <tr>
+          <td class='title'><%= link_to topic.title, topic %></td>
+          <td class="category text-center label <%= topic.category.label_class %>">
+            <%= link_to topic.category.title, category_path(topic.category.id) unless topic.category == nil %>
+          </td>
+          <td class="count text-center"><%= topic.posts.count %></td>
+          <td class="users">
+            <% topic.posts.limit(5).uniq(&:user_id).each do |post| %>
+              <%= link_to image_tag(post.user.avatar.url(:thumb)), user_path(post.user.id) %>
+            <% end %>
+          </td>
+          <td class='created-at'><%= topic.hits %></td>
+          <td class='activity'><%= time_ago_in_words(topic.posts.first.created_at) unless topic.posts.last == nil %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
