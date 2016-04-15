@@ -30,11 +30,12 @@ class UsersController < ApplicationController
 
   def forum
     @user = User.find params[:user_id]
-    @topics = @user.topics
+    @topics = @user.topics.order("created_at desc")
   end
 
   def events
-    #code
+    @user = User.find params[:user_id]
+    @events = @user.events_marked_as_attending.order("created_at desc")
   end
 
   def animelist

@@ -1,0 +1,13 @@
+<div class="events">
+  <% @events.each do |event| %>
+    <div class="medium-6 large-4 columns">
+      <div class="header-image">
+        <%= link_to (image_tag event.header_image.url(:medium)), event %>
+      </div>
+      <div class="description">
+        <%= truncate(event.description, length: 250) %>
+        <%= link_to "Read more", event %>
+      </div>
+    </div>
+  <% end %>
+</div>

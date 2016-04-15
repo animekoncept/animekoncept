@@ -32,8 +32,8 @@
     </div>
     <div class="large-8 columns">
       <ul class="vertical medium-horizontal menu">
-      <li><%= link_to "Forum" %></li>
-      <li><%= link_to "Events" %></li>
+      <li><%= link_to "Forum", user_forum_path(@user) %></li>
+      <li><%= link_to "Events", user_events_path(@user) %></li>
       <li><%= link_to "Anime List" %></li>
       <li><%= link_to "Friends" %></li>
     </ul>
