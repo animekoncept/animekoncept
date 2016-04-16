@@ -43,7 +43,7 @@
     <div class="large-6 columns">
       <div class="favorite-anime">
         <h6 class="text-center">Favorite Anime</h6>
-        <% @user.animes_marked_as_favorite.limit(3).each do |anime| %>
+        <% @user.animes_marked_as_favorite.limit(6).each do |anime| %>
           <div class="large-4 columns">
             <%= link_to image_tag(anime.cover_image.url(:medium)) %>
             <h6><%= anime.name %></h6>
@@ -54,7 +54,7 @@
     <div class="large-6 columns">
       <div class="favorite-events">
         <h6 class="text-center">Events attending</h6>
-        <% @user.events_marked_as_attending.limit(2).each do |event| %>
+        <% @user.events_marked_as_attending.limit(4).each do |event| %>
           <div class="large-6 columns">
             <%= link_to image_tag(event.header_image.url(:medium)) %>
             <h6><%= event.name %></h6>
