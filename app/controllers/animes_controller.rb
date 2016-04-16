@@ -35,4 +35,50 @@ class AnimesController < ApplicationController
       format.js
     end
   end
+
+  def like
+    @anime = Anime.find params[:id]
+    if current_user.mark_as_like @anime
+      @anime.unmark :hate
+    else
+    end
+
+    respond_to do |format|
+      format.html {redirect_to @anime}
+      format.js
+    end
+  end
+
+  def unlike
+    @anime = Anime.find params[:id]
+    @anime.unmark :like, :by => current_user
+
+    respond_to do |format|
+      format.html {redirect_to @anime}
+      format.js
+    end
+  end
+
+  def hate
+    @anime = Anime.find params[:id]
+    if current_user.mark_as_hate @anime
+      @anime.unmark :like
+    end
+
+    respond_to do |format|
+      format.html {redirect_to @anime}
+      format.js
+    end
+  end
+
+  def unhate
+    @anime = Anime.find params[:id]
+    @anime.unmark :hate, :by => current_user
+
+    respond_to do |format|
+      format.html {redirect_to @anime}
+      format.js
+    end
+  end
+
 end

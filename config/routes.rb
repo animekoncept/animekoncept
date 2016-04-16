@@ -33,6 +33,10 @@ Rails.application.routes.draw do
     member do
       put 'favorite', to: 'animes#favorite'
       put 'unfavorite', to: 'animes#unfavorite'
+      put 'like', to: 'animes#like'
+      put 'unlike', to: 'animes#unlike'
+      put 'hate', to: 'animes#hate'
+      put 'unhate', to: 'animes#unhate'
     end
   end
 

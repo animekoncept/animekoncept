@@ -34,6 +34,8 @@
   has_and_belongs_to_many :producers
   has_many :animelists
   markable_as :favorite
+  markable_as :like
+  markable_as :hate
 
   acts_as_punchable
 

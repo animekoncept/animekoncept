@@ -44,6 +44,7 @@
       <div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
         <%= render partial: 'favorite', locals: {anime: @anime} %>
       </div>
+      <%= render 'like' %>
       <br>
       <button class="button add-to-list">Add to list</button>
     </div>

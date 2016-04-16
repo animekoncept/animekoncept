@@ -1,0 +1,10 @@
+<% if @anime.marked_as_like? by: current_user  %>
+  <%= link_to "", unlike_anime_path(@anime), method: :put, class: 'fa fa-thumbs-up fa-4x' %>
+  <%= link_to "", hate_anime_path(@anime), method: :put, class: 'fa fa-thumbs-o-down fa-4x' %>
+<% elsif @anime.marked_as_hate? by: current_user %>
+  <%= link_to "", like_anime_path(@anime), method: :put, class: 'fa fa-thumbs-o-up fa-4x' %>
+  <%= link_to "", unhate_anime_path(@anime), method: :put, class: 'fa fa-thumbs-down fa-4x' %>
+<% else %>
+<%= link_to "", like_anime_path(@anime), method: :put, class: 'fa fa-thumbs-o-up fa-4x' %>
+<%= link_to "", hate_anime_path(@anime), method: :put, class: 'fa fa-thumbs-o-down fa-4x' %>
+<% end %>
