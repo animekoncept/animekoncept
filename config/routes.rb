@@ -57,7 +57,12 @@ Rails.application.routes.draw do
   get 'topics/top' => 'topics#top', path: 'top', as: 'top_topics'
   get 'topics/latest' => 'topics#latest', path: 'latest', as: 'latest_topics'
 
-  resources :posts
+  resources :posts do
+    member do
+      put 'like', to: 'posts#like'
+      put 'unlike', to: 'posts#unlike'
+    end
+  end
 
   get 'animelist/:user_id' => 'animelists#show', as: 'animelist/user', path: 'animelist/:user_id'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,5 @@
+<% if post.marked_as_like? by: current_user %>
+  <%= link_to '', unlike_post_path(post), method: :put, class: 'fa fa-heart fa-1x' %>
+<% else %>
+  <%= link_to '', like_post_path(post), method: :put, class: 'fa fa-heart-o fa-1x' %>
+<% end %>

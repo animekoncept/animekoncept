@@ -37,6 +37,26 @@ class PostsController < ApplicationController
     redirect_to @topic
   end
 
+  def like
+    @post  = Post.find params[:id]
+    current_user.mark_as_like @post
+
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js
+    end
+  end
+
+  def unlike
+    @post  = Post.find params[:id]
+    @post.unmark :like, :by => current_user
+
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js
+    end
+  end
+
   private
     def post_params
       params.require(:post).permit(:content)
