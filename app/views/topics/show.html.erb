@@ -30,13 +30,13 @@
           <div class="username">
             <%= link_to post.user.username, user_path(post.user) %> - <%= time_ago_in_words(post.created_at) %> ago
           </div>
-          <div class="like">
-            <%= render partial: 'posts/like', locals: {post: post} %>
-          </div>
           <div class="content">
             <%= markdown(post.content) %>
           </div>
           <% if user_signed_in? && post.user_id == current_user.id %>
+            <div id="post_<%= post.id %>_like">
+              <%= render partial: 'posts/like', locals: {post: post} %>
+            </div>
             <%= link_to "Delete", [@topic, post], method: :delete, confirm: "Are you sure?", class: 'delete-button' %>
             /
             <%= link_to "Edit", [:edit, @topic, post], class: 'edit-button' %>
