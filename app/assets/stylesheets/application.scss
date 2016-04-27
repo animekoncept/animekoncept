@@ -2,7 +2,7 @@
 @import "variables";
 @import "font-awesome";
 @import "pagedown_bootstrap";
-@import "nav";
+@import "navbar";
 @import "registration";
 @import "login";
 @import "users";
@@ -46,18 +46,4 @@ html, body {
 }
 .active_link {
   color: $white;
-}
-.off-canvas-content {
-  box-shadow: none;
-}
-
-.off-canvas.position-left {
-  width: 100px;
-  height: 100%;
-}
-
-@media screen and (min-width: 64em) {
-  .position-left.reveal-for-large ~ .off-canvas-content {
-    margin-left: 100px;
-  }
 }

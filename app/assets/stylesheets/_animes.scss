@@ -1,43 +1,21 @@
 .animes {
-  .facets-nav {
-    background-color: $black;
-    height: 100%;
-    left: 100px;
-    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-      height: 100%;
-      width: 200px;
-      padding-left: 30px;
-      padding-right: 30px;
-      text-align: center;
-    }
-    @media screen and (min-width: 64em) {
-      position: fixed;
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-    h4 {
-      color: $white;
-    }
-    .year, .seasons, .genres {
-      color: $white;
-      font-size: 1.2em;
-      font-family: ProximaNovaNormal;
+  .off-canvas-content {
+    margin-top: 15px;
+  }
 
-    }
+  .off-canvas.position-left {
+    height: 100%;
+    top: 100px;
+    background-color: $dark-gray;
+    color: $white;
     .browse-anime {
-      padding-top: 20px;
-      padding-bottom: 20px;
-      font-family: ProximaNovaLight;
-      font-size: 1.7xem;
+      text-align: center;
+      font-family: ProximaNovaRegular;
+      font-size: 2.3em;
       span {
-        font-family: ProximaNovaBold;
+        font-family: ProximaNovaLight;
       }
     }
-    li, a {
-      color: $light-gray;
-    }
-    .section {
-      padding-bottom: 40px;
-    }
   }
+
 }

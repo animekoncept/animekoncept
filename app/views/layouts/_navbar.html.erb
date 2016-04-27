@@ -1,0 +1,38 @@
+<div class="top-bar">
+  <div class="top-bar-title">
+    <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <button class="menu-icon dark" type="button" data-toggle></button>
+    </span>
+  </div>
+  <div id="responsive-menu">
+    <div class="top-bar-left">
+      <ul class="menu" >
+        <li class='title'><%= link_to "CHIBI", root_path %></li>
+        <li><%= link_to "Anime", animes_path %></li>
+        <li><%= link_to "Events", events_path %></li>
+        <li><%= link_to "Community", topics_path %></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <% if user_signed_in? %>
+          <li class="username">
+            <ul class="dropdown menu" data-dropdown-menu>
+              <li>
+                <a href="#">Hi, <%= current_user.username %></a>
+                <ul class="menu bottom">
+                  <li><%= link_to "Account", "" %></li>
+                  <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="avatar"><%= link_to image_tag(current_user.avatar.url(:thumb)), current_user %></li>
+        <% else %>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,23 +1,28 @@
-<div class="animes expanded row">
-  <%= render "facets" %>
-  <div class="medium-9 large-10 columns">
-    <div class="anime-cover">
-      <% @animes.each do |anime| %>
-        <div class="small-2 medium-3 large-2 columns">
-          <div class="anime-list">
-            <span data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover='false' tabindex=1 title="<%= anime.name %>">
-              <%= link_to image_tag("",
-                data: {
-                  interchange: "
-                  [#{anime.cover_image.url(:medium)}, small],
-                  [#{anime.cover_image.url(:large)}, large]
-                  "
-                }), anime
-               %>
-            </span>
+<div class=" animes off canvas-wrapper">
+  <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+    <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
+      <%= render "facets" %>
+    </div>
+    <div class="off-canvas-content" data-off-canvas-content>
+      <div class="anime-cover">
+        <% @animes.each do |anime| %>
+          <div class="small-6 medium-2 large-2 columns">
+            <div class="anime-list">
+              <span data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover='false' tabindex=1 title="<%= anime.name %>">
+                <%= link_to image_tag("",
+                  data: {
+                    interchange: "
+                    [#{anime.cover_image.url(:large)}, small]
+                    [#{anime.cover_image.url(:medium)}, medium],
+                    [#{anime.cover_image.url(:large)}, large]
+                    "
+                  }), anime
+                 %>
+              </span>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
