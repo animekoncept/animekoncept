@@ -1,0 +1,40 @@
+<div class="home">
+  <div class="large-3 columns">
+    <div class="mini-profile">
+      <div class="header">
+        <%= image_tag @user.header_image.url(:large) %>
+      </div>
+      <div class="user">
+        <%= image_tag @user.avatar.url(:thumb) %>
+        <%= @user.username %>
+      </div>
+    </div>
+    <div class="popular-events">
+      <h4>Popular Events</h4>
+      <% @events.each do |event|%>
+        <%= link_to image_tag(event.header_image), event %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="large-6 columns">
+    <textarea name="" id="" cols="30" rows="5"></textarea>
+  </div>
+
+  <div class="large-3 columns">
+    <div class="who-to-follow">
+      <h4>Who To Follow</h4>
+      <% @users.each do |user| %>
+        <%= image_tag user.avatar.url(:thumb) %>
+        <%= user.username %>
+        <br>
+      <% end %>
+    </div>
+    <div class="popular-topics">
+      <h4>Popular Topics</h4>
+      <% @topics.each do |topic| %>
+        <p><%= link_to topic.title, topic %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

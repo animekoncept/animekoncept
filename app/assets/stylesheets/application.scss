@@ -5,6 +5,7 @@
 @import "navbar";
 @import "registration";
 @import "login";
+@import "home";
 @import "users";
 @import "animes";
 @import "anime";
@@ -36,6 +37,7 @@
 html, body {
   height: 100%;
   width: 100%;
+  background-color: $gray;
 }
 .full-width {
   max-width: 100%;

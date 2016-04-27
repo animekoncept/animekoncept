@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root :to => 'animes#index'
+      root :to => 'home#show'
     end
     unauthenticated :user do
       root :to => 'devise/registrations#new', as: :unauthenticated_root
@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   end
   #root 'home#index'
   get 'search/index'
+
+  get 'home/show' => 'home#show', as: 'home', path: 'home'
 
   resources :activities
 

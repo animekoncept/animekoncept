@@ -1,0 +1,27 @@
+.home {
+  margin-top: 15px;
+  h4 {text-align: center;}
+  .mini-profile {
+    background-color: $white;
+    .user {
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
+  .popular-events {
+    margin-top: 10px;
+    background-color: $white;
+  }
+  .who-to-follow {
+    background-color: $white;
+  }
+  .popular-topics {
+    margin-top: 10px;
+    background-color: $white;
+    p {
+      text-align: center;
+      a {color: $black;}
+    }
+  }
+}
