@@ -1,4 +1,4 @@
 <%= simple_form_for @micropost do |f| %>
-  <%= f.input :content, as: :pagedown, input_html: { preview: true, rows: 3 }, label: 'Markdown' %>
-  <%= f.submit %>
+  <%= f.input :content, as: :pagedown, input_html: { preview: true, rows: 3 }, label: false , placeholder: 'You can use Markdown! YAY!' %>
+  <%= f.submit 'post', class: 'button expanded' %>
 <% end %>
