@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415024708) do
+ActiveRecord::Schema.define(version: 20160427033418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,6 +152,15 @@ ActiveRecord::Schema.define(version: 20160415024708) do
   add_index "marks", ["markable_id", "markable_type", "mark"], name: "index_marks_on_markable_id_and_markable_type_and_mark", using: :btree
   add_index "marks", ["marker_id", "marker_type", "mark"], name: "index_marks_on_marker_id_and_marker_type_and_mark", using: :btree
 
+  create_table "microposts", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "microposts", ["user_id"], name: "index_microposts_on_user_id", using: :btree
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
     t.integer  "searchable_id"
@@ -169,7 +178,10 @@ ActiveRecord::Schema.define(version: 20160415024708) do
     t.integer  "topic_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "ancestry"
   end
+
+  add_index "posts", ["ancestry"], name: "index_posts_on_ancestry", using: :btree
 
   create_table "producers", force: :cascade do |t|
     t.string   "name"
@@ -249,5 +261,6 @@ ActiveRecord::Schema.define(version: 20160415024708) do
 
   add_foreign_key "animelists", "animes"
   add_foreign_key "animelists", "users"
+  add_foreign_key "microposts", "users"
   add_foreign_key "users", "roles"
 end
