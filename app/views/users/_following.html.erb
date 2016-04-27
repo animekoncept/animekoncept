@@ -1,4 +1,4 @@
-<% if current_user.marked_as_following? %>
+<% if @user.marked_as_following? %>
   <%= link_to "Unfollow", unfollow_user_path, method: :put, class: 'button small' %>
 <% else %>
  <%= link_to "follow", following_user_path, method: :put, class: 'button small' %>
