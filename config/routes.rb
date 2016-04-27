@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get 'home/show' => 'home#show', as: 'home', path: 'home'
 
+  resources :microposts
+
   resources :activities
 
   devise_for :users

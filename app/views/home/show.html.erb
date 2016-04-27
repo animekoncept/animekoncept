@@ -18,7 +18,13 @@
   </div>
 
   <div class="large-6 columns">
-    <textarea name="" id="" cols="30" rows="5"></textarea>
+    <%= render 'microposts/form' %>
+    <br>
+    <div class="microposts">
+      <% @microposts.each do |micropost| %>
+        <%= micropost.content %>
+      <% end %>
+    </div>
   </div>
 
   <div class="large-3 columns">
