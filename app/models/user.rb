@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   has_many :animes, through: :animelists
   has_many :topics
   has_many :posts
-  has_many :microposts
+  has_many :microposts, dependent: :destroy
   acts_as_marker
 
   has_attached_file :avatar, styles: { large: "209x209#", medium: "109x109#", thumb: "50x50#" }, default_url: "/images/avatar_:style.png"

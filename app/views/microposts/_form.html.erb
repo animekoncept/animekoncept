@@ -1,4 +1,4 @@
 <%= simple_form_for @micropost do |f| %>
-  <%= f.input :content %>
+  <%= f.input :content, as: :pagedown, input_html: { preview: true, rows: 3 }, label: 'Markdown' %>
   <%= f.submit %>
 <% end %>

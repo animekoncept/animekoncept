@@ -24,4 +24,12 @@
       a {color: $black;}
     }
   }
+  .microposts {
+    background-color: $white;
+    p {
+      img {
+        max-width: 500px;
+      }
+    }
+  }
 }
