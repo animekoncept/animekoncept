@@ -45,4 +45,24 @@ class UsersController < ApplicationController
   def friends
     #code
   end
+
+  def following
+    @user = User.find params[:id]
+    current_user.mark_as_following @user
+
+    respond_to do |format|
+      format.html {redirect_to @user}
+      format.js
+    end
+  end
+
+  def unfollow
+    @user = User.find params[:id]
+    @user.unmark :following, :by => current_user
+
+    respond_to do |format|
+      format.html {redirect_to @user}
+      format.js
+    end
+  end
 end

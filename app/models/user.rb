@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :microposts, dependent: :destroy
   acts_as_marker
+  markable_as :following, :by => :user
 
   has_attached_file :avatar, styles: { large: "209x209#", medium: "109x109#", thumb: "50x50#" }, default_url: "/images/avatar_:style.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
