@@ -1,0 +1,5 @@
+<% if micropost.marked_as_like? %>
+  <%= link_to '', unlike_micropost_path(micropost), method: :put, class: 'fa fa-heart fa-1x' %>
+<% else %>
+  <%= link_to '', like_micropost_path(micropost), method: :put, class: 'fa fa-heart-o fa-1x' %>
+<% end %>

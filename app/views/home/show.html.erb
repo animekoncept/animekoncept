@@ -31,6 +31,7 @@
           <div class="media-object-section">
             <%= micropost.user.username %>
             <p><%= markdown(micropost.content) %></p>
+            <%= render partial: 'microposts/like', locals: {micropost: micropost} %>
           </div>
         </div>
         <hr>

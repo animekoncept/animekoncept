@@ -21,7 +21,12 @@ Rails.application.routes.draw do
 
   get 'home/show' => 'home#show', as: 'home', path: 'home'
 
-  resources :microposts
+  resources :microposts do
+    member do
+      put 'like', to: 'microposts#like'
+      put 'unlike', to: 'microposts#unlike'
+    end
+  end
 
   resources :activities
 
