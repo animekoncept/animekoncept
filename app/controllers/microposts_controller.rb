@@ -7,9 +7,11 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.new(micropost_params)
     @micropost.user_id = current_user.id
     if @micropost.save
+      flash[:success] = 'Success'
       redirect_to root_path
     else
-      render :new
+      flash.now[:danger] = 'Something went wrong!'
+      redirect_to root_path
     end
   end
 
