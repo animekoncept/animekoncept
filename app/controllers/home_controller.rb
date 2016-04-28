@@ -7,6 +7,5 @@ class HomeController < ApplicationController
     @topics = Topic.most_hit(5.day.ago, 10)
     @micropost = Micropost.new
     @microposts = Micropost.where(user_id: current_user.following_users.ids + [current_user.id])
-    #@microposts = Micropost.where(user_id: current_user.following_users.ids)
   end
 end
