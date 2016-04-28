@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
 
+  before_action :authenticate_user!
+
   def show
     @user = current_user
     @events = Event.most_hit(5.day.ago, 4)
