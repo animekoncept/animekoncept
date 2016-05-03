@@ -2,12 +2,10 @@
   .header-image {
     background-color: #1b2023;
     img {
-      opacity: 0.3;
+      /*opacity: 0.3;*/
       width: 100%;
-      /* medium screen */
       @media screen and (min-width: 40em) and (max-width: 63.9375em) {
         height: 400px;
-        display: block;
       }
       @media screen and (min-width: 64em) {
         height: 600px;
@@ -16,22 +14,60 @@
     }
   }
   .info {
-    .cover-image {
-      @media screen and (min-width: 64em) {
-        position: relative;
-        top: -100px;
+    .left {
+      .crunchyroll {
+        background-color: $orange;
+      }
+      .official-site {
+        background-color: $black;
+      }
+      .wiki {
+        background-color: $green;
+      }
+      .cover-image {
+        @media screen and (max-width: 39.9375em) {
+          img {
+            display: block;
+            margin: 0 auto;
+          }
+        }
+        @media screen and (min-width: 40em) {
+          position: relative;
+          top: -100px;
+        }
+      }
+      .crunchyroll, .official-site, .wiki {
+        @media screen and (min-width: 40em) {
+          position: relative;
+          top: -90px;
+        }
       }
     }
-    .crunchyroll, .official-site, .wiki {
-      @media screen and (min-width: 64em) {
-        position: relative;
-        top: -90px;
+    .middle {
+      background-color: $white;
+      ul.details {
+        li {
+          padding-right: 10px;
+          font-family: ProximaNovaLight;
+        }
       }
     }
-    .favorite, .add-to-list, h4, .reviews {
-      @media screen and (min-width: 64em) {
-        position: relative;
-        top: -97px;
+    .right {
+      .favorite {
+        background-color: $orange;
+      }
+      .add-to-list {
+        background-color: $dark-orange;
+      }
+      .reviews {
+        background-color: $white;
+        border: 10px solid $white;
+      }
+      .favorite, .add-to-list, h4, .reviews {
+        @media screen and (min-width: 40em) {
+          position: relative;
+          top: -97px;
+        }
       }
     }
   }

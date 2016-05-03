@@ -11,30 +11,30 @@
     %>
   </div>
   <div class="row info">
-    <div class="small-12 medium-2 large-2 columns">
+    <div class="small-12 medium-3 large-2 columns left">
       <div class="cover-image">
         <%= image_tag "",
             data: {
               interchange: "
-              [#{@anime.cover_image.url(:medium)}, small],
+              [#{@anime.cover_image.url(:large)}, small],
               [#{@anime.cover_image.url(:large)}, medium],
               [#{@anime.cover_image.url(:large)}, large]
               "
             }
         %>
       </div>
-      <div class="crunchyroll button expanded">Crunchyroll</div>
-      <div class="official-site button expanded">Official site</div>
-      <div class="wiki button expanded">Wiki</div>
+      <div class="crunchyroll button expanded hide-for-small-only">Crunchyroll</div>
+      <div class="official-site button expanded hide-for-small-only">Official site</div>
+      <div class="wiki button expanded hide-for-small-only">Wiki</div>
     </div>
-    <div class="large-7 columns">
+    <div class="small-12 medium-6 large-7 columns middle">
       <h1 class="anime-name"><%= @anime.name %></h1>
       <ul class="menu genres">
-        <li class="secondary label">Action</li>
-        <li class="secondary label">Romance</li>
-        <li class="secondary label">Echi</li>
+        <% @anime.genres.each do |genre| %>
+          <li class="secondary label"><%= genre.name %></li>
+        <% end %>
       </ul>
-      <ul class="menu">
+      <ul class="menu details">
         <li class="aired">
           Aired: <%= @anime.aired_on.strftime("%b %d, %Y") %>,
         </li>
@@ -51,7 +51,7 @@
       <hr>
       <div class="synopsis"><%= simple_format(@anime.synopsis) %></div>
     </div>
-    <div class="large-3 columns">
+    <div class="small-12 medium-3 large-3 columns right">
       <div class="favorite button expanded">Add to Favorite</div>
       <div class="add-to-list button expanded">Add to list</div>
       <h4>Reviews</h4>
