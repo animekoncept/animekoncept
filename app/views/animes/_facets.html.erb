@@ -1,57 +1,51 @@
 <div class="facets-nav">
-    <h4 class="browse-anime">Browse <span>Anime</span></h4>
+  <h4 class="browse-anime">Browse <span>Anime</span></h4>
   <% if @animes.aggs["aired_on"].present? %>
-      <div class="section">
-        <div class="year">Year</div>
-          <ul>
-          <% @animes.aggs["aired_on"]["buckets"].each do |filter| %>
-            <li>
-              <div class="year-name float-left">
-                <%= link_to "#{filter["key"]}", "/animes?aired_on=#{filter["key"]}" %>
-              </div>
-              <div class="year-count float-right">
-                <%= "#{filter["doc_count"]}" %>
-              </div>
-            </li>
-            <br>
-          <% end %>
-          </ul>
-      </div>
+    <h4>Year</h4>
+    <ul>
+      <% @animes.aggs["aired_on"]["buckets"].each do |filter| %>
+        <li>
+          <div class="year-name float-left">
+            <%= link_to "#{filter["key"]}", "/animes?aired_on=#{filter["key"]}" %>
+          </div>
+          <div class="year-count float-right">
+            (<%= "#{filter["doc_count"]}" %>)
+          </div>
+        </li>
+        <br>
+      <% end %>
+    </ul>
   <% end %>
   <% if @animes.aggs["season_name"].present? %>
-      <div class="section">
-        <div class="seasons">Seasons</div>
-          <ul>
-          <% @animes.aggs["season_name"]["buckets"].each do |filter| %>
-            <li>
-              <div class="season-name float-left">
-                <%= link_to "#{filter["key"]}", "/animes?season_name=#{filter["key"]}", class: 'float-left' %>
-              </div>
-              <div class="season-count float-right">
-                <%= "#{filter["doc_count"]}" %>
-              </div>
-            </li>
-            <br>
-          <% end %>
-          </ul>
-      </div>
+    <h4>Seasons</h4>
+    <ul>
+      <% @animes.aggs["season_name"]["buckets"].each do |filter| %>
+        <li>
+          <div class="season-name float-left">
+            <%= link_to "#{filter["key"]}", "/animes?season_name=#{filter["key"]}", class: 'float-left' %>
+          </div>
+          <div class="season-count float-right">
+            (<%= "#{filter["doc_count"]}" %>)
+          </div>
+        </li>
+        <br>
+      <% end %>
+    </ul>
   <% end %>
   <% if @animes.aggs["genres"].present? %>
-      <div class="section">
-        <div class="genres">Genres</div>
-          <ul>
-          <% @animes.aggs["genres"]["buckets"].each do |filter| %>
-            <li>
-              <div class="genre-name float-left">
-                <%= link_to "#{filter["key"]}", "/animes?genres=#{filter["key"]}" %>
-              </div>
-              <div class="genre-count float-right">
-                <%= "#{filter["doc_count"]}" %>
-              </div>
-            </li>
-            <br>
-          <% end %>
-          </ul>
-      </div>
+    <h4>Genres</h4>
+    <ul>
+      <% @animes.aggs["genres"]["buckets"].each do |filter| %>
+        <li>
+          <div class="genre-name float-left">
+            <%= link_to "#{filter["key"]}", "/animes?genres=#{filter["key"]}" %>
+          </div>
+          <div class="genre-count float-right">
+            (<%= "#{filter["doc_count"]}" %>)
+          </div>
+        </li>
+        <br>
+      <% end %>
+    </ul>
   <% end %>
 </div>
