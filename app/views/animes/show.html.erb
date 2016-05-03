@@ -10,8 +10,8 @@
         }
     %>
   </div>
-  <div class="row">
-    <div class="small-12 medium-2 columns">
+  <div class="row info">
+    <div class="small-12 medium-2 large-2 columns">
       <div class="cover-image">
         <%= image_tag "",
             data: {
@@ -23,38 +23,67 @@
             }
         %>
       </div>
+      <div class="crunchyroll button expanded">Crunchyroll</div>
+      <div class="official-site button expanded">Official site</div>
+      <div class="wiki button expanded">Wiki</div>
     </div>
-  </div>
-  <div class="row">
-    <div class="small-12 large-3 columns">
-      <h2 class="anime-name"><%= @anime.name %></h2>
-      <h5 class="japanese-name">キルラキル</h5>
-      <div class="small-6 large-6 columns">
-        <div class="aired_on">Aired</div>
-        <div class="ended_on">Ended</div>
-        <div class="duration">Duration</div>
-      </div>
-      <div class="small-6 large-6 columns">
-        <div class="aired_on"><%= @anime.aired_on.strftime("%b %d, %Y") %></div>
-        <div class="ended_on"><%= @anime.ended_on.strftime("%b %d, %Y") %></div>
-        <div class="duration"><%= @anime.duration %></div>
-      </div>
+    <div class="large-7 columns">
+      <h1 class="anime-name"><%= @anime.name %></h1>
+      <ul class="menu genres">
+        <li class="secondary label">Action</li>
+        <li class="secondary label">Romance</li>
+        <li class="secondary label">Echi</li>
+      </ul>
+      <ul class="menu">
+        <li class="aired">
+          Aired: <%= @anime.aired_on.strftime("%b %d, %Y") %>,
+        </li>
+        <li class="ended">
+          Ended: <%= @anime.ended_on.strftime("%b %d, %Y") %>,
+        </li>
+        <li class="duration">
+          Duration: <%= @anime.duration %>,
+        </li>
+        <li class="season">
+          Season: <%= @anime.season.name %>
+        </li>
+      </ul>
+      <hr>
+      <div class="synopsis"><%= simple_format(@anime.synopsis) %></div>
     </div>
-    <div class="small-12 large-3 colums">
-      <div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
-        <%= render partial: 'favorite', locals: {anime: @anime} %>
+    <div class="large-3 columns">
+      <div class="favorite button expanded">Add to Favorite</div>
+      <div class="add-to-list button expanded">Add to list</div>
+      <h4>Reviews</h4>
+      <div class="reviews">
+        <p>The king is dead. Long live the king!
+        I never imagined saying that about one of my tops
+        in a span of less than 10 years, much..."</p>
+        <span>Wesly Mezarina</span>
       </div>
-      <%= render 'like' %>
-      <br>
-      <button class="button add-to-list">Add to list</button>
-    </div>
-    <div class="small-12 large-6 columns">
-      <p class="synopsis"><%= @anime.synopsis %></p>
     </div>
   </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <% if false %>
+<div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
+  <%= render partial: 'favorite', locals: {anime: @anime} %>
+</div>
   <div class="reveal form" id="exampleModal1" data-reveal>
     <div id="animelist">
       <%= render partial: 'animelists/form', locals: {animelist: @animelist} %>

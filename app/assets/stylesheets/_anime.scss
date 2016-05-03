@@ -15,75 +15,24 @@
       }
     }
   }
-  .cover-image {
-    /* small screen */
-    img {
-      @media screen and (max-width: 39.9375em) {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      /* medium and  screen */
-      @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-        position: absolute;
-        top: 112px;
-        left: 180px;
-      }
+  .info {
+    .cover-image {
       @media screen and (min-width: 64em) {
-        position: absolute;
-        top: 130px;
-        left: 220px;
+        position: relative;
+        top: -100px;
       }
     }
-  }
-  .anime-name {
-      /* small screen */
-    @media screen and (max-width: 39.9375em) {
-      text-align: center;
-      margin-top: 15px;
+    .crunchyroll, .official-site, .wiki {
+      @media screen and (min-width: 64em) {
+        position: relative;
+        top: -90px;
+      }
     }
-    /* medium screen */
-    @media screen and (min-width: 40em) {
-      font-family: ProximaNovaLight;
-      text-align: center;
-    }
-  }
-  .japanese-name {
-    text-align: center;
-    margin-top: -20px;
-  }
-  .aired_on, .ended_on, .duration {
-    background-color: #ccc;
-    margin-bottom: 10px;
-    border: #ccc 5px solid;
-    text-align: center;
-  }
-  .favorite {
-    padding-left: 55px;
-    padding-right: 55px;
-    background-color: #f1837a;
-    font-family: ProximaNovaRegular;
-  }
-  .favorite-button {
-    margin-top: 15px;
-  }
-  .add-to-list {
-    padding-left: 50px;
-    padding-right: 50px;
-    background-color: #47b8e0;
-    font-family: ProximaNovaRegular;
-  }
-  .synopsis {
-    font-family: ProximaNovaLight;
-    margin-top: 10px;
-  }
-  .anime-synopsis {
-      /* small screen */
-    @media screen and (max-width: 39.9375em) {
-      text-align: center;
-    }
-      /* medium screen */
-    @media screen and (min-width: 40em) {
+    .favorite, .add-to-list, h4, .reviews {
+      @media screen and (min-width: 64em) {
+        position: relative;
+        top: -97px;
+      }
     }
   }
 }

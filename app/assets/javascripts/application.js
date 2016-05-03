@@ -24,7 +24,7 @@ $(function(){ $(document).foundation(); });
 
 
 $(document).ready(function() {
-  $('.anime-synopsis p').readmore({
+  $('.anime-synopsis').readmore({
       collapsedHeight: 150,
       speed: 1000,
       heightMargin: 16,
