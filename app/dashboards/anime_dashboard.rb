@@ -22,6 +22,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     season_id: Field::Number,
     cover_image: PaperclipField,
     header_image: PaperclipField,
+    crunchyroll: Field::String,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -37,6 +38,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :synopsis,
     :cover_image,
     :header_image,
+    :crunchyroll,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -58,6 +60,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :season_id,
     :cover_image,
     :header_image,
+    :crunchyroll,
   ]
 
   # Overwrite this method to customize how animes are displayed

@@ -17,6 +17,9 @@
     .left {
       .crunchyroll {
         background-color: $orange;
+        a {
+          color: $white;
+        }
       }
       .official-site {
         background-color: $black;
