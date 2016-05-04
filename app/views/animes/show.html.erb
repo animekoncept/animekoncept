@@ -29,7 +29,9 @@
       <div class="official-site button expanded hide-for-small-only">
         <%= link_to "Official site", "http://#{@anime.official_site}", target: "_blank" %>
       </div>
-      <div class="wiki button expanded hide-for-small-only">Wiki</div>
+      <div class="wiki button expanded hide-for-small-only">
+        <%= link_to "Wiki", "http://#{@anime.wiki}", target: "_blank" %>
+      </div>
     </div>
     <div class="small-12 medium-6 large-7 columns middle">
       <h1 class="anime-name"><%= @anime.name %></h1>

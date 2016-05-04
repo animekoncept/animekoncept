@@ -24,6 +24,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     header_image: PaperclipField,
     crunchyroll: Field::String,
     official_site: Field::String,
+    wiki: Field::String,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -41,6 +42,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :header_image,
     :crunchyroll,
     :official_site,
+    :wiki,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -64,6 +66,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :header_image,
     :crunchyroll,
     :official_site,
+    :wiki,
   ]
 
   # Overwrite this method to customize how animes are displayed
