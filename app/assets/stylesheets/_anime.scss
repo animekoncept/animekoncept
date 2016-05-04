@@ -23,6 +23,9 @@
       }
       .official-site {
         background-color: $black;
+        a {
+          color: $white;
+        }
       }
       .wiki {
         background-color: $green;

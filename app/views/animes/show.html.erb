@@ -23,8 +23,12 @@
             }
         %>
       </div>
-      <div class="crunchyroll button expanded hide-for-small-only"><%= link_to "Crunchyroll", "http://#{@anime.crunchyroll}" %></div>
-      <div class="official-site button expanded hide-for-small-only">Official site</div>
+      <div class="crunchyroll button expanded hide-for-small-only">
+        <%= link_to "Crunchyroll", "http://#{@anime.crunchyroll}", target: "_blank" %>
+      </div>
+      <div class="official-site button expanded hide-for-small-only">
+        <%= link_to "Official site", "http://#{@anime.official_site}", target: "_blank" %>
+      </div>
       <div class="wiki button expanded hide-for-small-only">Wiki</div>
     </div>
     <div class="small-12 medium-6 large-7 columns middle">
