@@ -58,7 +58,9 @@
       <div class="synopsis"><%= simple_format(@anime.synopsis) %></div>
     </div>
     <div class="small-12 medium-3 large-3 columns right">
-      <div class="favorite button expanded">Add to Favorite</div>
+      <div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
+        <%= render partial: 'favorite', locals: {anime: @anime} %>
+      </div>
       <div class="add-to-list button expanded">Add to list</div>
       <h4>Reviews</h4>
       <div class="reviews">
@@ -87,9 +89,6 @@
 
 
 <% if false %>
-<div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
-  <%= render partial: 'favorite', locals: {anime: @anime} %>
-</div>
   <div class="reveal form" id="exampleModal1" data-reveal>
     <div id="animelist">
       <%= render partial: 'animelists/form', locals: {animelist: @animelist} %>
@@ -98,9 +97,4 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-
-
-<div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
-  <%= render partial: 'favorite', locals: {anime: @anime} %>
-</div>
 <% end %>
