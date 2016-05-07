@@ -47,3 +47,7 @@ $(window).on('load', function() {
 		delay: 3500
 	});
 });
+
+$(document).ready(function(){
+  $('.dropify').dropify();
+});

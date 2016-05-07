@@ -21,7 +21,7 @@
               <li>
                 <a href="#">Hi, <%= current_user.username %></a>
                 <ul class="menu bottom">
-                  <li><%= link_to "Account", "" %></li>
+                  <li><%= link_to "Account", edit_user_registration_path %></li>
                   <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
                 </ul>
               </li>
