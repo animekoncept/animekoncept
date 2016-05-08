@@ -5,8 +5,11 @@
       <hr>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
-        <div class="small-12 columns">
-          <%= f.input :avatar, as: :file, :input_html => { :id => "input-file-now", class: 'file optional dropify'}, label: false %>
+        <div class="small-6 columns">
+          <%= f.input :avatar, as: :file, :input_html => { :id => "input-file-now", class: 'file optional dropify'} %>
+        </div>
+        <div class="small-6 columns">
+          <%= f.input :header_image, as: :file, :input_html => { :id => "input-file-now", class: 'file optional dropify'}, label: "Header" %>
         </div>
         <div class="small-3 columns">
           <label for="middle-label" class="text-right middle">Email:</label>
