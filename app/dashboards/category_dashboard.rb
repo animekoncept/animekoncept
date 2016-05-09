@@ -10,6 +10,7 @@ class CategoryDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id:       Field::Number,
     title:    Field::String,
+    header_image: PaperclipField,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -19,6 +20,7 @@ class CategoryDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :title,
+    :header_image,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -30,6 +32,7 @@ class CategoryDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :title,
+    :header_image,
   ]
 
   # Overwrite this method to customize how animes are displayed

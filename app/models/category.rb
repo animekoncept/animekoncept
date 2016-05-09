@@ -6,6 +6,9 @@ class Category < ActiveRecord::Base
     label_class_map[title]
   end
 
+  has_attached_file :header_image, styles: { large: "1920x600#", medium: "1920x850#" }
+  validates_attachment_content_type :header_image, content_type: /\Aimage\/.*\Z/
+
   private
     def label_class_map
       {
