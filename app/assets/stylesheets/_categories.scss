@@ -1,3 +1,15 @@
+.categories {
+  .category {
+    background-color: $white;
+    margin-bottom: 20px;
+    .category-title, a {
+      font-size: 1.1em;
+      color: $black;
+    }
+  }
+}
+
+
 .site_news {
   background: #1abc9c;
 }
