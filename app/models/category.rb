@@ -2,6 +2,9 @@ class Category < ActiveRecord::Base
   has_many :topics
   acts_as_punchable
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   def label_class
     label_class_map[title]
   end
