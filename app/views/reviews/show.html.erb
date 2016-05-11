@@ -1,0 +1,14 @@
+<div class="review">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="large-2 columns">Story rating: <%= @review.story %></div>
+      <div class="large-2 columns">Art rating: <%= @review.art %></div>
+      <div class="large-2 columns">Sound rating: <%= @review.sound %></div>
+      <div class="large-2 columns">Character rating: <%= @review.character %></div>
+      <div class="large-2 columns">Enjoyment rating: <%= @review.enjoyment %></div>
+      <div class="large-2 columns">Overall rating: <%= @review.overall %></div>
+      <hr>
+      <p><%= simple_format(@review.content) %></p>
+    </div>
+  </div>
+</div>

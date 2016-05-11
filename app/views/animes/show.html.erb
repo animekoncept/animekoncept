@@ -64,10 +64,14 @@
       <div class="add-to-list button expanded">Add to list</div>
       <h4>Reviews</h4>
       <div class="reviews">
-        <p>The king is dead. Long live the king!
-        I never imagined saying that about one of my tops
-        in a span of less than 10 years, much..."</p>
-        <span>Wesly Mezarina</span>
+        <% @reviews.each do |review| %>
+          <p>
+            <%= link_to truncate(review.content, length: 200), anime_review_path(@anime, review) %>
+            <%= link_to "Read more", anime_review_path(@anime, review), class: 'read-more' %>
+          </p>
+          <span><%= review.user.username %> <%= link_to image_tag(review.user.avatar.url(:thumb)), review.user %></span>
+          <hr>
+        <% end %>
       </div>
     </div>
   </div>

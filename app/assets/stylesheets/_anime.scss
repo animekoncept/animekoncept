@@ -71,6 +71,15 @@
       .reviews {
         background-color: $white;
         border: 10px solid $white;
+        a, img {
+          border-radius: 50%;
+        }
+        p, a {
+          color: $black;
+        }
+        .read-more {
+          color: $orange;
+        }
       }
       .favorite, .add-to-list, h4, .reviews {
         @media screen and (min-width: 40em) {

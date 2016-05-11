@@ -1,4 +1,8 @@
 class ReviewsController < ApplicationController
+
+  def show
+    @review = Review.find params[:id]
+  end
   def new
     @anime = Anime.find params[:anime_id]
     @review = Review.new
@@ -18,6 +22,6 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:content, :story, :sound, :character, :enjoyment, :overall)
+      params.require(:review).permit(:content, :story, :sound, :character, :enjoyment, :overall, :art)
     end
 end
