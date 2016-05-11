@@ -33,6 +33,7 @@
   has_and_belongs_to_many :genres
   has_and_belongs_to_many :producers
   has_many :animelists
+  has_many :reviews
   markable_as :favorite
   markable_as :like
   markable_as :hate
