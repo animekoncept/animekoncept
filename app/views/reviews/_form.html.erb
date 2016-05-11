@@ -1,0 +1,16 @@
+<div class="review">
+  <div class="row">
+    <%= simple_form_for [@anime, @review] do |f| %>
+      <div class="large-2 columns"><%= f.input :story, collection: 1..10, as: :radio_buttons %></div>
+      <div class="large-2 columns"><%= f.input :art, collection: 1..10, as: :radio_buttons %></div>
+      <div class="large-2 columns"><%= f.input :sound, collection: 1..10, as: :radio_buttons %></div>
+      <div class="large-2 columns"><%= f.input :character, collection: 1..10, as: :radio_buttons %></div>
+      <div class="large-2 columns"><%= f.input :enjoyment, collection: 1..10, as: :radio_buttons %></div>
+      <div class="large-2 columns"><%= f.input :overall, collection: 1..10, as: :radio_buttons %></div>
+      <div class="large-12 columns">
+        <%= f.input :content %>
+      </div>
+      <%= f.submit "Review", class: 'button' %>
+    <% end %>
+  </div>
+</div>
