@@ -7,7 +7,7 @@ class AnimesController < ApplicationController
   def show
     @anime = Anime.find params[:id]
     @anime.punch(request)
-    @reviews = @anime.reviews
+    @reviews = @anime.reviews.limit(4).order("created_at desc")
     if user_signed_in?
       @animelist = current_user.animelists.new
     end
