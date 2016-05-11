@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510021410) do
+ActiveRecord::Schema.define(version: 20160511025546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -255,6 +255,20 @@ ActiveRecord::Schema.define(version: 20160510021410) do
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "story"
+    t.integer  "art"
+    t.integer  "sound"
+    t.integer  "character"
+    t.integer  "enjoyment"
+    t.integer  "overall"
+    t.integer  "user_id"
+    t.integer  "anime_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
