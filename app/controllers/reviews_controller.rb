@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find params[:id]
+    @anime = @review.anime
   end
   def new
     @anime = Anime.find params[:anime_id]

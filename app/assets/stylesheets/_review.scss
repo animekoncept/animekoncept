@@ -1,0 +1,25 @@
+.review {
+  margin-top: 15px;
+  .cover-image {
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  .anime-name, h3 {
+    font-family: ProximaNovaLight;
+  }
+  .score {
+    background-color: $white;
+  }
+  .content {
+    background-color: $white;
+    padding: 5px 15px 5px 15px;
+  }
+  .like {
+    .button {
+      background-color: $red;
+      font-size: 1em;
+    }
+  }
+}

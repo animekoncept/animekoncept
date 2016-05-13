@@ -1,14 +1,120 @@
 <div class="review">
   <div class="row">
-    <div class="large-12 columns">
-      <div class="large-2 columns">Story rating: <%= @review.story %></div>
-      <div class="large-2 columns">Art rating: <%= @review.art %></div>
-      <div class="large-2 columns">Sound rating: <%= @review.sound %></div>
-      <div class="large-2 columns">Character rating: <%= @review.character %></div>
-      <div class="large-2 columns">Enjoyment rating: <%= @review.enjoyment %></div>
-      <div class="large-2 columns">Overall rating: <%= @review.overall %></div>
+    <div class="large-3 columns">
+      <div class="cover-image">
+        <%= link_to image_tag(@anime.cover_image), anime_path(@anime) %>
+      </div>
+      <div class="anime-name">
+        <h3 class="text-center"><%= @anime.name %></h3>
+      </div>
+      <div class="like">
+        <%= link_to do %>
+          <div class="button expanded"><i class="fa fa-heart"></i> Love the review</div>
+        <% end %>
+      </div>
+    </div>
+    <div class="large-9 columns score">
+      <div class="large-2 columns text-center", id="circle1">Story</div>
+      <div class="large-2 columns text-center" id="circle2">Art</div>
+      <div class="large-2 columns text-center" id="circle3">Sound</div>
+      <div class="large-2 columns text-center" id="circle4">Character</div>
+      <div class="large-2 columns text-center" id="circle5">Enjoyment</div>
+      <div class="large-2 columns text-center" id="circle6">Overall</div>
       <hr>
-      <p><%= simple_format(@review.content) %></p>
+      <div class="content">
+        <p><%= simple_format(@review.content) %></p>
+      </div>
     </div>
   </div>
 </div>
+
+
+<script>
+$( document ).ready(function() {
+    $("#circle1").circliful({
+      animationStep: 5,
+      foregroundBorderWidth: 5,
+      backgroundBorderWidth: 15,
+      animationStep: 5,
+      percent: '<%= (@review.story * 10).round(1) %>',
+      iconColor: '#3498DB',
+      icon: 'f004',
+      iconSize: '40',
+      iconPosition: 'middle',
+      backgroundColor: '#282c37',
+      foregroundColor: '#F95300',
+      iconColor: '#ea5a5a',
+      fontColor: '#0000',
+  });
+  $("#circle2").circliful({
+    animationStep: 5,
+    foregroundBorderWidth: 5,
+    backgroundBorderWidth: 15,
+    percent: '<%= (@review.art * 10).round(1) %>',
+    iconColor: '#3498DB',
+    icon: 'f004',
+    iconSize: '40',
+    iconPosition: 'middle',
+    backgroundColor: '#282c37',
+    foregroundColor: '#F95300',
+    iconColor: '#ea5a5a',
+    fontColor: '#0000',
+  });
+  $("#circle3").circliful({
+    animationStep: 5,
+    foregroundBorderWidth: 5,
+    backgroundBorderWidth: 15,
+    percent: '<%= (@review.sound * 10).round(1) %>',
+    iconColor: '#3498DB',
+    icon: 'f004',
+    iconSize: '40',
+    iconPosition: 'middle',
+    backgroundColor: '#282c37',
+    foregroundColor: '#F95300',
+    iconColor: '#ea5a5a',
+    fontColor: '#0000',
+  });
+  $("#circle4").circliful({
+    animationStep: 5,
+    foregroundBorderWidth: 5,
+    backgroundBorderWidth: 15,
+    percent: '<%= (@review.character * 10).round(1) %>',
+    iconColor: '#3498DB',
+    icon: 'f004',
+    iconSize: '40',
+    iconPosition: 'middle',
+    backgroundColor: '#282c37',
+    foregroundColor: '#F95300',
+    iconColor: '#ea5a5a',
+    fontColor: '#0000',
+  });
+  $("#circle5").circliful({
+    animationStep: 5,
+    foregroundBorderWidth: 5,
+    backgroundBorderWidth: 15,
+    percent: '<%= (@review.enjoyment * 10).round(1) %>',
+    iconColor: '#3498DB',
+    icon: 'f004',
+    iconSize: '40',
+    iconPosition: 'middle',
+    backgroundColor: '#282c37',
+    foregroundColor: '#F95300',
+    iconColor: '#ea5a5a',
+    fontColor: '#0000',
+  });
+  $("#circle6").circliful({
+    animationStep: 5,
+    foregroundBorderWidth: 5,
+    backgroundBorderWidth: 15,
+    percent: '<%= (@review.overall * 10).round(1) %>',
+    iconColor: '#3498DB',
+    icon: 'f004',
+    iconSize: '40',
+    iconPosition: 'middle',
+    backgroundColor: '#282c37',
+    foregroundColor: '#F95300',
+    iconColor: '#ea5a5a',
+    fontColor: '#0000',
+  });
+});
+</script>
