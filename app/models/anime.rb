@@ -28,6 +28,7 @@
   validates_presence_of :aired_on
   validates_presence_of :ended_on
   validates_presence_of :duration
+  validates_uniqueness_of :name, :case_sensitive => false
 
   belongs_to :season
   has_and_belongs_to_many :genres
