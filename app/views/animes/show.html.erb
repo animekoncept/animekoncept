@@ -16,9 +16,9 @@
         <%= image_tag "",
             data: {
               interchange: "
-              [#{@anime.cover_image.url(:large)}, small],
-              [#{@anime.cover_image.url(:large)}, medium],
-              [#{@anime.cover_image.url(:large)}, large]
+              [#{@anime.cover_image_file_name}, small],
+              [#{@anime.cover_image_file_name}, medium],
+              [#{@anime.cover_image_file_name}, large]
               "
             }
         %>
@@ -45,13 +45,13 @@
           Aired: <%= @anime.aired_on.strftime("%b %d, %Y") %>,
         </li>
         <li class="ended">
-          Ended: <%= @anime.ended_on.strftime("%b %d, %Y") %>,
+          Ended: <%# @anime.ended_on.strftime("%b %d, %Y") %>,
         </li>
         <li class="duration">
           Duration: <%= @anime.duration %>,
         </li>
         <li class="season">
-          Season: <%= @anime.season.name %>
+          Season: <%#= @anime.season.name %>
         </li>
       </ul>
       <hr>
