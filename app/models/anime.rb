@@ -43,13 +43,13 @@
 
   searchkick fields: ["name^10"]
 
-  def search_data
-    attributes.merge(
+  #def search_data
+  #  attributes.merge(
       #season_name:  season.name,
-      aired_on:     aired_on.strftime("%Y")
+  #    aired_on:     aired_on.strftime("%Y")
       #genres:       genres.map(&:name)
-    )
-  end
+  #  )
+  #end
 
 
 
@@ -78,5 +78,5 @@
   validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\Z/
 
   has_attached_file :header_image, styles: { large: "1920x600#", medium: "1920x850#" }
-  validates_attachment_content_type :header_image, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :header_image, content_type: { content_type: "image/jpeg" }
 end

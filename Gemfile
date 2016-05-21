@@ -49,6 +49,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem "punching_bag"
 
+gem "mechanize"
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4'

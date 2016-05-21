@@ -1,0 +1,26 @@
+---
+:User:
+  :avatar:
+  - :large
+  - :medium
+  - :thumb
+  :header_image:
+  - :large
+  - :medium
+  - :small
+:Anime:
+  :cover_image:
+  - :large
+  - :medium
+  - :thumb
+  :header_image:
+  - :large
+  - :medium
+:Category:
+  :header_image:
+  - :large
+  - :medium
+:Event:
+  :header_image:
+  - :large
+  - :medium
