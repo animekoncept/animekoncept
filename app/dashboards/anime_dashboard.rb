@@ -25,6 +25,8 @@ class AnimeDashboard < Administrate::BaseDashboard
     crunchyroll: Field::String,
     official_site: Field::String,
     wiki: Field::String,
+    type_of: Field::String,
+    mal_id: Field::Number,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -43,6 +45,8 @@ class AnimeDashboard < Administrate::BaseDashboard
     :crunchyroll,
     :official_site,
     :wiki,
+    :type_of,
+    :mal_id,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -67,6 +71,8 @@ class AnimeDashboard < Administrate::BaseDashboard
     :crunchyroll,
     :official_site,
     :wiki,
+    :type_of,
+    :mal_id,
   ]
 
   # Overwrite this method to customize how animes are displayed

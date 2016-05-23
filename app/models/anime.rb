@@ -26,6 +26,7 @@
   validates_presence_of :name
   validates_presence_of :synopsis
   validates_presence_of :aired_on
+  validates_presence_of :mal
   #validates_presence_of :ended_on
   #validates_presence_of :duration
   validates_uniqueness_of :name, :case_sensitive => false
@@ -74,8 +75,8 @@
     end
   end
 
-  #has_attached_file :cover_image, styles: { large: "200x288#", medium: "162x230#", thumb: "100x100#" }
-  #validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\Z/
+  has_attached_file :cover_image, styles: { large: "200x288#", medium: "162x230#", thumb: "100x100#" }
+  validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\Z/
 
   has_attached_file :header_image, styles: { large: "1920x600#", medium: "1920x850#" }
   validates_attachment_content_type :header_image, content_type: /\Aimage\/.*\Z/
