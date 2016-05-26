@@ -48,15 +48,19 @@ ActiveRecord::Schema.define(version: 20160511025546) do
   add_index "animelists", ["user_id"], name: "index_animelists_on_user_id", using: :btree
 
   create_table "animes", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
+    t.string   "english"
+    t.string   "japanese"
     t.text     "synopsis"
     t.date     "aired_on"
     t.date     "ended_on"
-    t.string   "duration"
+    t.integer  "duration"
+    t.string   "type_of"
+    t.integer  "episodes"
+    t.string   "rating"
     t.string   "crunchyroll"
     t.string   "official_site"
     t.string   "wiki"
-    t.string   "type_of"
     t.integer  "mal_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
