@@ -12,9 +12,9 @@
                 <%= link_to image_tag("",
                   data: {
                     interchange: "
-                    [#{anime.cover_image_file_name}, small]
-                    [#{anime.cover_image_file_name}, medium],
-                    [#{anime.cover_image_file_name}, large]
+                    [#{anime.cover_image.url(:medium)}, small]
+                    [#{anime.cover_image.url(:large)}, medium],
+                    [#{anime.cover_image.url(:large)}, large]
                     "
                   }), anime
                  %>

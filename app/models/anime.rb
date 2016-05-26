@@ -26,7 +26,7 @@
   validates_presence_of :name
   validates_presence_of :synopsis
   validates_presence_of :aired_on
-  validates_presence_of :mal
+  validates_presence_of :mal_id
   #validates_presence_of :ended_on
   #validates_presence_of :duration
   validates_uniqueness_of :name, :case_sensitive => false
