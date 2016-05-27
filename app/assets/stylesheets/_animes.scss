@@ -8,9 +8,9 @@
 
   .off-canvas.position-left {
     height: 100%;
-    top: 100px;
     background-color: $dark-gray;
     color: $white;
+    position: absolute;
     .browse-anime {
       text-align: center;
       font-family: ProximaNovaRegular;
