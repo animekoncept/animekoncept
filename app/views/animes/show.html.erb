@@ -35,26 +35,37 @@
     </div>
     <div class="small-12 medium-6 large-7 columns middle">
       <h1 class="anime-title"><%= @anime.title %></h1>
+      <h5 class="anime-japanese"><%= @anime.japanese %></h5>
       <ul class="menu genres">
         <% @anime.genres.each do |genre| %>
           <li class="secondary label"><%= genre.name %></li>
         <% end %>
       </ul>
       <ul class="menu details">
+        <li class="english">
+          English: <%= @anime.english %>
+        </li>
         <li class="aired">
           Aired: <%= @anime.aired_on.strftime("%b %d, %Y") %>,
         </li>
         <li class="ended">
-          Ended: <%# @anime.ended_on.strftime("%b %d, %Y") %>,
+          Ended: <%= @anime.ended_on.strftime("%b %d, %Y") %>,
         </li>
         <li class="duration">
           Duration: <%= @anime.duration %>,
         </li>
+        <li class="episodes">
+        Episodes: <%= @anime.episodes %>
+        </li>
+        <br>
         <li class="season">
           Season: <%#= @anime.season.name %>
         </li>
         <li class:"type_of">
           Type of: <%= @anime.type_of %>
+        </li>
+        <li class:"rating">
+          Rating: <%= @anime.rating %>
         </li>
       </ul>
       <hr>

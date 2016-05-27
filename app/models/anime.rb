@@ -23,13 +23,13 @@
   include PublicActivity::Common
   #tracked owner: ->{ |controller, model| controller.current_user }
 
-  validates_presence_of :name
-  validates_presence_of :synopsis
-  validates_presence_of :aired_on
-  validates_presence_of :mal_id
+  validates_presence_of :title
+  #validates_presence_of :synopsis
+  #validates_presence_of :aired_on
+  #validates_presence_of :mal_id
   #validates_presence_of :ended_on
   #validates_presence_of :duration
-  validates_uniqueness_of :name, :case_sensitive => false
+  validates_uniqueness_of :title, :case_sensitive => false
 
   belongs_to :season
   has_and_belongs_to_many :genres
@@ -67,7 +67,7 @@
   end
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :title, use: :slugged
 
   def slug=(value)
     if value.present?

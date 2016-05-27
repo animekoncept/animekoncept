@@ -4,6 +4,17 @@ task :fetch_mal_info => :environment do
   require "open-uri"
   require 'mechanize'
 
+
+
+  english = []
+  japanese = []
+  type_of = []
+  episodes = []
+  aired_on = []
+  ended_on = []
+  duration = []
+  rating = []
+  synopsis = []
   Anime.all.each do |anime|
     agent = Mechanize.new
     url   = "http://myanimelist.net/anime/#{anime.mal_id}/#{CGI.escape(anime.slug)}"
@@ -11,69 +22,89 @@ task :fetch_mal_info => :environment do
 
 
 
-    cover_image = doc.at("td.borderClass a img")['src']
-    english     = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit_pad:contains("English")').text.split(' ')[1..-1]
-    japanese    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit_pad:contains("Japanese")').text.split(' ')[1..-1]
-    type_of     = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Type")').text.split(' ')[1..-1]
-    episodes    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Episodes")').text.split(' ')[1..-1]
-    aired_on    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Aired")').text.split(' ')[1..3]
-    ended_on    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Aired")').text.split(' ')[5..-1]
-    duration    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Duration")').text.split(' ')[1..1]
-    rating      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Rating")').text.split(' ')[1..-1]
-    synopsis    = doc.css('span[itemprop="description"]').text
+    cover_image        = doc.at("td.borderClass a img")['src']
+    english_scrape     = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit_pad:contains("English")').text.split(' ')[1..-1]
+    japanese_scrape    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit_pad:contains("Japanese")').text.split(' ')[1..-1]
+    type_of_scrape     = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Type")').text.split(' ')[1..-1]
+    episodes_scrape    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Episodes")').text.split(' ')[1..-1]
+    aired_on_scrape    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Aired")').text.split(' ')[1..3]
+    ended_on_scrape    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Aired")').text.split(' ')[5..-1]
+    duration_scrape    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Duration")').text.split(' ')[1..1]
+    rating_scrape      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Rating")').text.split(' ')[1..-1]
+    synopsis           = doc.css('span[itemprop="description"]').text
 
-    puts synopsis
 
-  if false
-    if english.blank?
-      puts "blank"
+
+
+
+
+
+    if english_scrape.blank?
+      english = ""
     else
-      puts english.join(' ')
+      english = english_scrape.join(' ')
     end
 
-    if japanese.blank?
-      puts "blank"
+    if japanese_scrape.blank?
+      japanese =  ""
     else
-      puts japanese.join(' ')
+      japanese = japanese_scrape.join(' ')
     end
 
-    if type_of.blank?
-      puts "blank"
+    if type_of_scrape.blank?
+      type_of =  ""
     else
-      puts type_of.join(' ')
+      type_of = type_of_scrape.join(' ')
     end
 
-    if episodes.blank?
-      puts "blank"
+    if episodes_scrape.blank?
+      episodes = ""
     else
-      puts episodes.join(' ')
+      episodes = episodes_scrape.join(' ')
     end
 
-    if ended_on.blank?
-      puts = "none"
+
+    if ended_on_scrape.blank?
+      ended_on = Date.parse("11/11/1111")
+    elsif ended_on_scrape.include?("Not available")
+      ended_on = Date.parse("11/11/1111")
+    elsif ended_on_scrape.include?("?")
+      ended_on = Date.parse("11/11/1111")
     else
-      puts ended_on.join(' ')
+      ended_date = ended_on_scrape.join(' ')
+      ended_on = Date.parse(ended_date)
     end
 
-    if aired_on.blank?
-      puts = "none"
+
+    aired_date = aired_on_scrape.join(' ')
+    if aired_date.include?("Not available")
+      aired_on = Date.parse("11/11/1111")
     else
-      puts aired_on.join(' ')
+      aired_on = Date.parse(aired_date)
     end
 
-    if duration.blank?
-      duration = "none"
+    if rating_scrape.blank?
+      rating = ""
     else
-      puts duration.join(' ')
+      rating = rating_scrape.join(' ')
     end
 
-    if rating.blank?
-      rating = "none"
+    if duration_scrape.blank?
+      duration = ""
     else
-      puts rating.join(' ')
+      duration = duration_scrape.join('')
     end
-  end
 
-    #anime.update_attribute(:cover_image, cover_image)
+
+    anime.update_attribute(:cover_image, cover_image)
+    anime.update_attribute(:english,     english)
+    anime.update_attribute(:japanese,   japanese)
+    anime.update_attribute(:type_of,     type_of)
+    anime.update_attribute(:episodes,    episodes)
+    anime.update_attribute(:aired_on,    aired_on)
+    anime.update_attribute(:ended_on,    ended_on)
+    anime.update_attribute(:duration,    duration)
+    anime.update_attribute(:rating,      rating)
+    anime.update_attribute(:synopsis,    synopsis)
   end
 end
