@@ -44,13 +44,13 @@
 
   searchkick fields: ["name^10"]
 
-  #def search_data
-  #  attributes.merge(
+  def search_data
+    attributes.merge(
       #season_name:  season.name,
-  #    aired_on:     aired_on.strftime("%Y")
+      aired_on:     aired_on.strftime("%Y")
       #genres:       genres.map(&:name)
-  #  )
-  #end
+    )
+  end
 
 
 
