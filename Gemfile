@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby  "2.2.2"
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
@@ -50,6 +50,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "punching_bag"
 
 gem "mechanize"
+
+gem "chronic"
 
 group :development, :test do
   gem 'byebug'

@@ -46,10 +46,10 @@
           English: <%= @anime.english %>
         </li>
         <li class="aired">
-          Aired: <%= @anime.aired_on.strftime("%b %d, %Y") %>,
+          Aired: <%= @anime.aired_on.strftime("%b %d, %Y") unless @anime.aired_on == nil  %>,
         </li>
         <li class="ended">
-          Ended: <%= @anime.ended_on.strftime("%b %d, %Y") %>,
+          Ended: <%= @anime.ended_on.strftime("%b %d, %Y") unless @anime.ended_on == nil %>,
         </li>
         <li class="duration">
           Duration: <%= @anime.duration %>,

@@ -84,6 +84,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chronic (0.10.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -363,6 +364,7 @@ DEPENDENCIES
   byebug
   cancancan (~> 1.10)
   capybara (~> 2.5)
+  chronic
   coffee-rails (~> 4.1.0)
   database_cleaner (~> 1.5)
   devise

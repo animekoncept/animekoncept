@@ -3,6 +3,7 @@ task :fetch_mal_info => :environment do
   require "nokogiri"
   require "open-uri"
   require 'mechanize'
+  require 'chronic'
 
 
 
@@ -10,8 +11,8 @@ task :fetch_mal_info => :environment do
   japanese = []
   type_of = []
   episodes = []
-  aired_on = []
-  ended_on = []
+  #aired_on = []
+  #ended_on = []
   duration = []
   rating = []
   synopsis = []
@@ -22,20 +23,22 @@ task :fetch_mal_info => :environment do
 
 
 
-    cover_image        = doc.at("td.borderClass a img")['src']
+    cover_image_scrape = doc.at("td.borderClass a img")
     english_scrape     = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit_pad:contains("English")').text.split(' ')[1..-1]
     japanese_scrape    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit_pad:contains("Japanese")').text.split(' ')[1..-1]
     type_of_scrape     = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Type")').text.split(' ')[1..-1]
     episodes_scrape    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Episodes")').text.split(' ')[1..-1]
-    aired_on_scrape    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Aired")').text.split(' ')[1..3]
+    aired_on_scrape    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Aired")').text.split(' ')[1..3].join(' ')
     ended_on_scrape    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Aired")').text.split(' ')[5..-1]
     duration_scrape    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Duration")').text.split(' ')[1..1]
     rating_scrape      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Rating")').text.split(' ')[1..-1]
     synopsis           = doc.css('span[itemprop="description"]').text
 
-
-
-
+    if cover_image_scrape.blank?
+      cover_image = nil
+    else
+      cover_image = cover_image_scrape['src']
+    end
 
 
 
@@ -63,25 +66,11 @@ task :fetch_mal_info => :environment do
       episodes = episodes_scrape.join(' ')
     end
 
+    aired_date = Chronic.parse(aired_on_scrape)
+    aired_on = aired_date
 
-    if ended_on_scrape.blank?
-      ended_on = Date.parse("11/11/1111")
-    elsif ended_on_scrape.include?("Not available")
-      ended_on = Date.parse("11/11/1111")
-    elsif ended_on_scrape.include?("?")
-      ended_on = Date.parse("11/11/1111")
-    else
-      ended_date = ended_on_scrape.join(' ')
-      ended_on = Date.parse(ended_date)
-    end
-
-
-    aired_date = aired_on_scrape.join(' ')
-    if aired_date.include?("Not available")
-      aired_on = Date.parse("11/11/1111")
-    else
-      aired_on = Date.parse(aired_date)
-    end
+    ended_date = Chronic.parse(ended_on_scrape)
+    ended_on = ended_date
 
     if rating_scrape.blank?
       rating = ""
