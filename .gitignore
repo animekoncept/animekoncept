@@ -13,3 +13,7 @@
 /tmp
 /coverage
 .DS_Store
+/public/system/animes
+/public/system/categories
+/public/system/events
+/public/system/users
