@@ -1,7 +1,7 @@
 <div class=" animes off canvas-wrapper">
   <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
     <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
-      <%= render "facets" %>
+      <%#= render "facets" %>
     </div>
     <div class="off-canvas-content" data-off-canvas-content>
       <div class="anime-cover">
@@ -22,6 +22,7 @@
             </div>
           </div>
         <% end %>
+        <%= paginate @animes %>
       </div>
     </div>
   </div>

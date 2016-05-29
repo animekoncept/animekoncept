@@ -41,6 +41,7 @@
   markable_as :hate
 
   acts_as_punchable
+  paginates_per 54
 
   searchkick fields: ["name^10"]
 

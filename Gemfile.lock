@@ -376,6 +376,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   markable!
   mechanize
   pagedown-bootstrap-rails

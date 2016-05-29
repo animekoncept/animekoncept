@@ -1,7 +1,7 @@
 class AnimesController < ApplicationController
   def index
-    @animes = Anime.facets_search(params)
-
+    #@animes = Anime.facets_search(params).page params[:page]
+    @animes = Anime.order("ended_on DESC").page(params[:page]).per(42)
   end
 
   def show
