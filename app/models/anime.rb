@@ -43,7 +43,16 @@
   acts_as_punchable
   paginates_per 54
 
-  searchkick fields: ["name^10"]
+  include PgSearch
+
+
+
+
+
+
+
+
+  #searchkick fields: ["name^10"]
 
   #def search_data
   #  attributes.merge(
@@ -55,17 +64,17 @@
 
 
 
-  def self.facets_search(params)
-    query = params[:query].presence || "*"
-    conditions = {}
-    conditions[:aired_on] = params[:aired_on] if params[:aired_on].present?
-    conditions[:season_name] = params[:season_name] if params[:season_name].present?
-    conditions[:genres] = params[:genres] if params[:genres].present?
+  #def self.facets_search(params)
+  #  query = params[:query].presence || "*"
+  #  conditions = {}
+  #  conditions[:aired_on] = params[:aired_on] if params[:aired_on].present?
+  #  conditions[:season_name] = params[:season_name] if params[:season_name].present?
+  #  conditions[:genres] = params[:genres] if params[:genres].present?
 
-    animes = Anime.search query, where: conditions,
-      aggs: [:aired_on, :season_name, :genres]
-    animes
-  end
+  #  animes = Anime.search query, where: conditions,
+  #    aggs: [:aired_on, :season_name, :genres]
+  #  animes
+  #end
 
   extend FriendlyId
   friendly_id :title, use: :slugged
