@@ -14,9 +14,9 @@
     .browse-anime {
       text-align: center;
       font-family: ProximaNovaRegular;
-      font-size: 2.0em;
-      span {
-        font-family: ProximaNovaLight;
+      font-size: 1.1em;
+      a {
+        color: $white;
       }
     }
     .facets-nav {

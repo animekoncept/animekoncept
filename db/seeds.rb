@@ -16,3 +16,14 @@ Category.create(title: 'music')
 Category.create(title: 'recommendation')
 Category.create(title: 'dev')
 Category.create(title: 'creations')
+
+
+['action', 'adventure', 'cars', 'comedy', 'dementia', 'demons', 'drama',
+  'ecchi', 'fantasy', 'game', 'harem', 'hentai', 'historical', 'horror',
+  'josei', 'kids', 'magic', 'martial arts', 'mecha', 'military', 'music',
+  'mystery', 'parody', 'police', 'phychological', 'romance', 'samurai',
+  'school', 'sci-fi', 'seinen', 'shoujo', 'shoujo ai', 'shounen',
+  'shounen ai', 'slice of life', 'space', 'sports', 'super power',
+  'supernatural', 'thriller', 'vampire', 'yaoi', 'yuri'].each do |genre|
+    Genre.find_or_create_by({name: genre})
+  end
