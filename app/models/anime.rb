@@ -44,7 +44,7 @@
   paginates_per 54
 
   include PgSearch
-
+  pg_search_scope :search_title, :against => :title
 
 
 
