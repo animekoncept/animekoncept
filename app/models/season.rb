@@ -13,14 +13,14 @@ class Season < ActiveRecord::Base
 
   searchkick fields: ["name^10"]
 
-  validates_presence_of :name
+  validates_presence_of :title
 
   has_many :animes, :dependent => :destroy
 
   acts_as_punchable
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :title, use: :slugged
 
   def slug=(value)
     if value.present?

@@ -10,12 +10,12 @@
 #
 
 class Genre < ActiveRecord::Base
-  validates_presence_of :name
+  validates_presence_of :title
 
   has_and_belongs_to_many :animes, :dependent => :destroy
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :title, use: :slugged
 
   def slug=(value)
     if value.present?

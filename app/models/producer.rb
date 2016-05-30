@@ -11,10 +11,10 @@
 
 class Producer < ActiveRecord::Base
 
-  validates_presence_of :name
+  validates_presence_of :title
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :title, use: :slugged
 
   def slug=(value)
     if value.present?

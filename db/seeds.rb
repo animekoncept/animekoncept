@@ -1,6 +1,6 @@
 
 ['user', 'banned', 'moderator', 'admin'].each do |role|
-  Role.find_or_create_by({name: role})
+  Role.find_or_create_by({title: role})
 end
 
 Category.create(title: 'site news')
@@ -25,5 +25,5 @@ Category.create(title: 'creations')
   'school', 'sci-fi', 'seinen', 'shoujo', 'shoujo ai', 'shounen',
   'shounen ai', 'slice of life', 'space', 'sports', 'super power',
   'supernatural', 'thriller', 'vampire', 'yaoi', 'yuri'].each do |genre|
-    Genre.find_or_create_by({name: genre})
+    Genre.find_or_create_by({title: genre})
   end
