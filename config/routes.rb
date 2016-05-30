@@ -82,7 +82,7 @@ Rails.application.routes.draw do
   get 'animelist/:user_id' => 'animelists#show', as: 'animelist/user', path: 'animelist/:user_id'
 
 
-  resources :genres
+  resources :genres, path: "genre"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
