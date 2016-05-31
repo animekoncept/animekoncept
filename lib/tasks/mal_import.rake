@@ -69,8 +69,13 @@ task :fetch_mal_info => :environment do
     aired_date = Chronic.parse(aired_on_scrape)
     aired_on = aired_date
 
-    ended_date = Chronic.parse(ended_on_scrape)
-    ended_on = ended_date
+    if ended_on_scrape.blank?
+      ended_on = nil
+    else
+      date = ended_on_scrape.join(' ')
+      ended_date = Chronic.parse(date)
+      ended_on = ended_date
+    end
 
     if rating_scrape.blank?
       rating = ""
@@ -85,15 +90,15 @@ task :fetch_mal_info => :environment do
     end
 
 
-    anime.update_attribute(:cover_image, cover_image)
-    anime.update_attribute(:english,     english)
-    anime.update_attribute(:japanese,   japanese)
-    anime.update_attribute(:type_of,     type_of)
-    anime.update_attribute(:episodes,    episodes)
-    anime.update_attribute(:aired_on,    aired_on)
+    #anime.update_attribute(:cover_image, cover_image)
+    #anime.update_attribute(:english,     english)
+    #anime.update_attribute(:japanese,   japanese)
+    #anime.update_attribute(:type_of,     type_of)
+    #anime.update_attribute(:episodes,    episodes)
+    #anime.update_attribute(:aired_on,    aired_on)
     anime.update_attribute(:ended_on,    ended_on)
-    anime.update_attribute(:duration,    duration)
-    anime.update_attribute(:rating,      rating)
-    anime.update_attribute(:synopsis,    synopsis)
+    #anime.update_attribute(:duration,    duration)
+    #anime.update_attribute(:rating,      rating)
+    #anime.update_attribute(:synopsis,    synopsis)
   end
 end
