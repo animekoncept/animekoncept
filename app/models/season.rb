@@ -11,7 +11,7 @@
 
 class Season < ActiveRecord::Base
 
-  searchkick fields: ["name^10"]
+  #searchkick fields: ["name^10"]
 
   validates_presence_of :title
 

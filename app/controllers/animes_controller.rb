@@ -2,8 +2,9 @@ class AnimesController < ApplicationController
   def index
     #@animes = Anime.facets_search(params).page params[:page]
     @animes = Anime.order("ended_on DESC").page(params[:page]).per(42)
-    @genres = Genre.all.order(:name)
+    @genres = Genre.all.order(:title)
     @anime_year = Anime.all
+    @seasons = Season.all
   end
 
   def show

@@ -10,7 +10,7 @@ class RoleDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     users: Field::HasMany,
     id: Field::Number,
-    name: Field::String,
+    title: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }
@@ -23,7 +23,7 @@ class RoleDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :users,
     :id,
-    :name,
+    :title,
     :created_at,
   ]
 
@@ -36,7 +36,7 @@ class RoleDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :users,
-    :name,
+    :title,
   ]
 
   # Overwrite this method to customize how roles are displayed

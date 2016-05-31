@@ -10,7 +10,7 @@ class SeasonDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     animes: Field::HasMany,
     id: Field::Number,
-    name: Field::String,
+    title: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     slug: Field::String,
@@ -24,7 +24,7 @@ class SeasonDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :animes,
     :id,
-    :name,
+    :title,
     :created_at,
   ]
 
@@ -37,7 +37,7 @@ class SeasonDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :animes,
-    :name,
+    :title,
     :slug,
   ]
 

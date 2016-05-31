@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20160511025546) do
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
     t.text     "description"
     t.string   "location"
     t.date     "starts_on"
@@ -132,7 +132,7 @@ ActiveRecord::Schema.define(version: 20160511025546) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "genres", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
@@ -171,7 +171,7 @@ ActiveRecord::Schema.define(version: 20160511025546) do
   end
 
   create_table "producers", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
@@ -206,13 +206,13 @@ ActiveRecord::Schema.define(version: 20160511025546) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "seasons", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"

@@ -3,6 +3,12 @@
     <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
       <%#= render "facets" %>
       <div class="browse-anime">
+        <div class="seasons">
+          <h3>Seasons</h3>
+          <% @seasons.each do |season| %>
+            <%= season.title %>
+          <% end %>
+        </div>
         <div class="genre">
           <h3>Genres</h3>
           <% @genres.each do |genre| %>
