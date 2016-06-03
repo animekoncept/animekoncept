@@ -19,7 +19,6 @@ class AnimeDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     slug: Field::String,
-    season_id: Field::Number,
     cover_image: PaperclipField,
     header_image: PaperclipField,
     crunchyroll: Field::String,
@@ -27,6 +26,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     wiki: Field::String,
     type_of: Field::String,
     mal_id: Field::Number,
+    season: Field::BelongsTo
   }
 
   # COLLECTION_ATTRIBUTES
@@ -47,6 +47,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :wiki,
     :type_of,
     :mal_id,
+    :season
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -73,6 +74,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :wiki,
     :type_of,
     :mal_id,
+    :season
   ]
 
   # Overwrite this method to customize how animes are displayed

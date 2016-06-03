@@ -16,6 +16,7 @@ task :fetch_mal_info => :environment do
   duration = []
   rating = []
   synopsis = []
+  genre = []
   Anime.all.each do |anime|
     agent = Mechanize.new
     url   = "http://myanimelist.net/anime/#{anime.mal_id}/#{CGI.escape(anime.slug)}"
@@ -33,14 +34,15 @@ task :fetch_mal_info => :environment do
     duration_scrape    = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Duration")').text.split(' ')[1..1]
     rating_scrape      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Rating")').text.split(' ')[1..-1]
     synopsis           = doc.css('span[itemprop="description"]').text
+    season_scrape      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Premiered")').text.split(' ')[1..-1]
+    genre_scrape       = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Genres")').text.split(' ')[1..-1]
+
 
     if cover_image_scrape.blank?
       cover_image = nil
     else
       cover_image = cover_image_scrape['src']
     end
-
-
 
     if english_scrape.blank?
       english = ""
@@ -86,7 +88,18 @@ task :fetch_mal_info => :environment do
     if duration_scrape.blank?
       duration = ""
     else
-      duration = duration_scrape.join('')
+      duration = duration_scrape.join(' ')
+    end
+
+    if season_scrape.blank?
+      season = ""
+    else
+      season = season_scrape.join(' ')
+    end
+    if genre_scrape.blank?
+      genre = ""
+    else
+      genre = genre_scrape.join(' ')
     end
 
 
@@ -96,9 +109,11 @@ task :fetch_mal_info => :environment do
     #anime.update_attribute(:type_of,     type_of)
     #anime.update_attribute(:episodes,    episodes)
     #anime.update_attribute(:aired_on,    aired_on)
-    anime.update_attribute(:ended_on,    ended_on)
+    #anime.update_attribute(:ended_on,    ended_on)
     #anime.update_attribute(:duration,    duration)
     #anime.update_attribute(:rating,      rating)
     #anime.update_attribute(:synopsis,    synopsis)
+    #anime.update(:season_attributes => :title => season)
+    #anime.update(:season_attributes => {:title => genre})
   end
 end

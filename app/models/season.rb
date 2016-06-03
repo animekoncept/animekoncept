@@ -16,6 +16,7 @@ class Season < ActiveRecord::Base
   validates_presence_of :title
 
   has_many :animes, :dependent => :destroy
+  validates_uniqueness_of :title, :case_sensitive => false
 
   acts_as_punchable
 

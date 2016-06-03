@@ -40,13 +40,14 @@
   markable_as :like
   markable_as :hate
 
+  accepts_nested_attributes_for :season
+  accepts_nested_attributes_for :genres
+
   acts_as_punchable
   paginates_per 54
 
   include PgSearch
   pg_search_scope :search_title, :against => :title
-
-
 
 
 
