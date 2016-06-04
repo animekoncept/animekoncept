@@ -35,6 +35,7 @@ task :fetch_mal_info => :environment do
     rating_scrape      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Rating")').text.split(' ')[1..-1]
     synopsis           = doc.css('span[itemprop="description"]').text
     season_scrape      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Premiered")').text.split(' ')[1..-1]
+    season_text        = season_scrape.blank? ? "" : season_scrape.join(' ')
     genre_scrape       = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Genres")').text.split(' ')[1..-1]
 
 
@@ -91,11 +92,8 @@ task :fetch_mal_info => :environment do
       duration = duration_scrape.join(' ')
     end
 
-    if season_scrape.blank?
-      season = ""
-    else
-      season = season_scrape.join(' ')
-    end
+
+
     if genre_scrape.blank?
       genre = ""
     else
@@ -113,7 +111,7 @@ task :fetch_mal_info => :environment do
     #anime.update_attribute(:duration,    duration)
     #anime.update_attribute(:rating,      rating)
     #anime.update_attribute(:synopsis,    synopsis)
-    #anime.update(:season_attributes => :title => season)
-    #anime.update(:season_attributes => {:title => genre})
+    season = Season.where(title: season_text).first_or_create
+    anime.update(season: season)
   end
 end
