@@ -16,7 +16,6 @@ task :fetch_mal_info => :environment do
   duration = []
   rating = []
   synopsis = []
-  genre = []
   Anime.all.each do |anime|
     agent = Mechanize.new
     url   = "http://myanimelist.net/anime/#{anime.mal_id}/#{CGI.escape(anime.slug)}"
@@ -35,8 +34,10 @@ task :fetch_mal_info => :environment do
     rating_scrape      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Rating")').text.split(' ')[1..-1]
     synopsis           = doc.css('span[itemprop="description"]').text
     season_scrape      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Premiered")').text.split(' ')[1..-1]
-    season_text        = season_scrape.blank? ? "" : season_scrape.join(' ')
+    season_text        = season_scrape.blank? ? "No Date" : season_scrape.join(' ')
     genre_scrape       = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Genres")').text.split(' ')[1..-1]
+    genre_text         = genre_scrape.blank? ? "" : genre_scrape.join(' ')
+
 
 
     if cover_image_scrape.blank?
@@ -94,13 +95,6 @@ task :fetch_mal_info => :environment do
 
 
 
-    if genre_scrape.blank?
-      genre = ""
-    else
-      genre = genre_scrape.join(' ')
-    end
-
-
     #anime.update_attribute(:cover_image, cover_image)
     #anime.update_attribute(:english,     english)
     #anime.update_attribute(:japanese,   japanese)
@@ -111,7 +105,11 @@ task :fetch_mal_info => :environment do
     #anime.update_attribute(:duration,    duration)
     #anime.update_attribute(:rating,      rating)
     #anime.update_attribute(:synopsis,    synopsis)
+
     season = Season.where(title: season_text).first_or_create
     anime.update(season: season)
+
+    #genre = Genre.where(title: genre_text).first_or_create
+    #anime.update(genres: genre)
   end
 end

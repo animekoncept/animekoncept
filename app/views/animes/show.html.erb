@@ -59,7 +59,7 @@
         </li>
         <br>
         <li class="season">
-          Season: <%= link_to @anime.season.title, season_path(@anime.season.slug) unless @anime.season.title == nil %>
+          Season: <%= link_to @anime.season.title, season_path(@anime.season.slug) %>
         </li>
         <li class="type_of">
           Type of: <%= @anime.type_of %>
