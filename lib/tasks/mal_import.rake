@@ -40,9 +40,12 @@ task :fetch_mal_info => :environment do
     genre_text         = genre_scrape.blank? ? "" : genre_scrape
     genre = []
 
+    wiki_title = anime.slug.underscore.gsub(/[A-Za-z']+/,&:capitalize)
+    #wiki_url  = "https://en.wikipedia.org/wiki/#{wiki_title}"
+    anime.update(wiki: wiki_title)
 
 
-
+  if false
     if cover_image_scrape.blank?
       cover_image = nil
     else
@@ -119,6 +122,6 @@ task :fetch_mal_info => :environment do
     anime.update(season: season)
 
     anime.update(genres: genre)
-  
+  end
   end
 end

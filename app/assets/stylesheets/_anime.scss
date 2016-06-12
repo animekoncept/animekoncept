@@ -60,6 +60,12 @@
           font-family: ProximaNovaLight;
         }
       }
+      .genres {
+        a {
+          color: $white;
+          padding: 5px;
+        }
+      }
     }
     .right {
       .favorite {
