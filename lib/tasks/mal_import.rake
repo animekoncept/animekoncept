@@ -16,6 +16,7 @@ task :fetch_mal_info => :environment do
   duration = []
   rating = []
   synopsis = []
+  #genre = []
   Anime.all.each do |anime|
     agent = Mechanize.new
     url   = "http://myanimelist.net/anime/#{anime.mal_id}/#{CGI.escape(anime.slug)}"
@@ -36,14 +37,16 @@ task :fetch_mal_info => :environment do
     season_scrape      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Premiered")').text.split(' ')[1..-1]
     season_text        = season_scrape.blank? ? "No Date" : season_scrape.join(' ')
     genre_scrape       = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Genres")').text.split(' ')[1..-1]
-    genre_text         = genre_scrape.blank? ? "" : genre_scrape.join(' ')
+    genre_text         = genre_scrape.blank? ? "" : genre_scrape
+    genre = []
+
 
 
 
     if cover_image_scrape.blank?
       cover_image = nil
     else
-      cover_image = cover_image_scrape['src']
+      cover_image = cover_image_scrape['data-src']
     end
 
     if english_scrape.blank?
@@ -93,23 +96,29 @@ task :fetch_mal_info => :environment do
       duration = duration_scrape.join(' ')
     end
 
+    genre_text.each do |g|
+      genres = g.gsub(/\,/,"")
+      genre << Genre.where(title: genres).first_or_create do |genre|
+        genre
+      end
+    end
 
 
-    #anime.update_attribute(:cover_image, cover_image)
-    #anime.update_attribute(:english,     english)
-    #anime.update_attribute(:japanese,   japanese)
-    #anime.update_attribute(:type_of,     type_of)
-    #anime.update_attribute(:episodes,    episodes)
-    #anime.update_attribute(:aired_on,    aired_on)
-    #anime.update_attribute(:ended_on,    ended_on)
-    #anime.update_attribute(:duration,    duration)
-    #anime.update_attribute(:rating,      rating)
-    #anime.update_attribute(:synopsis,    synopsis)
+    anime.update_attribute(:cover_image, cover_image)
+    anime.update_attribute(:english,     english)
+    anime.update_attribute(:japanese,   japanese)
+    anime.update_attribute(:type_of,     type_of)
+    anime.update_attribute(:episodes,    episodes)
+    anime.update_attribute(:aired_on,    aired_on)
+    anime.update_attribute(:ended_on,    ended_on)
+    anime.update_attribute(:duration,    duration)
+    anime.update_attribute(:rating,      rating)
+    anime.update_attribute(:synopsis,    synopsis)
 
     season = Season.where(title: season_text).first_or_create
     anime.update(season: season)
 
-    #genre = Genre.where(title: genre_text).first_or_create
-    #anime.update(genres: genre)
+    anime.update(genres: genre)
+  
   end
 end

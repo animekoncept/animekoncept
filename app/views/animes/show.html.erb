@@ -38,7 +38,7 @@
       <h5 class="anime-japanese"><%= @anime.japanese %></h5>
       <ul class="menu genres">
         <% @anime.genres.each do |genre| %>
-          <li class="secondary label"><%= genre.name %></li>
+          <li class="secondary label"><%= genre.title %></li>
         <% end %>
       </ul>
       <ul class="menu details">

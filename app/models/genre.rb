@@ -11,8 +11,9 @@
 
 class Genre < ActiveRecord::Base
   validates_presence_of :title
-
+  #validates_uniqueness_of :title, :case_sensitive => false
   has_and_belongs_to_many :animes, :dependent => :destroy
+  accepts_nested_attributes_for :animes
 
   extend FriendlyId
   friendly_id :title, use: :slugged
