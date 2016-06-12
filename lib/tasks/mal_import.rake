@@ -41,8 +41,8 @@ task :fetch_mal_info => :environment do
     genre = []
 
     wiki_title = anime.slug.underscore.gsub(/[A-Za-z']+/,&:capitalize)
-    #wiki_url  = "https://en.wikipedia.org/wiki/#{wiki_title}"
-    anime.update(wiki: wiki_title)
+    wiki_url  = "https://en.wikipedia.org/wiki/#{wiki_title}"
+    anime.update(wiki: wiki_url)
 
 
   if false

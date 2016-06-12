@@ -30,7 +30,7 @@
         <%= link_to "Official site", "http://#{@anime.official_site}", target: "_blank" %>
       </div>
       <div class="wiki button expanded hide-for-small-only">
-        <%= link_to "Wiki", "https://en.wikipedia.org/wiki/#{@anime.wiki}", target: "_blank" %>
+        <%= link_to "Wiki", @anime.wiki, target: "_blank" %>
       </div>
     </div>
     <div class="small-12 medium-6 large-7 columns middle">
