@@ -39,10 +39,8 @@ task :fetch_mal_info => :environment do
     genre_scrape       = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Genres")').text.split(' ')[1..-1]
     genre_text         = genre_scrape.blank? ? "" : genre_scrape
     genre = []
-
     wiki_title = anime.slug.underscore.gsub(/[A-Za-z']+/,&:capitalize)
     wiki_url  = "https://en.wikipedia.org/wiki/#{wiki_title}"
-    anime.update(wiki: wiki_url)
 
 
   if false
@@ -117,11 +115,10 @@ task :fetch_mal_info => :environment do
     anime.update_attribute(:duration,    duration)
     anime.update_attribute(:rating,      rating)
     anime.update_attribute(:synopsis,    synopsis)
-
     season = Season.where(title: season_text).first_or_create
     anime.update(season: season)
-
     anime.update(genres: genre)
+    anime.update(wiki: wiki_url)
   end
   end
 end

@@ -208,6 +208,10 @@ GEM
     nenv (0.2.0)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
+    nikkou (0.0.4)
+      activesupport
+      nokogiri
+      tzinfo
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     normalize-rails (3.0.3)
@@ -383,6 +387,7 @@ DEPENDENCIES
   kaminari
   markable!
   mechanize
+  nikkou
   pagedown-bootstrap-rails
   paperclip (~> 4.3)
   pg (~> 0.15)

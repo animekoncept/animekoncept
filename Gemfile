@@ -57,6 +57,8 @@ gem 'kaminari'
 
 gem "pg_search"
 
+gem 'nikkou'
+
 
 group :development, :test do
   gem 'byebug'
