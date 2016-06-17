@@ -41,9 +41,22 @@ task :fetch_mal_info => :environment do
     genre = []
     wiki_title = anime.slug.underscore.gsub(/[A-Za-z']+/,&:capitalize)
     wiki_url  = "https://en.wikipedia.org/wiki/#{wiki_title}"
+    producer_scrape       = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Producer")').text.split(' ')[1..-1]
+    producer_text         = producer_scrape.blank? ? "" : producer_scrape
+    licensors_scrape      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Licensors")').text.split(' ')[1..-1]
+    licensors_text        = licensors_scrape.blank? ? "" : licensors_scrape
+    studios_scrape        = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Studios")').text.split(' ')[1..-1]
+    studios_text         = studios_scrape.blank? ? "" : studios_scrape
+    producer = []
+    licensor = []
+    studio = []
 
 
-  if false
+
+
+
+
+
     if cover_image_scrape.blank?
       cover_image = nil
     else
@@ -104,6 +117,27 @@ task :fetch_mal_info => :environment do
       end
     end
 
+    producer_text.each do |g|
+      producers = g.gsub(/\,/,"")
+      producer << Producer.where(title: producers).first_or_create do |producer|
+        producer
+      end
+    end
+
+    licensors_text.each do |g|
+      licensors = g.gsub(/\,/,"")
+      licensor << Producer.where(title: licensors).first_or_create do |licensor|
+        licensor
+      end
+    end
+
+    studios_text.each do |g|
+      studios = g.gsub(/\,/,"")
+      studio << Producer.where(title: studios).first_or_create do |studio|
+        studio
+      end
+    end
+
 
     anime.update_attribute(:cover_image, cover_image)
     anime.update_attribute(:english,     english)
@@ -119,6 +153,9 @@ task :fetch_mal_info => :environment do
     anime.update(season: season)
     anime.update(genres: genre)
     anime.update(wiki: wiki_url)
+    anime.update(producers: producer)
+    anime.update(producers: licensor)
+    anime.update(producers: studio)
   end
-  end
+
 end

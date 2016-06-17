@@ -85,6 +85,8 @@ Rails.application.routes.draw do
   resources :genres, path: "genre"
 
   resources :seasons, path: "season"
+
+  resources :producers, path: "producer"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

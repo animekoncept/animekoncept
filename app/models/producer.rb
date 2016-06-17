@@ -12,6 +12,8 @@
 class Producer < ActiveRecord::Base
 
   validates_presence_of :title
+  has_and_belongs_to_many :animes, :dependent => :destroy
+  accepts_nested_attributes_for :animes
 
   extend FriendlyId
   friendly_id :title, use: :slugged
@@ -21,6 +23,4 @@ class Producer < ActiveRecord::Base
       write_attribute(:slug, value)
     end
   end
-
-  has_and_belongs_to_many :animes
 end

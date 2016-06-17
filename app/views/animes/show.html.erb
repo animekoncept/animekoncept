@@ -59,13 +59,19 @@
         </li>
         <br>
         <li class="season">
-          Season: <%= link_to @anime.season.title, season_path(@anime.season.slug) %>
+          Season:<li><%= link_to @anime.season.title, season_path(@anime.season.slug) %></li>
         </li>
         <li class="type_of">
           Type of: <%= @anime.type_of %>
         </li>
         <li class="rating">
           Rating: <%= @anime.rating %>
+        </li>
+        <br>
+        <li class="producer">
+          Producers: <% @anime.producers.each do |producer| %>
+            <li><%= link_to producer.title, producer_path(producer) %></li>
+          <% end %>
         </li>
       </ul>
       <hr>
