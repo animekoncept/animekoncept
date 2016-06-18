@@ -8,20 +8,27 @@
 
   .off-canvas.position-left {
     height: 100%;
-    background-color: $dark-gray;
+    background-color: $black;
     color: $white;
     position: absolute;
     .browse-anime {
-      text-align: center;
       font-family: ProximaNovaRegular;
-      font-size: 1.1em;
-      a {
-        color: $white;
+      h4 {
+        text-align: center;
+        span {
+          font-family: ProximaNovaLight;
+        }
       }
-    }
-    .facets-nav {
-      a {
-        color: $light-gray;
+      .menu {
+        li {
+          font-size: 1.4em;
+          a {
+            color: $white;
+            &:hover {
+              color: $orange;
+            }
+          }
+        }
       }
     }
   }
