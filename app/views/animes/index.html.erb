@@ -5,7 +5,22 @@
       <div class="browse-anime">
         <h4 class="browse-anime">Browse <span>Anime</span></h4>
         <ul class="menu vertical">
-          <li><%= link_to "Seasons", seasons_path %></li>
+          <li>
+            <ul class="accordion" data-accordion data-allow-all-closed="true">
+              <li class="accordion-item " data-accordion-item>
+                <a href="#" class="accordion-title">Seasons</a>
+                <div class="accordion-content" data-tab-content>
+                  <%= link_to "Spring 2016", "/season/spring-2016" %>
+                  <br>
+                  <%= link_to "Summer 2016", "/season/summer-2016" %>
+                  <br>
+                  <%= link_to "Fall 2016", "/season/fall-2016" %>
+                  <br>
+                  <%= link_to "Winter 2016", "/season/winter-2016" %>
+                </div>
+              </li>
+            </ul>
+          </li>
           <li><a href="#">Popular</a></li>
           <li><a href="#">By Year</a></li>
           <li><%= link_to "Genre", genres_path %></li>

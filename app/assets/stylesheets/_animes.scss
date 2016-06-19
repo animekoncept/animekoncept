@@ -20,8 +20,24 @@
         }
       }
       .menu {
+        font-size: 1.4em;
         li {
-          font-size: 1.4em;
+          .accordion {
+            background: none;
+            border: none;
+            .accordion-title {
+              font-size: .9em;
+            }
+            a {
+              background: none;
+              &:hover {
+                background: none;
+              }
+            }
+          }
+          .accordion-content {
+            background-color: $dark-gray;
+          }
           a {
             color: $white;
             &:hover {
