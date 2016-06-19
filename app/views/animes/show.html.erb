@@ -43,7 +43,7 @@
       </ul>
       <ul class="menu details">
         <li class="english">
-          English: <%= @anime.english %>
+          English: <%= @anime.english %>,
         </li>
         <li class="aired">
           Aired: <%= @anime.aired_on.strftime("%b %d, %Y") unless @anime.aired_on == nil  %>,
@@ -51,18 +51,18 @@
         <li class="ended">
           Ended: <%= @anime.ended_on.strftime("%b %d, %Y") unless @anime.ended_on == nil %>,
         </li>
+        <br>
         <li class="duration">
           Duration: <%= @anime.duration %>,
         </li>
         <li class="episodes">
-        Episodes: <%= @anime.episodes %>
+        Episodes: <%= @anime.episodes %>,
         </li>
-        <br>
         <li class="season">
-          Season:<li><%= link_to @anime.season.title, season_path(@anime.season.slug) %></li>
+          Season: <span><%= link_to @anime.season.title, season_path(@anime.season.slug) %></span>,
         </li>
         <li class="type_of">
-          Type of: <%= @anime.type_of %>
+           Type of: <%= @anime.type_of %>.
         </li>
         <li class="rating">
           Rating: <%= @anime.rating %>
@@ -70,7 +70,7 @@
         <br>
         <li class="producer">
           Producers: <% @anime.producers.each do |producer| %>
-            <li><%= link_to producer.title, producer_path(producer) %></li>
+            <span><%= link_to producer.title, producer_path(producer) %></span>
           <% end %>
         </li>
       </ul>
