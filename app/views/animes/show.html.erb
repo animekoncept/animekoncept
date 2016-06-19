@@ -81,7 +81,7 @@
       <div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
         <%= render partial: 'favorite', locals: {anime: @anime} %>
       </div>
-      <div class="add-to-list button expanded">Add to list</div>
+      <!--<div class="add-to-list button expanded">Add to list</div>-->
       <h4>Reviews</h4>
       <%= link_to "Write a review", new_anime_review_path(@anime, @review), class: 'button expanded write-a-review' %>
       <div class="reviews">

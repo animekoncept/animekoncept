@@ -15,6 +15,22 @@
     <div class="off-canvas-content" data-off-canvas-content>
       <div class="anime-cover">
         <% @animes.each do |anime| %>
+          <div class="small-12 medium-6 large-6 columns">
+            <div class="anime-list">
+              <span data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover='false' tabindex=1 title="<%= anime.title %>">
+                <%= link_to image_tag("",
+                  data: {
+                    interchange: "
+                    [#{anime.header_image.url(:medium)}, medium],
+                    [#{anime.header_image.url(:medium)}, large]
+                    "
+                  }), anime
+                 %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+        <% @all_animes.each do |anime| %>
           <div class="small-6 medium-2 large-2 columns">
             <div class="anime-list">
               <span data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover='false' tabindex=1 title="<%= anime.title %>">
@@ -31,7 +47,7 @@
             </div>
           </div>
         <% end %>
-        <%= paginate @animes %>
+        <%= paginate @all_animes %>
       </div>
     </div>
   </div>
