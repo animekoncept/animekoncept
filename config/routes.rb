@@ -54,7 +54,7 @@ Rails.application.routes.draw do
       put 'unhate', to: 'animes#unhate'
     end
   end
-  get 'anime/popular', to: 'animes#popular'
+  get 'popular/anime', to: 'animes#popular'
 
   resources :categories, path: 'c' do
     resources :topics, path: 't'
