@@ -3,6 +3,7 @@ class AnimesController < ApplicationController
     #@animes = Anime.facets_search(params).page params[:page]
     @animes = Anime.order("aired_on desc").limit(2)
     @all_animes = Anime.where.not(id: @animes.map(&:id)).page(params[:page]).per(42)
+    @genres = Genre.all
   end
 
   def show

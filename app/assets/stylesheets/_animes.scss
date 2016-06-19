@@ -27,6 +27,7 @@
             border: none;
             .accordion-title {
               font-size: .9em;
+              border-bottom: none;
             }
             a {
               background: none;
@@ -37,6 +38,15 @@
           }
           .accordion-content {
             background-color: $dark-gray;
+          }
+          ul.genre {
+            .menu {
+              li {
+                a {
+                  font-size: .5em;
+                }
+              }
+            }
           }
           a {
             color: $white;

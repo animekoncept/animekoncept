@@ -23,7 +23,22 @@
           </li>
           <li><a href="#">Popular</a></li>
           <li><a href="#">By Year</a></li>
-          <li><%= link_to "Genre", genres_path %></li>
+          <li>
+            <ul class="accordion genre" data-accordion data-allow-all-closed="true">
+              <li class="accordion-item " data-accordion-item>
+                <a href="#" class="accordion-title">Genres</a>
+                <div class="accordion-content" data-tab-content>
+                  <ul class="menu vertical">
+                    <% @genres.each do |genre| %>
+                      <li>
+                        <%= link_to genre.title, genre_path(genre) %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
