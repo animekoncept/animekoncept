@@ -36,7 +36,11 @@
       <li><%= link_to "Events", user_events_path(@user) %></li>
       <li><%= link_to "Anime List" %></li>
       <li><%= link_to "Friends" %></li>
-      <li><%= render 'following' unless current_user == @user %></li>
+      <li>
+        <div id="user_<%= @user.id %>_following" class="favorite-button">
+        <%= render partial: 'users/following', locals: {user: @user} unless current_user == @user %>
+        </div>
+      </li>
     </ul>
     </div>
   </div>

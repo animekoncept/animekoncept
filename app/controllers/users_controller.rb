@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     current_user.mark_as_following @user
 
     respond_to do |format|
-      format.html {redirect_to @user}
+      format.html {redirect_to :back}
       format.js
     end
   end
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
     @user.unmark :following, :by => current_user
 
     respond_to do |format|
-      format.html {redirect_to @user}
+      format.html {redirect_to :back}
       format.js
     end
   end

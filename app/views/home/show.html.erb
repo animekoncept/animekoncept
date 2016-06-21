@@ -43,9 +43,19 @@
     <div class="who-to-follow">
       <h4>Who To Follow</h4>
       <% @users.each do |user| %>
-        <%= link_to image_tag(user.avatar.url(:thumb)), user %>
-        <%= user.username %>
-        <br>
+        <div class="media-object">
+          <div class="media-object-section align-self-center">
+            <div class="thumbnail">
+              <%= link_to image_tag(user.avatar.url(:thumb)), user_path(user) %>
+            </div>
+          </div>
+          <div class="media-object-section main-section">
+            <%= user.username %>
+            <div id="user_<%= user.id %>_following" class="favorite-button">
+              <%= render partial: 'users/following', locals: {user: user} %>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
     <div class="popular-topics">
