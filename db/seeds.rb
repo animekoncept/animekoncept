@@ -1,6 +1,6 @@
 
 ['user', 'banned', 'moderator', 'admin'].each do |role|
-  Role.find_or_create_by({title: role})
+  Role.where(title: role).first_or_create
 end
 
 User.create(username: "ImErot", email: "wesly@mezarina.me", password: "wisper11", role_id: 4)

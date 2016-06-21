@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     @activities = PublicActivity::Activity.order("created_at desc")
           .where(owner_id: @user.id, owner_type: "User")
+    @microposts = Micropost.where(user_id: current_user.following_users.ids + [current_user.id])
   end
 
   def forum

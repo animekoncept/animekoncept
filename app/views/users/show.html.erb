@@ -42,24 +42,25 @@
   </div>
   <div class="row">
     <div class="large-6 columns">
-      <div class="favorite-anime">
-        <h6 class="text-center">Favorite Anime</h6>
-        <% @user.animes_marked_as_favorite.limit(6).each do |anime| %>
-          <div class="large-4 columns">
-            <%= link_to image_tag(anime.cover_image.url(:medium)) %>
-            <h6><%= anime.title %></h6>
-          </div>
-        <% end %>
-      </div>
+      <h3>About <%= @user.username %></h3>
+      <p><%= @user.description %></p>
     </div>
     <div class="large-6 columns">
-      <div class="favorite-events">
-        <h6 class="text-center">Events attending</h6>
-        <% @user.events_marked_as_attending.limit(4).each do |event| %>
-          <div class="large-6 columns">
-            <%= link_to image_tag(event.header_image.url(:medium)) %>
-            <h6><%= event.name %></h6>
+      <div class="microposts">
+        <% @microposts.each do |micropost| %>
+          <div class="media-object">
+            <div class="media-object-section">
+              <div class="thumbnail">
+                <%= image_tag micropost.user.avatar.url(:thumb) %>
+              </div>
+            </div>
+            <div class="media-object-section">
+              <%= micropost.user.username %>
+              <p><%= markdown(micropost.content) %></p>
+              <%= render partial: 'microposts/like', locals: {micropost: micropost} unless current_user.id == micropost.user_id %>
+            </div>
           </div>
+          <hr>
         <% end %>
       </div>
     </div>
