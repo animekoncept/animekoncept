@@ -1,5 +1,5 @@
-<% if @user.marked_as_following? %>
-  <%= link_to "Unfollow", unfollow_user_path(@user), method: :put, remote: true, class: 'button small' %>
+<% if user.marked_as_following? %>
+  <%= link_to "Unfollow", unfollow_user_path(user), method: :put, remote: true, class: 'button small' %>
 <% else %>
- <%= link_to "follow", following_user_path(@user), method: :put, remote: true, class: 'button small' %>
+ <%= link_to "follow", following_user_path(user), method: :put, remote: true, class: 'button small' %>
 <% end %>
