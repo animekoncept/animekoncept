@@ -1,7 +1,7 @@
 class AnimesController < ApplicationController
   def index
     #@animes = Anime.facets_search(params).page params[:page]
-    @animes = Anime.order("aired_on desc").limit(2)
+    @animes = Anime.order("RANDOM() desc").limit(2)
     @all_animes = @animes.where.not(id: @animes.map(&:id)).page(params[:page]).per(42)
     @genres = Genre.all
   end
