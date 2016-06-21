@@ -90,4 +90,10 @@ class AnimesController < ApplicationController
     @genres = Genre.all
   end
 
+  def year
+    @animes = Anime.order('aired_on DESC').limit(2)
+    @all_animes = @animes.where.not(id: @animes.map(&:id)).page(params[:page]).per(42)
+    @genres = Genre.all
+  end
+
 end

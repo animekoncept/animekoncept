@@ -55,6 +55,7 @@ Rails.application.routes.draw do
     end
   end
   get 'popular/anime', to: 'animes#popular'
+  get 'year/anime', to: 'animes#year'
 
   resources :categories, path: 'c' do
     resources :topics, path: 't'
