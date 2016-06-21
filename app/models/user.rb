@@ -50,6 +50,6 @@ class User < ActiveRecord::Base
 
   private
     def set_default_role
-      self.role ||= Role.find_or_create_by title: role
+      self.role ||= Role.find_or_create_by title: "user"
     end
 end
