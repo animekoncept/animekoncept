@@ -52,4 +52,8 @@ class User < ActiveRecord::Base
     def set_default_role
       self.role ||= Role.find_or_create_by title: "user"
     end
+
+    def self.all_except(user)
+      where.not(id: user)
+    end
 end
