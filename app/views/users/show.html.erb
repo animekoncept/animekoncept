@@ -52,6 +52,15 @@
       <% else %>
         <p><%= @user.description %></p>
       <% end %>
+      <hr>
+      <div class="friends">
+        <% @user.users_marked_as_following.each do |user| %>
+          <div class="large-2 columns">
+            <%= link_to image_tag(user.avatar.url(:thumb)), user %>
+            <%= user.username %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="large-6 columns">
       <div class="microposts">

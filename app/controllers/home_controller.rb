@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   def show
     @user = current_user
     @events = Event.most_hit(5.day.ago, 4)
-    @users = User.all_except(User.marked_as_following + [current_user] )
+    @users = User.all_except(current_user.users_marked_as_following + [current_user] )
     #@users = User.marked_as_following
     @topics = Topic.most_hit(5.day.ago, 10)
     @micropost = Micropost.new
