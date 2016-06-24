@@ -47,7 +47,7 @@
   paginates_per 54
 
   include PgSearch
-  multisearchable :against => :title
+  multisearchable :against => [:title, :english, :slug]
 
 
 
