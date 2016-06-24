@@ -65,54 +65,12 @@
 <section class='previews show-for-medium'>
   <div class='row full-width'>
     <div class='previews-scroll'>
-      <div>
-        <%= image_tag 'preview-1.jpg' %>
-        <button class='small button'>Watch Now</button>
-      </div>
-      <div>
-        <%= image_tag 'preview-2.jpg' %>
-        <button class='small button'>Watch Now</button>
-      </div>
-      <div>
-        <%= image_tag 'preview-3.jpg' %>
-        <button class='small button'>Watch Now</button>
-      </div>
-      <div>
-        <%= image_tag 'preview-4.jpg' %>
-        <button class='small button'>Watch Now</button>
-      </div>
-      <div>
-        <%= image_tag 'preview-5.jpg' %>
-        <button class='small button'>Watch Now</button>
-      </div>
-      <div>
-        <%= image_tag 'preview-1.jpg' %>
-        <button class='small button'>Watch Now</button>
-      </div>
-      <div>
-        <%= image_tag 'preview-1.jpg' %>
-        <button class='small button'>Watch Now</button>
-      </div>
-      <div>
-        <%= image_tag 'preview-1.jpg' %>
-        <button class='small button'>Watch Now</button>
-      </div>
-      <div>
-        <%= image_tag 'preview-1.jpg' %>
-        <button class='small button'>Watch Now</button>
-      </div>
-      <div>
-        <%= image_tag 'preview-1.jpg' %>
-        <button class='small button'>Watch Now</button>
-      </div>
-      <div>
-        <%= image_tag 'preview-1.jpg' %>
-        <button class='small button'>Watch Now</button>
-      </div>
-      <div>
-        <%= image_tag 'preview-1.jpg' %>
-        <button class='small button'>Watch Now</button>
-      </div>
+      <% Anime.all.each do |anime| %>
+        <div>
+          <%= image_tag anime.cover_image.url(:large) %>
+          <button class='small button'><%= link_to "View Now", anime %></button>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>

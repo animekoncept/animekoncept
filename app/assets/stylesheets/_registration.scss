@@ -108,6 +108,9 @@ section.registration {
             &:focus {
                 outline-width: 0;
             }
+            a {
+                color: $white;
+            }
         }
     }
 }
