@@ -59,6 +59,8 @@ gem "pg_search"
 
 gem 'nikkou'
 
+gem 'aws-sdk', '< 2.0'
+
 
 group :development, :test do
   gem 'byebug'
