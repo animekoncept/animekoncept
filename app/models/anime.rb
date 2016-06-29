@@ -86,7 +86,9 @@
     end
   end
 
-  has_attached_file :cover_image, styles: { large: "200x288#", medium: "162x230#", thumb: "100x100#" }
+  has_attached_file :cover_image,
+                    styles: { large: "200x288#", medium: "162x230#", thumb: "100x100#" },
+                    processors: [:thumbnail, :paperclip_optimizer]
   validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\Z/
 
   has_attached_file :header_image,
