@@ -27,6 +27,8 @@ gem "administrate"
 
 # Attachments
 gem "paperclip", "~> 4.3"
+gem 'paperclip-optimizer'
+gem 'image_optim_pack'
 
 #Front-end framework
 gem 'foundation-rails'
