@@ -41,16 +41,21 @@ task :fetch_mal_info => :environment do
     genre = []
     wiki_title = anime.slug.underscore.gsub(/[A-Za-z']+/,&:capitalize)
     wiki_url  = "https://en.wikipedia.org/wiki/#{wiki_title}"
-    producer_scrape       = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Producer")').text.split(' ')[1..-1]
-    producer_text         = producer_scrape.blank? ? "" : producer_scrape
-    licensors_scrape      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Licensors")').text.split(' ')[1..-1]
-    licensors_text        = licensors_scrape.blank? ? "" : licensors_scrape
-    studios_scrape        = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Studios")').text.split(' ')[1..-1]
-    studios_text         = studios_scrape.blank? ? "" : studios_scrape
+    producer_scrape       = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Producer")').text.strip[10..-1]
+    producer_text         = producer_scrape.blank? ? "" : producer_scrape.strip.split(",")
+    licensors_scrape      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Licensors")').text.strip[10..-1]
+    licensors_text        = licensors_scrape.blank? ? "" : licensors_scrape.strip.split(",")
+    studios_scrape        = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Studios")').text.strip[10..-1]
+    studios_text         = studios_scrape.blank? ? "" : studios_scrape.strip.split(",")
     producer = []
     licensor = []
     studio = []
 
+
+    #puts producer_text
+
+    #puts licensors_text
+    #puts studios_text
 
 
 
@@ -137,7 +142,6 @@ task :fetch_mal_info => :environment do
         studio
       end
     end
-
 
     anime.update_attribute(:cover_image, cover_image)
     anime.update_attribute(:english,     english)

@@ -19,16 +19,17 @@ Category.create(title: 'recommendation')
 Category.create(title: 'dev')
 Category.create(title: 'creations')
 
-
-['action', 'adventure', 'cars', 'comedy', 'dementia', 'demons', 'drama',
-  'ecchi', 'fantasy', 'game', 'harem', 'hentai', 'historical', 'horror',
-  'josei', 'kids', 'magic', 'martial arts', 'mecha', 'military', 'music',
-  'mystery', 'parody', 'police', 'phychological', 'romance', 'samurai',
-  'school', 'sci-fi', 'seinen', 'shoujo', 'shoujo ai', 'shounen',
-  'shounen ai', 'slice of life', 'space', 'sports', 'super power',
-  'supernatural', 'thriller', 'vampire', 'yaoi', 'yuri'].each do |genre|
-    Genre.find_or_create_by({title: genre})
+if false
+  ['action', 'adventure', 'cars', 'comedy', 'dementia', 'demons', 'drama',
+    'ecchi', 'fantasy', 'game', 'harem', 'hentai', 'historical', 'horror',
+    'josei', 'kids', 'magic', 'martial arts', 'mecha', 'military', 'music',
+    'mystery', 'parody', 'police', 'phychological', 'romance', 'samurai',
+    'school', 'sci-fi', 'seinen', 'shoujo', 'shoujo ai', 'shounen',
+    'shounen ai', 'slice of life', 'space', 'sports', 'super power',
+    'supernatural', 'thriller', 'vampire', 'yaoi', 'yuri'].each do |genre|
+      Genre.find_or_create_by({title: genre})
   end
+end
 
   ["Winter 2016", "Spring 2016", "Summer 2016", "Fall 2016", "Winter 2015", "Spring 2015", "Summer 2015", "Fall 2015", "Winter 2014", "Spring 2014", "Summer 2014",
     "Fall 2014", "Winter 2013", "Spring 2013", "Summer 2013", "Fall 2013", "Winter 2012", "Spring 2012", "Summer 2012", "Fall 2012", "Winter 2011", "Spring 2011",
