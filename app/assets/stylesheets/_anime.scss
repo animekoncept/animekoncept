@@ -58,7 +58,6 @@
         li {
           padding-right: 10px;
           font-family: ProximaNovaLight;
-          line-height: 5px;
         }
       }
       .genres {
@@ -71,6 +70,11 @@
       .season, .producer {
         a {
           color: $orange;
+        }
+      }
+      .producer {
+        span {
+          padding-right: 10px;
         }
       }
     }

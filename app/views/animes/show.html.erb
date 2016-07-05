@@ -71,7 +71,7 @@
         <br>
         <li class="producer">
           Producers: <% @anime.producers.each do |producer| %>
-            <span><%= link_to producer.title, producer_path(producer) %></span>
+            <span><%= link_to producer.title, producer_path(producer) %>,</span>
           <% end %>
         </li>
       </ul>
