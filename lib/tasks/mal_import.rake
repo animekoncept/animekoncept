@@ -4,6 +4,7 @@ task :fetch_mal_info => :environment do
   require "open-uri"
   require 'mechanize'
   require 'chronic'
+  require 'wikipedia'
 
 
 
@@ -39,8 +40,8 @@ task :fetch_mal_info => :environment do
     genre_scrape       = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Genres")').text.split(' ')[1..-1]
     genre_text         = genre_scrape.blank? ? "" : genre_scrape
     genre = []
-    wiki_title = anime.slug.underscore.gsub(/[A-Za-z']+/,&:capitalize)
-    wiki_url  = "https://en.wikipedia.org/wiki/#{wiki_title}"
+    #wiki_title = anime.slug.underscore.gsub(/[A-Za-z']+/,&:capitalize)
+    #wiki_url  = "https://en.wikipedia.org/wiki/#{wiki_title}"
     producer_scrape       = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Producer")').text.strip[10..-1]
     producer_text         = producer_scrape.blank? ? "" : producer_scrape.strip.split(",")
     licensors_scrape      = doc.css('div#content .borderClass .js-scrollfix-bottom div:contains("Licensors")').text.strip[10..-1]
@@ -156,7 +157,6 @@ task :fetch_mal_info => :environment do
     season = Season.where(title: season_text).first_or_create
     anime.update(season: season)
     anime.update(genres: genre)
-    anime.update(wiki: wiki_url)
     anime.update(producers: producer)
     anime.update(producers: licensor)
     anime.update(producers: studio)

@@ -61,6 +61,7 @@ gem "pg_search"
 
 gem 'nikkou'
 
+gem 'wikipedia-client'
 #gem 'aws-sdk', '< 2.0'
 
 
