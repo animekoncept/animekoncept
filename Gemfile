@@ -63,6 +63,7 @@ gem 'nikkou'
 
 gem 'wikipedia-client'
 #gem 'aws-sdk', '< 2.0'
+gem 'best_in_place', '~> 3.0.1'
 
 
 group :development, :test do

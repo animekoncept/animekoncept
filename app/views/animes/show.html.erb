@@ -79,6 +79,20 @@
         </li>
       </ul>
       <hr>
+      <div class="animelist">
+        <div class="large-6 columns">
+          <%= best_in_place [@anime, @animelist], :status, type: :select,
+                              collection: [
+                                ["Currently Watching" , "Currently Watching"],
+                                ["Plan to Watch" , "Plan to Watch"],
+                                ["Completed" , "Completed"],
+                                ["On Hold" , "On Hold"],
+                                ["Dropped" , "Dropped"]
+                              ],
+                              class: 'dropdown button expanded', place_holder: "At to library" %>
+        </div>
+      </div>
+      <hr>
       <div class="synopsis"><%= simple_format(@anime.synopsis) %></div>
     </div>
     <div class="small-12 medium-3 large-3 columns right">
@@ -98,11 +112,14 @@
           <hr>
         <% end %>
       </div>
+      <div class="animelist">
+
+        <%#= best_in_place [@anime, @animelist], :rewatched %>
+        <%#= best_in_place [@anime, @animelist], :episodes_watched %>
+      </div>
     </div>
   </div>
 </div>
-
-
 
 
 

@@ -1,4 +1,5 @@
 class AnimesController < ApplicationController
+  respond_to :html, :json
   def index
     #@animes = Anime.facets_search(params).page params[:page]
     @animes = Anime.order("RANDOM() desc").limit(2)
@@ -10,8 +11,10 @@ class AnimesController < ApplicationController
     @anime = Anime.find params[:id]
     @anime.punch(request)
     @reviews = @anime.reviews.limit(4).order("created_at desc")
-    if user_signed_in?
-      @animelist = current_user.animelists.new
+    if current_user.animelists == current_user.id
+      @animelist = Animelist.find_by(anime_id: @anime.id)
+    elsif current_user.animelists
+      @animelist = Animelist.find_or_create_by(anime_id: @anime.id)
     end
   end
 
