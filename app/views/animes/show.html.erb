@@ -79,27 +79,21 @@
         </li>
       </ul>
       <hr>
-      <div class="animelist">
-        <div class="large-6 columns">
-          <%= best_in_place [@anime, @animelist], :status, type: :select,
-                              collection: [
-                                ["Currently Watching" , "Currently Watching"],
-                                ["Plan to Watch" , "Plan to Watch"],
-                                ["Completed" , "Completed"],
-                                ["On Hold" , "On Hold"],
-                                ["Dropped" , "Dropped"]
-                              ],
-                              class: 'dropdown button expanded', place_holder: "At to library" %>
-        </div>
-      </div>
-      <hr>
       <div class="synopsis"><%= simple_format(@anime.synopsis) %></div>
     </div>
     <div class="small-12 medium-3 large-3 columns right">
+      <%= best_in_place [@anime, @animelist], :status, type: :select,
+                            collection: [
+                              ["Currently Watching" , "Currently Watching"],
+                              ["Plan to Watch" , "Plan to Watch"],
+                              ["Completed" , "Completed"],
+                              ["On Hold" , "On Hold"],
+                              ["Dropped" , "Dropped"]
+                            ],
+                            class: 'dropdown add-to-list button expanded', place_holder: "Add to library" %>
       <div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
         <%= render partial: 'favorite', locals: {anime: @anime} %>
       </div>
-      <!--<div class="add-to-list button expanded">Add to list</div>-->
       <h4>Reviews</h4>
       <%= link_to "Write a review", new_anime_review_path(@anime, @review), class: 'button expanded write-a-review' %>
       <div class="reviews">
