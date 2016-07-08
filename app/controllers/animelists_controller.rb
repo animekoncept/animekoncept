@@ -4,6 +4,7 @@ class AnimelistsController < ApplicationController
   def update
     @anime = Anime.find params[:anime_id]
     @animelist = Animelist.find_or_create_by(anime_id: @anime.id)
+    @animelist.user_id = current_user.id
     @animelist.update animelist_params
     respond_with_bip(@animelist)
   end

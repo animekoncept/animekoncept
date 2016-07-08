@@ -90,7 +90,8 @@
                               ["On Hold" , "On Hold"],
                               ["Dropped" , "Dropped"]
                             ],
-                            class: 'dropdown add-to-list button expanded', place_holder: "Add to library" %>
+                            class: 'dropdown add-to-list button expanded',
+                            place_holder: "Add to library" %>
       <div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
         <%= render partial: 'favorite', locals: {anime: @anime} %>
       </div>
@@ -107,34 +108,10 @@
         <% end %>
       </div>
       <div class="animelist">
-
+        <%= best_in_place [@anime, @animelist], :rating %>
         <%#= best_in_place [@anime, @animelist], :rewatched %>
         <%#= best_in_place [@anime, @animelist], :episodes_watched %>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<% if false %>
-  <div class="reveal form" id="exampleModal1" data-reveal>
-    <div id="animelist">
-      <%= render partial: 'animelists/form', locals: {animelist: @animelist} %>
-    </div>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-<% end %>
