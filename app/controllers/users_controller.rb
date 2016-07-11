@@ -40,7 +40,9 @@ class UsersController < ApplicationController
   end
 
   def animelist
-    #code
+    @user = User.find params[:user_id]
+    @animelists = @user.animelists.order("created_at desc")
+    @animelist = Animelist.find_by(user_id: @user.id)
   end
 
   def friends

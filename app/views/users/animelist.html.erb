@@ -45,50 +45,38 @@
     </div>
   </div>
   <div class="row">
-    <div class="large-6 columns">
-      <h3>About <%= @user.username %></h3>
-      <% if @user.description.blank? %>
-        <p>Nothing here</p>
-      <% else %>
-        <p><%= @user.description %></p>
-      <% end %>
-      <hr>
-      <div class="friends">
-        <% @user.users_marked_as_following.each do |user| %>
-          <div class="large-2 columns">
-            <%= link_to image_tag(user.avatar.url(:thumb)), user %>
-            <%= user.username %>
-          </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Re-Watched</th>
+          <th>Episodes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @animelists.each do |list| %>
+          <tr>
+            <td width="10"><%= link_to image_tag(list.anime.cover_image.url(:thumb)), list.anime %></td>
+            <td width="400"><%= list.anime.title %></td>
+            <td width="200">
+              <%= best_in_place [list.anime, list], :status, type: :select,
+                                  collection: [
+                                    ["Currently Watching" , "Currently Watching"],
+                                    ["Plan to Watch" , "Plan to Watch"],
+                                    ["Completed" , "Completed"],
+                                    ["On Hold" , "On Hold"],
+                                    ["Dropped" , "Dropped"]
+                                  ],
+                                  class: 'add-to-list button expanded',
+                                  place_holder: "Add to library" %>
+            </td>
+            <td><%= best_in_place [list.anime, list], :rewatched %></td>
+            <td><%= best_in_place [list.anime, list], :episodes_watched %>/ <%= list.anime.episodes %></td>
+          </tr>
         <% end %>
-      </div>
-    </div>
-    <div class="large-6 columns">
-      <div class="microposts">
-        <% @microposts.each do |micropost| %>
-          <div class="media-object">
-            <div class="media-object-section">
-              <div class="thumbnail">
-                <%= image_tag micropost.user.avatar.url(:thumb) %>
-              </div>
-            </div>
-            <div class="media-object-section">
-              <%= micropost.user.username %>
-              <p><%= markdown(micropost.content) %></p>
-              <%= render partial: 'microposts/like', locals: {micropost: micropost} unless micropost.user_id == @user.id %>
-            </div>
-          </div>
-          <hr>
-        <% end %>
-      </div>
-    </div>
+      </tbody>
+    </table>
   </div>
-  <% if nil %>
-    <div class="row">
-      <div class="large-6 columns"></div>
-      <div class="large-6 columns">
-        <h3><%= @user.username.pluralize %> Activity</h3>
-        <%= render partial: 'activities/activity' %>
-      </div>
-    </div>
-  <% end %>
 </div>

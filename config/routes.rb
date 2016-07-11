@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     get '/forum' => 'users#forum'
     get '/events' => 'users#events'
+    get '/animelist' => 'users#animelist'
     member do
       put 'following', to: 'users#following'
       put 'unfollow', to: 'users#unfollow'
