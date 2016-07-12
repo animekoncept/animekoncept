@@ -23,9 +23,12 @@
             }
         %>
       </div>
-      <div class="crunchyroll button expanded hide-for-small-only">
-        <%= link_to "Crunchyroll", "http://#{@anime.crunchyroll}", target: "_blank" %>
-      </div>
+      <% if @anime.crunchyroll.blank? %>
+      <% else %>
+        <div class="crunchyroll button expanded hide-for-small-only">
+          <%= link_to "Crunchyroll", "#{@anime.crunchyroll}", target: "_blank" %>
+        </div>
+      <% end %>
       <div class="official-site button expanded hide-for-small-only">
         <%= link_to "Official site", "http://#{@anime.official_site}", target: "_blank" %>
       </div>
