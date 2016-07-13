@@ -15,7 +15,7 @@ task :fetch_daisuki_info => :environment do
         search.q = anime.english
       end.submit
 
-      results = search_result.css('.item_pht a')
+      results = search_result.css('#contentsMain .item_pht a')
 
       daisuki_link = results.map { |link| link['href'] }.first
 

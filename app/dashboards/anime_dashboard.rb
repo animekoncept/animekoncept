@@ -8,25 +8,29 @@ class AnimeDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    genres: Field::HasMany,
-    producers: Field::HasMany,
     id: Field::Number,
     title: Field::String,
+    english: Field::String,
+    japanese: Field::String,
     synopsis: Field::Text,
     aired_on: Field::DateTime,
     ended_on: Field::DateTime,
     duration: Field::String,
+    type_of:  Field::String,
+    episodes: Field::Number,
+    rating:   Field::String,
+    crunchyroll: Field::String,
+    official_site: Field::String,
+    wiki: Field::String,
+    mal_id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     slug: Field::String,
     cover_image: PaperclipField,
     header_image: PaperclipField,
-    crunchyroll: Field::String,
-    official_site: Field::String,
-    wiki: Field::String,
-    type_of: Field::String,
-    mal_id: Field::Number,
     season: Field::BelongsTo,
+    genres: Field::HasMany,
+    producers: Field::HasMany,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -58,23 +62,23 @@ class AnimeDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :genres,
-    :producers,
     :title,
+    :english,
+    :japanese,
     :synopsis,
     :aired_on,
     :ended_on,
     :duration,
-    :slug,
-    :season_id,
-    :cover_image,
-    :header_image,
+    :type_of,
+    :episodes,
+    :rating,
     :crunchyroll,
     :official_site,
     :wiki,
-    :type_of,
     :mal_id,
     :season,
+    :cover_image,
+    :header_image,
   ]
 
   # Overwrite this method to customize how animes are displayed
