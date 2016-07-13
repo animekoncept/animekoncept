@@ -26,7 +26,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     wiki: Field::String,
     type_of: Field::String,
     mal_id: Field::Number,
-    season: Field::BelongsTo
+    season: Field::BelongsTo,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -47,7 +47,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :wiki,
     :type_of,
     :mal_id,
-    :season
+    :season,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -74,7 +74,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :wiki,
     :type_of,
     :mal_id,
-    :season
+    :season,
   ]
 
   # Overwrite this method to customize how animes are displayed
