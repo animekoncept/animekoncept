@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 20160622171315) do
     t.integer  "user_id"
     t.integer  "anime_id"
     t.string   "status"
-    t.integer  "episodes_watched",                         default: 0
-    t.decimal  "rating",           precision: 2, scale: 1
-    t.integer  "rewatched",                                default: 0
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
+    t.integer  "episodes_watched", default: 0
+    t.integer  "rating",           default: 0
+    t.integer  "rewatched",        default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "animelists", ["anime_id"], name: "index_animelists_on_anime_id", using: :btree

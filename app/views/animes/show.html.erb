@@ -110,6 +110,7 @@
           <hr>
         <% end %>
       </div>
+      <%= best_in_place [@anime, @animelist], :rating, type: :select, collection: %w(1 2 3 4 5), place_holder: [0] %>
     </div>
   </div>
 </div>
