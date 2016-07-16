@@ -6,7 +6,10 @@ class AnimelistsController < ApplicationController
     @animelist = Animelist.find_or_create_by(anime_id: @anime.id)
     @animelist.user_id = current_user.id
     @animelist.update animelist_params
-    respond_with_bip(@animelist)
+    #respond_with_bip(@animelist)
+    respond_to do |format|
+       format.js
+     end
   end
 
 

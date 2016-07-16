@@ -85,7 +85,7 @@
       <div class="synopsis"><%= simple_format(@anime.synopsis) %></div>
     </div>
     <div class="small-12 medium-3 large-3 columns right">
-      <%= best_in_place [@anime, @animelist], :status, type: :select,
+      <%#= best_in_place [@anime, @animelist], :status, type: :select,
                             collection: [
                               ["Currently Watching" , "Currently Watching"],
                               ["Plan to Watch" , "Plan to Watch"],
@@ -95,6 +95,18 @@
                             ],
                             class: 'add-to-list button expanded',
                             place_holder: "Add to library" %>
+      <% if @animelist.user_id == current_user.id%>
+        <p><a data-open="exampleModal1" class="button expanded add-to-list">Update List</a></p>
+      <% else %>
+        <p><a data-open="exampleModal1" class="button expanded add-to-list">Add to Animelist</a></p>
+      <% end %>
+      <div class="reveal form" id="exampleModal1" data-reveal>
+        <%= render partial: 'animelists/form' %>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
       <div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
         <%= render partial: 'favorite', locals: {anime: @anime} %>
       </div>
@@ -110,7 +122,6 @@
           <hr>
         <% end %>
       </div>
-      <%= best_in_place [@anime, @animelist], :rating, type: :select, collection: %w(1 2 3 4 5), place_holder: [0] %>
     </div>
   </div>
 </div>

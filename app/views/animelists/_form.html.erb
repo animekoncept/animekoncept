@@ -1,15 +1,16 @@
-<%= simple_form_for [@anime, animelist], :html => { :multipart => true }, remote: true do |f| %>
-  <%= f.input :status %>
+<%= simple_form_for [@anime, @animelist], :html => { :multipart => true }, remote: true do |f| %>
+  <%= f.input :status,  collection: ["Currently Watching", "Plan to Watch", "Completed", "On Hold", "Dropped"] %>
   <%= f.input :episodes_watched %>
   <%= f.input :rewatched %>
-  <div class="star-rating"></div>
+  <%= f.input :rating, collection: 1..5 %>
   <hr>
   <%= f.submit %>
 <% end %>
 
+
 <script>
-$('.star-rating').raty({
+$('#star-rating').raty({
   path: '/assets/',
-  scoreName: 'review[rating]'
+  scoreName: 'anime, animelist[rating]'
 });
 </script>
