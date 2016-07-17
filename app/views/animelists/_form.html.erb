@@ -1,16 +1,31 @@
 <%= simple_form_for [@anime, @animelist], :html => { :multipart => true }, remote: true do |f| %>
-  <%= f.input :status,  collection: ["Currently Watching", "Plan to Watch", "Completed", "On Hold", "Dropped"] %>
-  <%= f.input :episodes_watched %>
-  <%= f.input :rewatched %>
-  <%= f.input :rating, collection: 1..5 %>
-  <hr>
-  <%= f.submit %>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.input :status,  collection: ["Currently Watching", "Plan to Watch", "Completed", "On Hold", "Dropped"] %>
+    </div>
+    <div class="large-6 columns">
+      <%= f.input :rating, collection: 1..5, value: 1..5, input_html: { id: 'rating' } %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.input :episodes_watched %>
+    </div>
+    <div class="large-6 columns">
+      <%= f.input :rewatched %>
+    </div>
+  </div>
+  <div class="row">
+    <%= f.submit class: 'button' %>
+  </div>
 <% end %>
 
-
-<script>
-$('#star-rating').raty({
-  path: '/assets/',
-  scoreName: 'anime, animelist[rating]'
-});
+<script type="text/javascript">
+   $(function() {
+     $('#rating').barrating('show', {
+      theme: 'bars-square',
+      showValues: true,
+      showSelectedRating: false
+    });
+   });
 </script>
