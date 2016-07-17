@@ -7,9 +7,9 @@ class AnimelistsController < ApplicationController
     @animelist.user_id = current_user.id
     @animelist.update animelist_params
     #respond_with_bip(@animelist)
-    respond_to do |format|
-       format.js
-     end
+    if @animelist.update
+      flash.now[:success] = "List has been updated!"
+    end
   end
 
 

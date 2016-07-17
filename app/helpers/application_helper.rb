@@ -16,7 +16,15 @@ module ApplicationHelper
     return markdown.render(text).html_safe
   end
 
-  #helper_method :resource_name, :resource, :devise_mapping
+  def flash_class(level)
+    case level
+      when "notice" then "callout primary"
+      when "success" then "callout success"
+      when "error" then "callout alert"
+      when "alert" then "callout alert"
+    end
+  end
+
 
   def resource_name
     :user
