@@ -91,9 +91,3 @@ function buttonUp() {
         $('.searchbox-icon').css('display', 'block');
     }
 }
-
-$(document).ready(function(){
-  setTimeout(function(){
-    $('#flash').remove();
-  }, 7000);
- })
