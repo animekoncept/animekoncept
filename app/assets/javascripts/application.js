@@ -19,61 +19,45 @@
 //= require readmore
 //# require turbolinks
 //= require_tree .
-
-$(function(){ $(document).foundation(); });
-
-$(document).ready(function() {
-  /* Activating Best In Place */
-  jQuery(".best_in_place").best_in_place();
+$(function() {
+    $(document).foundation();
 });
-
-
-
 $(document).ready(function() {
-  $('.anime-synopsis').readmore({
-      collapsedHeight: 150,
-      speed: 1000,
-      heightMargin: 16,
-      moreLink: '<a href="#">Read more</a>'
+    /* Activating Best In Place */
+    jQuery(".best_in_place").best_in_place();
+});
+$(document).ready(function() {
+    $('.anime-synopsis').readmore({
+        collapsedHeight: 150,
+        speed: 1000,
+        heightMargin: 16,
+        moreLink: '<a href="#">Read more</a>'
     });
 });
-
-
 $(document).foundation();
 $(window).on('load', function() {
-	$('.previews-scroll').krakatoa({
-		width: '100%',
-		height: 'auto',
-		autoplay: true,
-		arrows: false,
-		items: 6,
-		loop: true,
-		buttons: false,
-		duration: 500,
-		delay: 3500
-	});
+    $('.previews-scroll').krakatoa({
+        width: '100%',
+        height: 'auto',
+        autoplay: true,
+        arrows: false,
+        items: 6,
+        loop: true,
+        buttons: false,
+        duration: 500,
+        delay: 3500
+    });
 });
-
-$(document).ready(function(){
-  $('.dropify').dropify();
+$(document).ready(function() {
+    $('.dropify').dropify();
 });
-
-
-
-
-
-
-
-
-
-
-$(document).ready(function(){
+$(document).ready(function() {
     var submitIcon = $('.searchbox-icon');
     var inputBox = $('.searchbox-input');
     var searchBox = $('.searchbox');
     var isOpen = false;
-    submitIcon.click(function(){
-        if(isOpen == false){
+    submitIcon.click(function() {
+        if (isOpen == false) {
             searchBox.addClass('searchbox-open');
             inputBox.focus();
             isOpen = true;
@@ -83,26 +67,27 @@ $(document).ready(function(){
             isOpen = false;
         }
     });
-     submitIcon.mouseup(function(){
-            return false;
-        });
-    searchBox.mouseup(function(){
-            return false;
-        });
-    $(document).mouseup(function(){
-            if(isOpen == true){
-                $('.searchbox-icon').css('display','block');
-                submitIcon.click();
-            }
-        });
-});
-    function buttonUp(){
-        var inputVal = $('.searchbox-input').val();
-        inputVal = $.trim(inputVal).length;
-        if( inputVal !== 0){
-            $('.searchbox-icon').css('display','none');
-        } else {
-            $('.searchbox-input').val('');
-            $('.searchbox-icon').css('display','block');
+    submitIcon.mouseup(function() {
+        return false;
+    });
+    searchBox.mouseup(function() {
+        return false;
+    });
+    $(document).mouseup(function() {
+        if (isOpen == true) {
+            $('.searchbox-icon').css('display', 'block');
+            submitIcon.click();
         }
+    });
+});
+
+function buttonUp() {
+    var inputVal = $('.searchbox-input').val();
+    inputVal = $.trim(inputVal).length;
+    if (inputVal !== 0) {
+        $('.searchbox-icon').css('display', 'none');
+    } else {
+        $('.searchbox-input').val('');
+        $('.searchbox-icon').css('display', 'block');
     }
+}

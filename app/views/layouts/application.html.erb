@@ -15,16 +15,8 @@
 
   <body>
     <%= render 'layouts/navbar' %>
+    <%= render partial: 'layouts/flash' %>
 
-    <% flash.each do |key, value| %>
-      <div class="<%= flash_class(key) %>" data-closable>
-        <%= value %>
-        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    <% end %>
-    
     <%= yield %>
   </body>
 </html>

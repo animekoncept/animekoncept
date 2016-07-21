@@ -51,3 +51,21 @@ html, body {
 .active_link {
   color: $white;
 }
+
+#flash {
+  text-align: center;
+  font-size: 1.1em;
+  .callout {
+    margin: 0 0 0 0;
+    color: $white;
+  }
+  .success {
+    background-color: $green;
+  }
+  .notice {
+    background-color: $gray;
+  }
+  .alert, .error {
+    background-color: $red;
+  }
+}
