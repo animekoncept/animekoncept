@@ -25,6 +25,7 @@ class AnimesController < ApplicationController
     @anime.create_activity :favorite, owner: current_user
 
     respond_to do |format|
+      flash.now[:success] = "You just favorited #{@anime.title}!!"
 			format.html {redirect_to @anime}
 			format.js
     end
@@ -37,6 +38,7 @@ class AnimesController < ApplicationController
     @anime.create_activity :unfavorite, owner: current_user
 
     respond_to do |format|
+      flash.now[:alert] = "You removed '#{@anime.title}' from your favorite anime"
       format.html {redirect_to @anime}
       format.js
     end

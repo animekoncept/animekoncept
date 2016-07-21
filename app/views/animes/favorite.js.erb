@@ -1,1 +1,2 @@
 $("#anime_<%= @anime.id %>_favorite").html("<%=j render partial: "favorite", locals: {anime: @anime}  %>");
+$('#flash').html("<%= j render partial: "layouts/flash" %>");
