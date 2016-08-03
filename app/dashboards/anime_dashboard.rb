@@ -23,6 +23,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     official_site: Field::String,
     wiki: Field::String,
     mal_id: Field::Number,
+    broadcast: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     slug: Field::String,
@@ -51,6 +52,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :wiki,
     :type_of,
     :mal_id,
+    :broadcast,
     :season,
   ]
 
@@ -76,6 +78,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     :official_site,
     :wiki,
     :mal_id,
+    :broadcast,
     :season,
     :cover_image,
     :header_image,

@@ -52,16 +52,17 @@ task :fetch_mal_info => :environment do
     licensor = []
     studio = []
 
+    broadcast_scrape = doc.css('div#content .borderClass .js-scrollfix-bottom .spaceit:contains("Broadcast")').text.strip[15..-1]
+    broadcast_text         = broadcast_scrape.blank? ? "" : broadcast_scrape
 
-    #puts producer_text
-
-    #puts licensors_text
-    #puts studios_text
-
-
+    string = broadcast_text
+    broadcast = Chronic.parse(string.sub('days', 'day'))
 
 
+    anime.update_attribute(:broadcast, broadcast)
 
+
+if false
 
     if cover_image_scrape.blank?
       cover_image = nil
@@ -160,6 +161,8 @@ task :fetch_mal_info => :environment do
     anime.update(producers: producer)
     anime.update(producers: licensor)
     anime.update(producers: studio)
+
+  end
   end
 
 end
