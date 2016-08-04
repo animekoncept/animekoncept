@@ -1,1 +1,93 @@
-<%= render 'animes/page' %>
+<div class=" animes off canvas-wrapper">
+  <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+    <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
+      <%#= render "facets" %>
+      <div class="browse-anime">
+        <h4 class="browse-anime">Browse <span>Anime</span></h4>
+        <ul class="menu vertical">
+          <li>
+            <ul class="accordion" data-accordion data-allow-all-closed="true">
+              <li class="accordion-item " data-accordion-item>
+                <a href="#" class="accordion-title">Seasons</a>
+                <div class="accordion-content" data-tab-content>
+                  <%= link_to "Spring 2016", "/season/spring-2016" %>
+                  <br>
+                  <%= link_to "Summer 2016", "/season/summer-2016" %>
+                  <br>
+                  <%= link_to "Fall 2016", "/season/fall-2016" %>
+                  <br>
+                  <%= link_to "Winter 2016", "/season/winter-2016" %>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <%= link_to "Popular", popular_anime_path %>
+          </li>
+          <li>
+            <%= link_to "By Year", year_anime_path %>
+          </li>
+          <li>
+            <ul class="accordion genre" data-accordion data-allow-all-closed="true">
+              <li class="accordion-item " data-accordion-item>
+                <a href="#" class="accordion-title">Genres</a>
+                <div class="accordion-content" data-tab-content>
+                  <ul class="menu vertical">
+                    <% @genres.each do |genre| %>
+                      <li>
+                        <%= link_to genre.title, genre_path(genre) %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="off-canvas-content" data-off-canvas-content>
+      <div class="anime-cover">
+        <% @animes.each do |anime| %>
+          <div class="small-12 medium-6 large-6 columns">
+            <div class="anime-list">
+              <span data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover='false' tabindex=1 title="<%= anime.title %>">
+                <%= link_to image_tag("",
+                  data: {
+                    interchange: "
+                    [#{anime.header_image.url(:medium)}, medium],
+                    [#{anime.header_image.url(:medium)}, large]
+                    "
+                  }), anime
+                 %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+        <% @all_animes.each do |anime| %>
+          <div class="small-6 medium-2 large-2 columns">
+            <div class="anime-list">
+              <span data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover='false' tabindex=1 title="<%= anime.title %>">
+                <%= link_to image_tag("",
+                  data: {
+                    interchange: "
+                    [#{anime.cover_image.url(:medium)}, small]
+                    [#{anime.cover_image.url(:large)}, medium],
+                    [#{anime.cover_image.url(:large)}, large]
+                    "
+                  }), anime
+                 %>
+                 <time datetime="<%= anime.broadcast %>" class="age broadcast"></time>
+              </span>
+
+            </div>
+          </div>
+        <% end %>
+        <%= paginate @all_animes %>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $('.age').age({ units: ["days", "hours", "minutes"] });
+</script>
