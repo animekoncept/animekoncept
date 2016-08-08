@@ -29,9 +29,11 @@
           <%= link_to "Crunchyroll", "#{@anime.crunchyroll}", target: "_blank" %>
         </div>
       <% end %>
+      <!--
       <div class="official-site button expanded hide-for-small-only">
-        <%= link_to "Official site", "http://#{@anime.official_site}", target: "_blank" %>
+        <%#= link_to "Official site", "http://#{@anime.official_site}", target: "_blank" %>
       </div>
+      -->
       <% if @anime.wiki.blank? %>
       <% else %>
         <div class="wiki button expanded hide-for-small-only">
