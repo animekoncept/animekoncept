@@ -51,8 +51,9 @@
           <th>Image</th>
           <th>Title</th>
           <th>Status</th>
-          <th>Re-Watched</th>
           <th>Episodes</th>
+          <th>Re-Watched</th>
+          <th>Update</th>
         </tr>
       </thead>
       <tbody>
@@ -61,22 +62,38 @@
             <td width="10"><%= link_to image_tag(list.anime.cover_image.url(:thumb)), list.anime %></td>
             <td width="400"><%= list.anime.title %></td>
             <td width="200">
-              <%= best_in_place [list.anime, list], :status, type: :select,
-                                  collection: [
-                                    ["Currently Watching" , "Currently Watching"],
-                                    ["Plan to Watch" , "Plan to Watch"],
-                                    ["Completed" , "Completed"],
-                                    ["On Hold" , "On Hold"],
-                                    ["Dropped" , "Dropped"]
-                                  ],
-                                  class: 'add-to-list button expanded',
-                                  place_holder: "Add to library" %>
+              <%= list.status %>
             </td>
-            <td><%= best_in_place [list.anime, list], :rewatched %></td>
-            <td><%= best_in_place [list.anime, list], :episodes_watched %>/ <%= list.anime.episodes %></td>
+            <td>
+              <%= list.episodes_watched %>/ <%= list.anime.episodes %>
+            </td>
+            <td>
+              <%= list.rewatched %>
+            </td>
+            <td>
+              <%= link_to "Update animelist", list.anime, class: 'update-button' %>
+            </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
 </div>
+
+
+<% if false %>
+  <td width="200">
+    <%= best_in_place [list.anime, list], :status, type: :select,
+                        collection: [
+                          ["Currently Watching" , "Currently Watching"],
+                          ["Plan to Watch" , "Plan to Watch"],
+                          ["Completed" , "Completed"],
+                          ["On Hold" , "On Hold"],
+                          ["Dropped" , "Dropped"]
+                        ],
+                        class: 'add-to-list button expanded',
+                        place_holder: "Add to library" %>
+  </td>
+  <td><%= best_in_place [list.anime, list], :episodes_watched %>/ <%= list.anime.episodes %></td>
+  <td><%= best_in_place [list.anime, list], :rewatched %></td>
+<% end %>
