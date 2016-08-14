@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
   def animelist
     @user = User.find params[:user_id]
-    @animelists = @user.animelists.order("created_at desc")
+    @animelists = @user.animelists.order("created_at desc").page(params[:page]).per(10)
     @animelist = Animelist.find_by(user_id: @user.id)
   end
 
