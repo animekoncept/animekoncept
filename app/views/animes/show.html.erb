@@ -16,7 +16,7 @@
         <%= image_tag "",
             data: {
               interchange: "
-              [#{@anime.cover_image.url(:medium)}, small],
+              [#{@anime.cover_image.url(:mobile)}, small],
               [#{@anime.cover_image.url(:large)}, medium],
               [#{@anime.cover_image.url(:large)}, large]
               "
@@ -44,7 +44,7 @@
     <div class="small-12 medium-6 large-7 columns middle">
       <h1 class="anime-title"><%= @anime.title %></h1>
       <h5 class="anime-japanese"><%= @anime.japanese %></h5>
-      <ul class="menu genres">
+      <ul class="genres">
         <% @anime.genres.each do |genre| %>
           <li class="secondary label"><%= link_to genre.title, genre_path(genre) %></li>
         <% end %>
