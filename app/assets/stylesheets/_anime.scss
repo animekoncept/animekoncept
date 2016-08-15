@@ -77,6 +77,11 @@
           padding-right: 10px;
         }
       }
+      @media screen and (max-width: 39.9375em) {
+        .anime-title, .anime-japanese, .genres, .synopsis {
+          text-align: center;
+        }
+      }
     }
     .right {
       .favorite {

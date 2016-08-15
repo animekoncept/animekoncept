@@ -49,7 +49,54 @@
           <li class="secondary label"><%= link_to genre.title, genre_path(genre) %></li>
         <% end %>
       </ul>
-      <ul class="menu details">
+      <!-- Small screen only -->
+      <div class="show-for-small-only">
+
+        <div class="small-12 columns">
+          <div class="english">
+            English: <%= @anime.english %>
+          </div>
+        </div>
+
+        <div class="small-6 columns show-for-small-only">
+          <div class="aired">
+            Aired: <%= @anime.aired_on.strftime("%b %d, %Y") unless @anime.aired_on == nil  %>
+          </div>
+        </div>
+        <div class="small-6 columns show-for-small-only">
+          <div class="ended">
+            Ended: <%= @anime.ended_on.strftime("%b %d, %Y") unless @anime.ended_on == nil %>
+          </div>
+        </div>
+
+        <div class="small-6 columns">
+          Duration: <%= @anime.duration %>
+        </div>
+        <div class="small-6 columns">
+          Episodes: <%= @anime.episodes %>
+        </div>
+
+        <div class="small-6 columns">
+          <div class="type_of">
+            Type of: <%= @anime.type_of %>
+          </div>
+        </div>
+        <div class="small-6 columns">
+          <div class="rating">
+            Rating: <%= @anime.rating %>
+          </div>
+        </div>
+
+        <div class="small-12 columns">
+          <div class="season">
+            Season: <span><%= link_to @anime.season.title, season_path(@anime.season.slug) %></span>
+          </div>
+        </div>
+      </div>
+      <!-- Small screen only -->
+
+
+      <ul class="menu details hide-for-small-only">
         <li class="english">
           English: <%= @anime.english %>,
         </li>
