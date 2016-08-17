@@ -27,7 +27,7 @@
           <li class="username">
             <ul class="dropdown menu" data-dropdown-menu>
               <li>
-                <a href="#">Hi, <%= current_user.username %></a>
+                <a href="#"><%= greet %>, <%= current_user.username %></a>
                 <ul class="menu bottom">
                   <li><%= link_to "Account", edit_user_registration_path %></li>
                   <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
