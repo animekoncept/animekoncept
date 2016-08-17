@@ -1,6 +1,6 @@
-<div class=" animes off canvas-wrapper">
-  <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-    <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
+<div class=" animes off-canvas-wrapper">
+  <div class="off-canvas-wrapper-inner">
+    <div class="off-canvas position-left reveal-for-medium" id="offCanvasLeft" data-off-canvas data-position="left">
       <%#= render "facets" %>
       <div class="browse-anime">
         <h4 class="browse-anime">Browse <span>Anime</span></h4>
@@ -55,7 +55,7 @@
                 <%= link_to image_tag("",
                   data: {
                     interchange: "
-                    [#{anime.header_image.url(:medium)}, small],
+                    [#{anime.header_image.url(:large)}, small],
                     [#{anime.header_image.url(:medium)}, medium],
                     [#{anime.header_image.url(:medium)}, large]
                     "
@@ -66,13 +66,13 @@
           </div>
         <% end %>
         <% @all_animes.each do |anime| %>
-          <div class="small-6 medium-2 large-2 columns">
+          <div class="small-6 medium-3 large-2 columns">
             <div class="anime-list">
               <span data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover='false' tabindex=1 title="<%= anime.title %>">
                 <%= link_to image_tag("",
                   data: {
                     interchange: "
-                    [#{anime.cover_image.url(:medium)}, small]
+                    [#{anime.cover_image.url(:large)}, small]
                     [#{anime.cover_image.url(:large)}, medium],
                     [#{anime.cover_image.url(:large)}, large]
                     "

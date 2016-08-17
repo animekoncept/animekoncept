@@ -14,9 +14,60 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    <%= render partial: 'layouts/flash' %>
+    <div class="off-canvas-wrapper">
+      <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
 
-    <%= yield %>
+        <!-- Left side -->
+        <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
+
+          <!-- Close button -->
+          <button class="close-button" aria-label="Close menu" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+          <!-- Menu -->
+          <ul class="vertical menu">
+            <li><%= link_to "Anime", animes_path %></li>
+            <li><%= link_to "Events", events_path %></li>
+            <li><%= link_to "Community", topics_path %></li>
+            <li><%= link_to "My List", user_animelist_path(current_user) if user_signed_in? %></li>
+          </ul>
+
+        </div>
+
+        <!-- Right side -->
+        <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
+
+          <!-- Close button -->
+          <button class="close-button" aria-label="Close menu" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+          <!-- Menu -->
+          <ul class="vertical menu">
+            <li><%= link_to "Account", edit_user_registration_path %></li>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          </ul>
+
+        </div>
+
+        <div class="off-canvas-content" data-off-canvas-content>
+          <div class="title-bar hide-for-large">
+            <div class="title-bar-left">
+              <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
+              <span class="title-bar-title title">CHIBI</span>
+            </div>
+            <div class="title-bar-right">
+              <span class="title-bar-title">Hi, <%= current_user.username %></span>
+              <button class="menu-icon" type="button" data-open="offCanvasRight"></button>
+            </div>
+          </div>
+          <%= render 'layouts/navbar' %>
+          <%= render partial: 'layouts/flash' %>
+
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
