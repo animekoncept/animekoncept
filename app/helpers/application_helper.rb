@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+  def username
+    if user_signed_in?
+      current_user.username
+    else
+      "Guest"
+    end
+  end
+
   def markdown(text)
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
                                          :hard_wrap => true,

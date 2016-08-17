@@ -73,11 +73,7 @@
             </div>
             <div class="title-bar-right">
               <span class="title-bar-title">Hi,
-                 <% if user_signed_in? %>
-                   <%= current_user.username %>
-                <% else %>
-                  Guest
-                <% end %>
+                 <%= username %>
               </span>
               <button class="menu-icon" type="button" data-open="offCanvasRight"></button>
             </div>
