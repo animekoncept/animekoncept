@@ -51,10 +51,17 @@
           </button>
 
           <!-- Menu -->
-          <ul class="vertical menu">
-            <li><%= link_to "Account", edit_user_registration_path %></li>
-            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-          </ul>
+          <% if user_signed_in? %>
+            <ul class="vertical menu">
+              <li><%= link_to "Account", edit_user_registration_path %></li>
+              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          <% else %>
+            <ul class="vertical menu">
+              <li><%= link_to "Log in", user_session_path %></li>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+            </ul>
+          <% end %>
 
         </div>
 
@@ -65,7 +72,13 @@
               <span class="title-bar-title title">CHIBI</span>
             </div>
             <div class="title-bar-right">
-              <span class="title-bar-title">Hi, <%= current_user.username %></span>
+              <span class="title-bar-title">Hi,
+                 <% if user_signed_in? %>
+                   <%= current_user.username %>
+                <% else %>
+                  Guest
+                <% end %>
+              </span>
               <button class="menu-icon" type="button" data-open="offCanvasRight"></button>
             </div>
           </div>
