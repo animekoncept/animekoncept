@@ -17,18 +17,18 @@
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
           <label for="middle-label" class="text-right middle">Username:</label>
-          <label for="middle-label" class="text-right middle">Description:</label>
           <label for="middle-label" class="text-right middle">Password:</label>
           <label for="middle-label" class="text-right middle">Password Confirmation:</label>
           <label for="middle-label" class="text-right middle">Confirm Password</label>
+          <label for="middle-label" class="text-right middle">Description:</label>
         </div>
-        <div class="large-9 columns">
+        <div class="small-9 large-9 columns">
           <%= f.input :email, required: true, autofocus: true, label: false, id: 'middle-label' %>
           <%= f.input :username, required: true, autofocus: true, label: false, id: 'middle-label' %>
-          <%= f.input :description, required: true, label: false %>
           <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, label: false %>
           <%= f.input :password_confirmation, required: false, label: false %>
           <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true, label: false %>
+          <%= f.input :description, required: true, label: false, input_html: { preview: true, rows: 5 } %>
           <%= f.button :submit, "Update", class: 'button' %>
         </div>
       <% end %>
