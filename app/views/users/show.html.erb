@@ -53,7 +53,7 @@
         <p><%= @user.description %></p>
       <% end %>
       <hr>
-      <div class="friends">
+      <div class="friends hide-for-small-only">
         <% @user.users_marked_as_following.each do |user| %>
           <div class="large-2 columns">
             <%= link_to image_tag(user.avatar.url(:thumb)), user %>
