@@ -4,7 +4,7 @@
     <%= image_tag "",
         data: {
           interchange: "
-          [#{@user.header_image.url(:small)}, small],
+          [#{@user.header_image.url(:medium)}, small],
           [#{@user.header_image.url(:medium)}, medium],
           [#{@user.header_image.url(:large)}, large]
           "
@@ -30,8 +30,8 @@
         <strong><%= @user.username.upcase %></strong>
       </div>
     </div>
-    <div class="large-8 columns">
-      <ul class="vertical medium-horizontal menu ext-links">
+    <div class="small-12 large-8 columns">
+      <ul class="menu ext-links">
       <li><%= link_to "Forum", user_forum_path(@user) %></li>
       <li><%= link_to "Events", user_events_path(@user) %></li>
       <li><%= link_to "Anime List", user_animelist_path(@user) %></li>
