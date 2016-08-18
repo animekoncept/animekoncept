@@ -44,4 +44,9 @@
   .update-button {
     color: $orange;
   }
+  .about {
+    @media screen and (max-width: 39.9375em)  {
+      text-align: center;
+    }
+  }
 }
