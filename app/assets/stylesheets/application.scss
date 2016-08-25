@@ -69,3 +69,15 @@ html, body {
     background-color: $red;
   }
 }
+
+
+nav.page {
+  a {
+    color: $orange;
+    padding: 10px 10px;
+  }
+  .current {
+    color: $black;
+    padding: 10px 10px;
+  }
+}
