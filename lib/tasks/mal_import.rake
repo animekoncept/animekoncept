@@ -62,12 +62,13 @@ task :fetch_mal_info => :environment do
     anime.update_attribute(:broadcast, broadcast)
 
 
-if false
+
 
     if cover_image_scrape.blank?
       cover_image = nil
     else
-      cover_image = cover_image_scrape['data-src']
+      #cover_image = cover_image_scrape['data-src']
+      cover_image = cover_image_scrape['src']
     end
 
     if english_scrape.blank?
@@ -163,6 +164,6 @@ if false
     anime.update(producers: studio)
 
   end
-  end
+
 
 end
