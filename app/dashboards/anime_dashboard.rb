@@ -15,7 +15,7 @@ class AnimeDashboard < Administrate::BaseDashboard
     synopsis: Field::Text,
     aired_on: Field::DateTime,
     ended_on: Field::DateTime,
-    duration: Field::String,
+    duration: Field::Number,
     type_of:  Field::String,
     episodes: Field::Number,
     rating:   Field::String,
@@ -40,20 +40,26 @@ class AnimeDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :genres,
-    :producers,
-    :id,
     :title,
+    :english,
+    :japanese,
     :synopsis,
-    :cover_image,
-    :header_image,
+    :aired_on,
+    :ended_on,
+    :duration,
+    :type_of,
+    :episodes,
+    :rating,
     :crunchyroll,
     :official_site,
     :wiki,
-    :type_of,
     :mal_id,
     :broadcast,
+    :cover_image,
+    :header_image,
     :season,
+    :genres,
+    :producers
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -79,9 +85,11 @@ class AnimeDashboard < Administrate::BaseDashboard
     :wiki,
     :mal_id,
     :broadcast,
-    :season,
     :cover_image,
     :header_image,
+    :season,
+    :genres,
+    :producers
   ]
 
   # Overwrite this method to customize how animes are displayed
