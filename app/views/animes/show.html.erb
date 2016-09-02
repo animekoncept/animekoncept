@@ -144,21 +144,23 @@
                             ],
                             class: 'add-to-list button expanded',
                             place_holder: "Add to library" %>
-      <% if @animelist.user_id == current_user.id%>
-        <p><a data-open="exampleModal1" class="button expanded add-to-list">Update List</a></p>
-      <% else %>
-        <p><a data-open="exampleModal1" class="button expanded add-to-list">Add to Animelist</a></p>
-      <% end %>
-      <div class="small reveal form" id="exampleModal1" data-reveal>
-        <%= render partial: 'animelists/form' %>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+      <% if user_signed_in? %>
+        <% if @animelist.user_id == current_user.id%>
+          <p><a data-open="exampleModal1" class="button expanded add-to-list">Update List</a></p>
+        <% else %>
+          <p><a data-open="exampleModal1" class="button expanded add-to-list">Add to Animelist</a></p>
+        <% end %>
+        <div class="small reveal form" id="exampleModal1" data-reveal>
+          <%= render partial: 'animelists/form' %>
+          <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
 
-      <div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
-        <%= render partial: 'favorite', locals: {anime: @anime} %>
-      </div>
+        <div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
+          <%= render partial: 'favorite', locals: {anime: @anime} %>
+        </div>
+      <% end %>
       <h4>Reviews</h4>
       <%= link_to "Write a review", new_anime_review_path(@anime, @review), class: 'button expanded write-a-review' %>
       <div class="reviews">

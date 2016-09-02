@@ -11,10 +11,12 @@ class AnimesController < ApplicationController
     @anime = Anime.find params[:id]
     @anime.punch(request)
     @reviews = @anime.reviews.limit(4).order("created_at desc")
-    if current_user.animelists == current_user.id
-      @animelist = Animelist.find_by(anime_id: @anime.id)
-    elsif current_user.animelists
-      @animelist = Animelist.find_or_create_by(anime_id: @anime.id)
+    if user_signed_in?
+      if current_user.animelists == current_user.id
+        @animelist = Animelist.find_by(anime_id: @anime.id)
+      elsif current_user.animelists
+        @animelist = Animelist.find_or_create_by(anime_id: @anime.id)
+      end
     end
   end
 
