@@ -13,7 +13,9 @@
       }
     }
     .title {
-      font-size: 1.5em;
+      img {
+        height: 55px;
+      }
     }
   }
   .top-bar-right {
@@ -116,6 +118,14 @@
       &:hover {
         color: $orange;
       }
+    }
+  }
+}
+
+.off-canvas-content {
+  .title-mobile {
+    a {
+      color: $white;
     }
   }
 }
