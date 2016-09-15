@@ -31,7 +31,7 @@ gem 'paperclip-optimizer'
 gem 'image_optim_pack'
 
 #Front-end framework
-gem 'foundation-rails', :git => 'git://github.com/zurb/foundation-rails'
+gem 'foundation-rails'
 
 gem 'bourbon'
 
