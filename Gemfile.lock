@@ -443,7 +443,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.5)
   faker (~> 1.6.1)
   font-awesome-rails
-  foundation-rails (~> 6.2, >= 6.2.1.0)
+  foundation-rails
   friendly_id (~> 5.1.0)
   guard-rspec
   image_optim_pack

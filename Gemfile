@@ -31,7 +31,7 @@ gem 'paperclip-optimizer'
 gem 'image_optim_pack'
 
 #Front-end framework
-gem 'foundation-rails', '~> 6.2', '>= 6.2.1.0'
+gem 'foundation-rails'
 
 gem 'bourbon'
 
