@@ -73,11 +73,17 @@ group :development, :test do
   gem 'capybara', '~> 2.5'
 end
 
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'guard-rspec', require: false
   gem "better_errors"
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-rbenv', github: "capistrano/rbenv"
+  gem 'capistrano-passenger'
 end
 
 group :test do
