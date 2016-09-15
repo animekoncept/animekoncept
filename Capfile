@@ -9,7 +9,7 @@ require 'capistrano/deploy'
 # For documentation on these, see for example:
 require 'capistrano/rbenv'
 set :rbenv_type, :user # or :system, depends on your rbenv setup
-set :rbenv_ruby, '2.3.1'
+set :rbenv_ruby, 'ruby 2.3.1p112'
 require 'capistrano/bundler'
 require 'capistrano/rails'
 require 'capistrano/passenger'
