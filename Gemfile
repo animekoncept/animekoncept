@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby  "2.3.1"
 gem 'rails', '4.2.7'
 gem 'pg', '~> 0.15'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0.4'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
@@ -31,7 +31,9 @@ gem 'paperclip-optimizer'
 gem 'image_optim_pack'
 
 #Front-end framework
-gem 'foundation-rails'
+gem 'foundation-rails', :git => 'git://github.com/zurb/foundation-rails'
+
+gem 'bourbon'
 
 gem 'readmorejs-rails'
 
@@ -82,7 +84,7 @@ group :development do
   gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-rails', '~> 1.1.1'
-  gem 'capistrano-rbenv', github: "capistrano/rbenv"
+  gem 'capistrano-rvm', github: "capistrano/rvm"
   gem 'capistrano-passenger'
 end
 
