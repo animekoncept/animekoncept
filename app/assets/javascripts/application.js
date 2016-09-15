@@ -91,3 +91,5 @@ function buttonUp() {
         $('.searchbox-icon').css('display', 'block');
     }
 }
+
+$(function(){ $(document).foundation(); });
