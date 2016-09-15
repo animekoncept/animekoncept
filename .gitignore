@@ -18,3 +18,5 @@
 /public/system/events
 /public/system/users
 config/aws.yml
+config/database.yml
+config/secrets.yml
