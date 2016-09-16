@@ -25,6 +25,7 @@ gem 'annotate'
 
 #Admin
 gem "administrate"
+gem 'inline_svg'
 
 # Attachments
 gem "paperclip", "~> 4.3"
