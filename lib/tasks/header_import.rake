@@ -14,7 +14,9 @@ task :fetch_header_image => :environment do
     #link = doc.css( ".boxgrid a").first
 
     link = doc.link_with(:href => /big/).click
-    src  = link.at('img#main_wallpaper')['src']
+    src  = link.at('img.img-responsive')['src']
+
+
     #header_image = image.css("img#main_wallpaper")
     anime.update_attribute(:header_image, src)
     #puts m
