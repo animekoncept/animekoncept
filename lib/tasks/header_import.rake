@@ -14,7 +14,11 @@ task :fetch_header_image => :environment do
     #link = doc.css( ".boxgrid a").first
 
     link = doc.link_with(:href => /big/).click
-    src  = link.at('img.img-responsive')['src']
+    if link.blank?
+      src = nil
+    else
+      src  = link.at('img.img-responsive')['src']
+    end
 
 
     #header_image = image.css("img#main_wallpaper")
