@@ -6,23 +6,17 @@ task :fetch_header_image => :environment do
 
   Anime.all.each do |anime|
     agent = Mechanize.new
-    url = "https://wall.alphacoders.com/search.php?search=#{CGI.escape(anime.slug)}"
+    url = "https://wall.alphacoders.com/search.php?search=#{CGI.escape(anime.english)}"
     doc = agent.get(url)
 
-    #header_image = doc.css("div.thumb-container-big img").first
-    #image = header_image["src"]
-    #link = doc.css( ".boxgrid a").first
 
     link = doc.link_with(:href => /big/).click
     if link.blank?
       src = nil
     else
-      src  = link.at('img.img-responsive')['src']
+      src = link.at('img.img-responsive')['src']
     end
 
-
-    #header_image = image.css("img#main_wallpaper")
     anime.update_attribute(:header_image, src)
-    #puts m
   end
 end
