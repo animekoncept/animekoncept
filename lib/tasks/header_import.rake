@@ -6,7 +6,7 @@ task :fetch_header_image => :environment do
 
   Anime.all.each do |anime|
     agent = Mechanize.new
-    url = "https://wall.alphacoders.com/search.php?search=#{CGI.escape(anime.english)}"
+    url = "https://wall.alphacoders.com/search.php?search=#{CGI.escape(anime.slug)}"
     doc = agent.get(url)
 
 
