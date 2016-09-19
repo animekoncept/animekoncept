@@ -31,6 +31,11 @@
   #validates_presence_of :duration
   validates_uniqueness_of :title, :case_sensitive => false
 
+  after_validation :move_friendly_id_error_to_title
+  def move_friendly_id_error_to_name
+    errors.add :title, *errors.delete(:friendly_id) if errors[:friendly_id].present?
+  end
+
   belongs_to :season
   has_and_belongs_to_many :genres
   has_and_belongs_to_many :producers
