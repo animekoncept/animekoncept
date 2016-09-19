@@ -32,7 +32,7 @@
   validates_uniqueness_of :title, :case_sensitive => false
 
   after_validation :move_friendly_id_error_to_title
-  def move_friendly_id_error_to_name
+  def move_friendly_id_error_to_title
     errors.add :title, *errors.delete(:friendly_id) if errors[:friendly_id].present?
   end
 

@@ -20,7 +20,7 @@ task :fetch_mal_info => :environment do
   #genre = []
   Anime.all.each do |anime|
     agent = Mechanize.new
-    url   = "http://myanimelist.net/anime/#{anime.mal_id}/#{CGI.escape(anime.slug)}"
+    url   = "http://myanimelist.net/anime/#{anime.mal_id}/#{CGI.escape(anime.title)}"
     doc   = agent.get(url)
 
 
