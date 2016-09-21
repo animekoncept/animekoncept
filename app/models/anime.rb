@@ -31,11 +31,6 @@
   #validates_presence_of :duration
   validates_uniqueness_of :title, :case_sensitive => false
 
-  after_validation :move_friendly_id_error_to_title
-  def move_friendly_id_error_to_title
-    errors.add :title, *errors.delete(:friendly_id) if errors[:friendly_id].present?
-  end
-
   belongs_to :season
   has_and_belongs_to_many :genres
   has_and_belongs_to_many :producers
@@ -53,6 +48,31 @@
 
   include PgSearch
   multisearchable :against => [:title, :english, :slug]
+
+
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
+  after_validation :move_friendly_id_error_to_title
+  def move_friendly_id_error_to_title
+    errors.add :title, *errors.delete(:friendly_id) if errors[:friendly_id].present?
+  end
+
+  def slug=(value)
+    if value.present?
+      write_attribute(:slug, value)
+    end
+  end
+
+  has_attached_file :cover_image,
+                    styles: { large: "200x288#", medium: "162x230#", thumb: "100x100#", mobile: "350x444" },
+                    processors: [:thumbnail, :paperclip_optimizer]
+  validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\Z/
+
+  has_attached_file :header_image,
+                    styles: { large: "1920x600#", medium: "1920x850#" },
+                    processors: [:thumbnail, :paperclip_optimizer]
+  validates_attachment_content_type :header_image, content_type: /\Aimage\/.*\Z/
 
 
 
@@ -81,23 +101,4 @@
   #    aggs: [:aired_on, :season_name, :genres]
   #  animes
   #end
-
-  extend FriendlyId
-  friendly_id :title, use: :slugged
-
-  def slug=(value)
-    if value.present?
-      write_attribute(:slug, value)
-    end
-  end
-
-  has_attached_file :cover_image,
-                    styles: { large: "200x288#", medium: "162x230#", thumb: "100x100#", mobile: "350x444" },
-                    processors: [:thumbnail, :paperclip_optimizer]
-  validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\Z/
-
-  has_attached_file :header_image,
-                    styles: { large: "1920x600#", medium: "1920x850#" },
-                    processors: [:thumbnail, :paperclip_optimizer]
-  validates_attachment_content_type :header_image, content_type: /\Aimage\/.*\Z/
 end
