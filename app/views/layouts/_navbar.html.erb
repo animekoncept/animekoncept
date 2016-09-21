@@ -17,10 +17,8 @@
     <div class="top-bar-right">
       <ul class="menu">
         <li>
-          <%= form_tag search_index_path, class: "searchbox", method: :get do %>
+          <%= form_tag search_index_path, method: :get do %>
             <%= text_field_tag :query, params[:query], class: "searchbox-input", placeholder: "Search Anime", onkeyup: "buttonUp();" %>
-            <input type="submit" class="searchbox-submit" value="GO">
-            <span class="searchbox-icon">Search</span>
           <% end %>
         </li>
         <% if user_signed_in? %>
