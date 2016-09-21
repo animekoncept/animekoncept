@@ -1,5 +1,5 @@
 <div class="home">
-  <div class="large-3 columns">
+  <div class="large-3 columns margin-top">
     <div class="mini-profile">
       <div class="header">
         <%= image_tag @user.header_image.url(:large) %>
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="large-6 columns">
+  <div class="large-6 columns margin-top">
     <%= render 'microposts/form' %>
     <br>
     <div class="microposts">
@@ -39,7 +39,7 @@
     </div>
   </div>
 
-  <div class="large-3 columns hide-for-small-only">
+  <div class="large-3 columns hide-for-small-only margin-top">
     <div class="who-to-follow">
       <h4>Who To Follow</h4>
       <% @users.each do |user| %>

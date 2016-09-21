@@ -45,6 +45,7 @@
           }
           .accordion-content {
             background-color: $dark-gray;
+            border: transparent;
           }
           ul.genre {
             .menu {
@@ -57,6 +58,7 @@
           }
           a {
             color: $white;
+            border: transparent;
             &:hover {
               color: $orange;
             }

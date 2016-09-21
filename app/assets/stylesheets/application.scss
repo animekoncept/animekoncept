@@ -37,13 +37,17 @@
   font-family: 'ProximaNovaBold';
   src: url('fonts/proximanova-bold') format('opentype');
 }
-html, body {
+html,body {
   height: 100%;
   width: 100%;
   background-color: $gray;
 }
 .full-width {
   max-width: 100%;
+}
+
+.margin-top {
+  margin-top: 20px;
 }
 
 .active_class {
