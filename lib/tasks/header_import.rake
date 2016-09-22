@@ -17,7 +17,7 @@ task :fetch_header_image => :environment do
       src = link.at('img.img-responsive')['src']
     end
 
-    if src = nil
+    if src == nil
       #do nothing
     else
       anime.update_attribute(:header_image, src)
