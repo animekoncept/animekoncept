@@ -59,7 +59,8 @@ class AnimeDashboard < Administrate::BaseDashboard
     :header_image,
     :season,
     :genres,
-    :producers
+    :producers,
+    :slug
   ]
 
   # SHOW_PAGE_ATTRIBUTES
