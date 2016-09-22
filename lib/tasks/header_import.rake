@@ -13,6 +13,8 @@ task :fetch_header_image => :environment do
     link = doc.link_with(:href => /big/).click
     if link.blank?
       src = nil
+    elsif link == nil
+      src = nil
     else
       src = link.at('img.img-responsive')['src']
     end
