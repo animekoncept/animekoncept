@@ -1,0 +1,8 @@
+<h1>Hey <%= @user.username %></h1>
+
+<h4>You just created a topic in <%= @topic.category.title %></h4>
+<h4>Preview</h4>
+<h2><%= @topic.title %></h2>
+<p><%= @topic.content %></p>
+Click <%= link_to "here", topic_url(@topic) %> to check your topic out
+<hr>

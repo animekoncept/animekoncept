@@ -21,6 +21,7 @@ class TopicsController < ApplicationController
     @topic.user_id = current_user.id
     @topic.category_id = @category.id
     if @topic.save
+      TopicMailer.topic_notification(@topic).deliver
       redirect_to @topic
     else
       render :new
