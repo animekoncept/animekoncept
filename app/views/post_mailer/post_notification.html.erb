@@ -1,5 +1,8 @@
-<h1>PostMailer#post_notification</h1>
+<h1>Hey <%= @user.username %></h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/post_mailer/post_notification.html.erb
-</p>
+You just created a post!
+Click <%= link_to "here", topic_url(@topic) %> to checkout your post out
+<hr>
+<p><%= @post.content %></p>
+
+<h3>Thanks!</h3>

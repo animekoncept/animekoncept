@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     @post.topic_id = @topic.id
     if @post.save
+      PostMailer.post_notification(@post).deliver
       redirect_to @topic
     else
       render :new

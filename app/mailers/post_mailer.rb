@@ -5,9 +5,10 @@ class PostMailer < ApplicationMailer
   #
   #   en.post_mailer.post_notification.subject
   #
-  def post_notification
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def post_notification(post)
+    @topic = post.topic
+    @user = post.user
+    @post = post
+    mail to: @user.email, subject: "You just created a post"
   end
 end

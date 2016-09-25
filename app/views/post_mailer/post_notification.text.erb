@@ -1,3 +1,8 @@
-PostMailer#post_notification
+Hey <%= @user.username %>
 
-<%= @greeting %>, find me in app/views/post_mailer/post_notification.text.erb
+You just created a post!
+Click <%= link_to "here", topic_url(@topic) %> to checkout your post out
+
+<%= @post.content %>
+
+Thanks!
