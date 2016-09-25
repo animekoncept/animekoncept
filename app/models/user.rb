@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  after_create :send_user_email
 
   validates_presence_of :username
 
@@ -46,6 +47,10 @@ class User < ActiveRecord::Base
 
   has_attached_file :header_image, styles: { large: "1920x600#", medium: "1920x850#", small: "1920x500#" }, default_url: "/images/user_header_:style.png"
   validates_attachment_content_type :header_image, content_type: /\Aimage\/.*\Z/
+
+  def send_user_email
+    UserMailer.user_notification(self).deliver
+  end
 
 
   private
