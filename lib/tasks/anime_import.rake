@@ -4,7 +4,7 @@ namespace :import do
     filename = File.join Rails.root, "anime_script.csv"
     counter = 0
     CSV.foreach(filename) do |row|
-      title, mal_id = row
+      title, mal_id = row.uniq
       anime = Anime.create(title: title, mal_id: mal_id,)
       puts "#{anime} - #{anime.errors.full_messages.join(",")}" if anime.errors.any?
       counter += 1 if anime.persisted?

@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :header_image, content_type: /\Aimage\/.*\Z/
 
   def send_user_email
-    UserMailer.user_notification(self).deliver
+    UserMailer.user_notification(self).deliver_now
   end
 
 
