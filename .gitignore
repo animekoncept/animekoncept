@@ -21,3 +21,9 @@ config/aws.yml
 
 # Ignore application configuration
 /config/application.yml
+
+
+# Ignore .csv files
+anime_script.csv
+producer_script.csv
+season_script.csv
