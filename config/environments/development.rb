@@ -12,17 +12,7 @@ Rails.application.configure do
   #  :path => '/:class/:attachment/:id_partition/:style/:filename'
   #}
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => "smtp.mailgun.org",
-    :port => 587,
-    :domain => "sandbox6392799535184d428dddf8b033f20165.mailgun.org",
-    :user_name => "postmaster@sandbox6392799535184d428dddf8b033f20165.mailgun.org",
-    :password => "wisper11"
-  }
-
-  config.action_mailer.delivery_method = :letter_opener
+  #config.action_mailer.delivery_method = :letter_opener
 
   config.cache_classes = false
 

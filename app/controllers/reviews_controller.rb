@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.anime_id = @anime.id
     if @review.save
-      ReviewMailer.review_notification(@review).deliver
+      ReviewMailer.review_notification(@review).deliver_now
       redirect_to @anime
     else
       render :new

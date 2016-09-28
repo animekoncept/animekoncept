@@ -12,6 +12,17 @@ module Testing
   class Application < Rails::Application
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.assets.image_optim = false
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address: "smtp.mailgun.org",
+      port: 587,
+      domain: ENV['MAILGUN_DOMAIN'],
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV['MAILGUN_SMTP_USERNAME'],
+      password: ENV['MAILGUN_SMTP_PASSWORD']
+    }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

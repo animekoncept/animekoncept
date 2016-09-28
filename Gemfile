@@ -69,6 +69,10 @@ gem 'wikipedia-client'
 #gem 'aws-sdk', '< 2.0'
 gem 'best_in_place', '~> 3.0.1'
 
+gem 'mailgun-ruby'
+
+gem "figaro"
+
 
 group :development, :test do
   gem 'byebug'
