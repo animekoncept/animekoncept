@@ -29,7 +29,7 @@
   #validates_presence_of :mal_id
   #validates_presence_of :ended_on
   #validates_presence_of :duration
-  #validates_uniqueness_of :title, :case_sensitive => false
+  validates_uniqueness_of :title
 
   belongs_to :season
   has_and_belongs_to_many :genres
