@@ -24,6 +24,6 @@ config/aws.yml
 
 
 # Ignore .csv files
-anime_script.csv
+#anime_script.csv
 producer_script.csv
 season_script.csv
