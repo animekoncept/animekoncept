@@ -3,7 +3,7 @@
   Role.where(title: role).first_or_create
 end
 
-User.create(username: "ImErot", email: "wesly@mezarina.me", password: "wisper11", role_id: 4)
+User.create(username: "ImErot", email: "wesly@animekoncept.com", password: "password", role_id: 4)
 
 Category.create(title: 'site news')
 Category.create(title: 'industry news')
