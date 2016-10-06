@@ -145,11 +145,13 @@
                             class: 'add-to-list button expanded',
                             place_holder: "Add to library" %>
       <% if user_signed_in? %>
+
         <% if @animelist.user_id == current_user.id%>
           <p><a data-open="exampleModal1" class="button expanded add-to-list">Update List</a></p>
         <% else %>
           <p><a data-open="exampleModal1" class="button expanded add-to-list">Add to Animelist</a></p>
         <% end %>
+
         <div class="small reveal form" id="exampleModal1" data-reveal>
           <%= render partial: 'animelists/form' %>
           <button class="close-button" data-close aria-label="Close modal" type="button">
@@ -160,9 +162,19 @@
         <div id="anime_<%= @anime.id %>_favorite" class="favorite-button">
           <%= render partial: 'favorite', locals: {anime: @anime} %>
         </div>
+        <h4>Reviews</h4>
+          <%= link_to "Write a review", new_anime_review_path(@anime, @review), class: 'button expanded write-a-review' %>
+      <% else %>
+
+          <%= link_to "Add to Animelist", new_user_registration_path, class: "button expanded add-to-list" %>
+
+          <%= link_to "Favorite", new_user_registration_path, class: "favorite button expanded" %>
+
+        <h4>Reviews</h4>
+          <%= link_to "Write a review", new_user_registration_path, class: 'button expanded write-a-review' %>
+
+
       <% end %>
-      <h4>Reviews</h4>
-      <%= link_to "Write a review", new_anime_review_path(@anime, @review), class: 'button expanded write-a-review' %>
       <div class="reviews">
         <% @reviews.each do |review| %>
           <p>
