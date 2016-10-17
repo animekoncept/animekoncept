@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   def index
-    @groups = Groups.all
+    @groups = Group.all
   end
 
   def show
