@@ -12,9 +12,11 @@ class GroupDashboard < Administrate::BaseDashboard
     title: Field::String,
     bio: Field::Text,
     summary: Field::Text,
+    avatar: PaperclipField,
+    header_image: PaperclipField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    slug: Field::String,
+    slug: Field::String
   }
 
   # COLLECTION_ATTRIBUTES
@@ -26,7 +28,9 @@ class GroupDashboard < Administrate::BaseDashboard
     :id,
     :title,
     :bio,
-    :summary
+    :summary,
+    :avatar,
+    :header_image
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -40,6 +44,8 @@ class GroupDashboard < Administrate::BaseDashboard
     :id,
     :title,
     :bio,
-    :summary
+    :summary,
+    :avatar,
+    :header_image
   ]
 end

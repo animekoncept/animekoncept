@@ -1,0 +1,18 @@
+<div class="groups">
+  <% @groups.each do |group| %>
+    <div class="small-12 medium-6 large-4 columns margin-top">
+      <div class="card">
+        <div class="image">
+          <%= image_tag group.header_image(:medium) %>
+          <span class="title"><%= group.title %></span>
+        </div>
+        <div class="content">
+          <p><%= group.bio %></p>
+        </div>
+        <div class="action">
+          <%= link_to "Checkout Group", group_path(group) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
