@@ -8,11 +8,14 @@ class Group < ActiveRecord::Base
   validates_presence_of :bio
   validates_presence_of :summary
 
+  validates_length_of :bio, :minimum => 5, :maximum => 60
+  validates_length_of :title, :minimum => 5, :maximum => 20
+
   belongs_to :user
 
 
   has_attached_file :avatar,
-                    styles: { large: "200x288#", medium: "162x230#", thumb: "100x100#", mobile: "350x444" },
+                    styles: { large: "200x200#", medium: "162x162#", thumb: "100x100#", mobile: "350x350" },
                     processors: [:thumbnail, :paperclip_optimizer]
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 

@@ -1,0 +1,82 @@
+.group {
+  .header-image {
+    background-color: #1b2023;
+    img {
+      /*opacity: 0.3;*/
+      width: 100%;
+      @media screen and (max-width: 39.9375em) {
+        height: 200px;
+      }
+      @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        height: 400px;
+      }
+      @media screen and (min-width: 64em) {
+        height: 600px;
+        max-height: 419px;
+      }
+    }
+  }
+  .media-object {
+    margin-bottom: 0;
+  }
+  .avatar {
+    img {
+      border-radius: 50%;
+      @media screen and (max-width: 39.9375em) {
+        position: absolute;
+        top: 80px;
+      }
+      @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        position: absolute;
+        top: 140px;
+      }
+      @media screen and (min-width: 64em) {
+        position: relative;
+        top: -220px;
+      }
+    }
+  }
+  .title {
+    font-family: ProximaNovaBold;
+    background-color:rgba(0, 0, 0, 0.3);
+    color: $white;
+    @media screen and (max-width: 39.9375em) {
+      position: absolute;
+      top: 80px;
+    }
+    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+      position: absolute;
+      top: 140px;
+    }
+    @media screen and (min-width: 64em) {
+      top: -120px;
+      font-size: 1.3em;
+      position: relative;
+    }
+  }
+  .bio {
+    font-family: ProximaNovaBold;
+    background-color:rgba(0, 0, 0, 0.3);
+    color: $white;
+    @media screen and (max-width: 39.9375em) {
+      position: absolute;
+      top: 80px;
+    }
+    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+      position: absolute;
+      top: 140px;
+    }
+    @media screen and (min-width: 64em) {
+      position: absolute;
+      top: 480px;
+      font-size: 1.3em;
+    }
+  }
+  .body {
+    position: relative;
+    top: -150px;
+    .summary {
+      background-color: $white;
+    }
+  }
+}

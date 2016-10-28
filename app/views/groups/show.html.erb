@@ -1,0 +1,56 @@
+<div class="group">
+  <div class="header-image">
+    <%= image_tag "",
+        data: {
+          interchange: "
+          [#{@group.header_image.url(:medium)}, small],
+          [#{@group.header_image.url(:medium)}, medium],
+          [#{@group.header_image.url(:large)}, large]
+          "
+        }
+    %>
+  </div>
+  <div class="info">
+    <div class="row">
+      <div class="media-object">
+        <div class="media-object-section">
+          <div class="avatar">
+            <%= image_tag "",
+                data: {
+                  interchange: "
+                  [#{@group.avatar.url(:thumb)}, small],
+                  [#{@group.avatar.url(:medium)}, medium],
+                  [#{@group.avatar.url(:medium)}, large]
+                  "
+                }
+            %>
+          </div>
+        </div>
+        <div class="media-object-section">
+          <div class="title">
+            <%= @group.title %>
+          </div>
+        </div>
+      </div>
+      <div class="bio">
+        <%= @group.bio %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="body">
+        <div class="large-4 columns">
+          <div class="summary">
+            <h4>About the group</h4>
+            <p><%= @group.summary %></p>
+          </div>
+          <div class="members">
+
+          </div>
+        </div>
+        <div class="large-8 columns">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
