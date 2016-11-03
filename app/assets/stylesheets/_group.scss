@@ -40,9 +40,20 @@
   .title {
     font-size: 1.7em;
     font-family: ProximaNovaLight;
+    @media screen and (max-width: 39.9375em) {
+      text-align: center;
+    }
+  }
+  .bio {
+    @media screen and (max-width: 39.9375em) {
+      text-align: center;
+    }
   }
   .summary {
     background-color: $white;
     border: solid $white 10px;
+    @media screen and (max-width: 39.9375em) {
+      text-align: center;
+    }
   }
 }
