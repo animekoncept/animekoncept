@@ -1,5 +1,6 @@
 <div class="group">
-  <div class="header-image">
+  <div class="header-image ">
+    <%# image_tag @anime.header_image.url(:large) %>
     <%= image_tag "",
         data: {
           interchange: "
@@ -10,47 +11,40 @@
         }
     %>
   </div>
-  <div class="info">
-    <div class="row">
-      <div class="media-object">
-        <div class="media-object-section">
-          <div class="avatar">
-            <%= image_tag "",
-                data: {
-                  interchange: "
-                  [#{@group.avatar.url(:thumb)}, small],
-                  [#{@group.avatar.url(:medium)}, medium],
-                  [#{@group.avatar.url(:medium)}, large]
-                  "
-                }
-            %>
-          </div>
-        </div>
-        <div class="media-object-section">
-          <div class="title">
-            <%= @group.title %>
-          </div>
-        </div>
-      </div>
-      <div class="bio">
-        <%= @group.bio %>
+  <div class="row">
+    <div class="small-12 medium-2 large-2 columns">
+      <div class="avatar">
+        <%= image_tag "",
+            data: {
+              interchange: "
+              [#{@group.avatar.url(:medium)}, small],
+              [#{@group.avatar.url(:large)}, medium],
+              [#{@group.avatar.url(:large)}, large]
+              "
+            }
+        %>
       </div>
     </div>
-    <div class="row">
-      <div class="body">
-        <div class="large-4 columns">
-          <div class="summary">
-            <h4>About the group</h4>
-            <p><%= @group.summary %></p>
-          </div>
-          <div class="members">
-
-          </div>
-        </div>
-        <div class="large-8 columns">
-
-        </div>
+    <div class="small-12 medium-2 large-10 columns">
+      <div class="title">
+        <%= @group.title %>
       </div>
+      <div class="bio">
+        <blockquote><%= @group.bio %></blockquote>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 large-6 columns about">
+      <div class="summary">
+        <% if @group.summary.blank? %>
+          <p>Nothing here</p>
+        <% else %>
+          <p><%= @group.summary %></p>
+        <% end %>
+      </div>
+    </div>
+    <div class="large-6 columns">
     </div>
   </div>
 </div>

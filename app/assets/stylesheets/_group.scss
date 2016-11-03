@@ -1,4 +1,5 @@
 .group {
+  background-color: $gray;
   .header-image {
     background-color: #1b2023;
     img {
@@ -16,67 +17,32 @@
       }
     }
   }
-  .media-object {
-    margin-bottom: 0;
-  }
   .avatar {
+    margin-top: -50px;
     img {
       border-radius: 50%;
+      position: relative;
       @media screen and (max-width: 39.9375em) {
-        position: absolute;
-        top: 80px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
       }
       @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-        position: absolute;
-        top: 140px;
+        position: relative;
+        top: -25px;
       }
       @media screen and (min-width: 64em) {
         position: relative;
-        top: -220px;
+        top: -50px;
       }
     }
   }
   .title {
-    font-family: ProximaNovaBold;
-    background-color:rgba(0, 0, 0, 0.3);
-    color: $white;
-    @media screen and (max-width: 39.9375em) {
-      position: absolute;
-      top: 80px;
-    }
-    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-      position: absolute;
-      top: 140px;
-    }
-    @media screen and (min-width: 64em) {
-      top: -120px;
-      font-size: 1.3em;
-      position: relative;
-    }
+    font-size: 1.7em;
+    font-family: ProximaNovaLight;
   }
-  .bio {
-    font-family: ProximaNovaBold;
-    background-color:rgba(0, 0, 0, 0.3);
-    color: $white;
-    @media screen and (max-width: 39.9375em) {
-      position: absolute;
-      top: 80px;
-    }
-    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-      position: absolute;
-      top: 140px;
-    }
-    @media screen and (min-width: 64em) {
-      position: absolute;
-      top: 480px;
-      font-size: 1.3em;
-    }
-  }
-  .body {
-    position: relative;
-    top: -150px;
-    .summary {
-      background-color: $white;
-    }
+  .summary {
+    background-color: $white;
+    border: solid $white 10px;
   }
 }
