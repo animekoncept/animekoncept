@@ -1,0 +1,2 @@
+$("#group_<%= @group.id %>_join").html("<%=j render partial: "join", locals: {group: @group}  %>");
+$('#flash').html("<%= j render partial: "layouts/flash" %>");

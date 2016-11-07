@@ -91,7 +91,12 @@ Rails.application.routes.draw do
 
   resources :producers, path: "producer"
 
-  resources :groups
+  resources :groups do
+    member do
+      put 'join', to: 'groups#join'
+      put 'unjoin', to: 'groups#unjoin'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

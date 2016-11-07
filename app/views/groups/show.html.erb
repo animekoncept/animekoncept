@@ -45,6 +45,9 @@
       </div>
     </div>
     <div class="medium-12 large-6 columns">
+      <div id="group_<%= @group.id %>_join" class="favorite-button">
+        <%= render partial: 'join', locals: {group: @group} %>
+      </div>
     </div>
   </div>
 </div>
