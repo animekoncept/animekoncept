@@ -56,4 +56,14 @@
       text-align: center;
     }
   }
+  .join-button {
+    .leave {
+      background-color: $red;
+      font-family: ProximaNovaNormal;
+    }
+    .join {
+      background-color: $orange;
+      font-family: ProximaNovaNormal;
+    }
+  }
 }

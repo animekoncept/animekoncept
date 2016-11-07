@@ -25,12 +25,19 @@
         %>
       </div>
     </div>
-    <div class="small-12 medium-10 large-10 columns">
+    <div class="small-12 medium-10 large-6 columns">
       <div class="title">
         <%= @group.title %>
       </div>
       <div class="bio">
         <blockquote><%= @group.bio %></blockquote>
+      </div>
+    </div>
+    <div class="large-4 columns">
+      <div class="join-button">
+        <div id="group_<%= @group.id %>_join">
+          <%= render partial: 'join', locals: {group: @group} %>
+        </div>
       </div>
     </div>
   </div>
@@ -45,9 +52,7 @@
       </div>
     </div>
     <div class="medium-12 large-6 columns">
-      <div id="group_<%= @group.id %>_join" class="favorite-button">
-        <%= render partial: 'join', locals: {group: @group} %>
-      </div>
+
     </div>
   </div>
 </div>
