@@ -73,6 +73,8 @@ gem 'mailgun-ruby'
 
 gem "figaro"
 
+gem 'acts_as_commentable_with_threading'
+
 
 group :development, :test do
   gem 'byebug'
