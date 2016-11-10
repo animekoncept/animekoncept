@@ -15,6 +15,8 @@ class Group < ActiveRecord::Base
 
   markable_as :join
 
+  acts_as_commentable
+
 
   has_attached_file :avatar,
                     styles: { large: "200x200#", medium: "162x162#", thumb: "100x100#", mobile: "350x350" },

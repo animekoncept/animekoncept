@@ -50,9 +50,48 @@
           <p><%= @group.summary %></p>
         <% end %>
       </div>
+      <br>
+      <div class="friends">
+        <% @group.users_have_marked_as_join.each do |friend| %>
+          <div class="large-3 columns">
+            <div class="media-object">
+              <div class="mediua-object-section">
+                <div class="thumbnail">
+                  <%= link_to image_tag(friend.avatar.url(:thumb)), friend %>
+                </div>
+              </div>
+              <div class="media-object-section">
+                <%= friend.username %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="medium-12 large-6 columns">
-
+      <%= render partial: "comments/template", locals: {commentable: @group, new_comment: @comment} %>
+      <hr>
+      <% @comments.each do |comment| %>
+        <div class="large-12 columns">
+          <div class="media-object">
+            <div class="media-object-section">
+              <div class="thumbnail">
+                <%= link_to image_tag(comment.user.avatar.url(:thumb)), comment.user %>
+              </div>
+              <div class="username">
+                <%= comment.user.username %>
+              </div>
+            </div>
+            <div class="media-object-section">
+              Created on: <%= comment.created_at.strftime("%A, %b %d") %>
+              <br>
+              <%= comment.body %>
+            </div>
+          </div>
+        </div>
+        <hr>
+      <% end %>
+      <%#= render partial: "comments/reply", locals: {comments: commentable.root_comments} %>
     </div>
   </div>
 </div>

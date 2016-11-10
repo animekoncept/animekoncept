@@ -6,7 +6,8 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find params[:id]
-    @user  = @group.user
+    @new_comment = Comment.build_from(@group, current_user.id, "")
+    @comments = @group.comment_threads
   end
 
   def new
