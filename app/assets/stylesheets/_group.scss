@@ -57,6 +57,7 @@
     }
   }
   .join-button {
+    margin-top: 15px;
     .leave {
       background-color: $red;
       font-family: ProximaNovaNormal;
@@ -64,6 +65,18 @@
     .join {
       background-color: $orange;
       font-family: ProximaNovaNormal;
+    }
+  }
+  .comment-form {
+    .button {
+      background-color: $orange;
+    }
+  }
+  .body {
+    background-color: $white;
+    border: 20px solid $white;
+    img {
+      max-width: 470px;
     }
   }
 }

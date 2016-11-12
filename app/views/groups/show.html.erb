@@ -51,18 +51,12 @@
         <% end %>
       </div>
       <br>
-      <div class="friends">
+      <div class="friends hide-for-small-only">
+        <h4>Group Members: <%= @group.users_have_marked_as_join.count %></h4>
         <% @group.users_have_marked_as_join.each do |friend| %>
-          <div class="large-3 columns">
-            <div class="media-object">
-              <div class="mediua-object-section">
-                <div class="thumbnail">
-                  <%= link_to image_tag(friend.avatar.url(:thumb)), friend %>
-                </div>
-              </div>
-              <div class="media-object-section">
-                <%= friend.username %>
-              </div>
+          <div class="large-3 columns end">
+            <div class="thumbnail">
+              <%= link_to image_tag(friend.avatar.url(:thumb)), friend %>
             </div>
           </div>
         <% end %>
@@ -85,7 +79,9 @@
             <div class="media-object-section">
               Created on: <%= comment.created_at.strftime("%A, %b %d") %>
               <br>
-              <%= comment.body %>
+              <div class="body">
+                <%= markdown(comment.body) %>
+              </div>
             </div>
           </div>
         </div>
