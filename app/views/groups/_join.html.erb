@@ -1,0 +1,5 @@
+<% if group.marked_as_join? by: current_user  %>
+  <%= link_to "leave group", unjoin_group_path(group), method: :put, remote: true, class: 'leave button expanded' %>
+<% else %>
+  <%= link_to "Join group", join_group_path(group), method: :put, remote: true, class: 'join button expanded' %>
+<% end %>

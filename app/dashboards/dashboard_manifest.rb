@@ -15,6 +15,7 @@ class DashboardManifest
     :categories,
     :events,
     :genres,
+    :groups,
     :producers,
     :roles,
     :seasons,

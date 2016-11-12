@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :microposts, dependent: :destroy
   has_many :reviews
+  has_many :groups, dependent: :destroy
   acts_as_marker
   markable_as :following, :by => :user
 

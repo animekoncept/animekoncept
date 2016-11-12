@@ -1,0 +1,82 @@
+.group {
+  background-color: $gray;
+  .header-image {
+    background-color: #1b2023;
+    img {
+      /*opacity: 0.3;*/
+      width: 100%;
+      @media screen and (max-width: 39.9375em) {
+        height: 200px;
+      }
+      @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        height: 400px;
+      }
+      @media screen and (min-width: 64em) {
+        height: 600px;
+        max-height: 419px;
+      }
+    }
+  }
+  .avatar {
+    margin-top: -50px;
+    img {
+      border-radius: 50%;
+      position: relative;
+      @media screen and (max-width: 39.9375em) {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+      @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        position: relative;
+        top: -25px;
+      }
+      @media screen and (min-width: 64em) {
+        position: relative;
+        top: -50px;
+      }
+    }
+  }
+  .title {
+    font-size: 1.7em;
+    font-family: ProximaNovaLight;
+    @media screen and (max-width: 39.9375em) {
+      text-align: center;
+    }
+  }
+  .bio {
+    @media screen and (max-width: 39.9375em) {
+      text-align: center;
+    }
+  }
+  .summary {
+    background-color: $white;
+    border: solid $white 10px;
+    @media screen and (max-width: 39.9375em) {
+      text-align: center;
+    }
+  }
+  .join-button {
+    margin-top: 15px;
+    .leave {
+      background-color: $red;
+      font-family: ProximaNovaNormal;
+    }
+    .join {
+      background-color: $orange;
+      font-family: ProximaNovaNormal;
+    }
+  }
+  .comment-form {
+    .button {
+      background-color: $orange;
+    }
+  }
+  .body {
+    background-color: $white;
+    border: 20px solid $white;
+    img {
+      max-width: 470px;
+    }
+  }
+}

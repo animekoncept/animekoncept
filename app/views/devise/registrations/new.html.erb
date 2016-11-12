@@ -74,7 +74,7 @@
 <section class='previews show-for-medium'>
   <div class='row full-width'>
     <div class='previews-scroll'>
-      <% Anime.all.each do |anime| %>
+      <% Anime.limit(30).all.each do |anime| %>
         <div>
           <%= image_tag anime.cover_image.url(:large) %>
           <button class='small button'><%= link_to "View Now", anime %></button>

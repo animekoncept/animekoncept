@@ -4,6 +4,17 @@
     width: 100%;
     img {
       opacity: 0.4;
+      width: 100%;
+      @media screen and (max-width: 39.9375em) {
+        height: 200px;
+      }
+      @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        height: 400px;
+      }
+      @media screen and (min-width: 64em) {
+        height: 600px;
+        max-height: 419px;
+      }
     }
   }
   .avatar {

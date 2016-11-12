@@ -1,0 +1,93 @@
+<div class="group">
+  <div class="header-image ">
+    <%# image_tag @anime.header_image.url(:large) %>
+    <%= image_tag "",
+        data: {
+          interchange: "
+          [#{@group.header_image.url(:medium)}, small],
+          [#{@group.header_image.url(:medium)}, medium],
+          [#{@group.header_image.url(:large)}, large]
+          "
+        }
+    %>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-2 large-2 columns">
+      <div class="avatar">
+        <%= image_tag "",
+            data: {
+              interchange: "
+              [#{@group.avatar.url(:medium)}, small],
+              [#{@group.avatar.url(:large)}, medium],
+              [#{@group.avatar.url(:large)}, large]
+              "
+            }
+        %>
+      </div>
+    </div>
+    <div class="small-12 medium-10 large-6 columns">
+      <div class="title">
+        <%= @group.title %>
+      </div>
+      <div class="bio">
+        <blockquote><%= @group.bio %></blockquote>
+      </div>
+    </div>
+    <div class="large-4 columns">
+      <div class="join-button">
+        <div id="group_<%= @group.id %>_join">
+          <%= render partial: 'join', locals: {group: @group} %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-12 large-6 columns about">
+      <div class="summary">
+        <% if @group.summary.blank? %>
+          <p>Nothing here</p>
+        <% else %>
+          <p><%= @group.summary %></p>
+        <% end %>
+      </div>
+      <br>
+      <div class="friends hide-for-small-only">
+        <h4>Group Members: <%= @group.users_have_marked_as_join.count %></h4>
+        <% @group.users_have_marked_as_join.each do |friend| %>
+          <div class="large-3 columns end">
+            <div class="thumbnail">
+              <%= link_to image_tag(friend.avatar.url(:thumb)), friend %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="medium-12 large-6 columns">
+      <%= render partial: "comments/template", locals: {commentable: @group, new_comment: @comment} %>
+      <hr>
+      <% @comments.each do |comment| %>
+        <div class="large-12 columns">
+          <div class="media-object">
+            <div class="media-object-section">
+              <div class="thumbnail">
+                <%= link_to image_tag(comment.user.avatar.url(:thumb)), comment.user %>
+              </div>
+              <div class="username">
+                <%= comment.user.username %>
+              </div>
+            </div>
+            <div class="media-object-section">
+              Created on: <%= comment.created_at.strftime("%A, %b %d") %>
+              <br>
+              <div class="body">
+                <%= markdown(comment.body) %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      <% end %>
+      <%#= render partial: "comments/reply", locals: {comments: commentable.root_comments} %>
+    </div>
+  </div>
+</div>
