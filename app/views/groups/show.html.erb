@@ -63,7 +63,7 @@
       </div>
     </div>
     <div class="medium-12 large-6 columns">
-      <%= render partial: "comments/template", locals: {commentable: @group, new_comment: @comment} %>
+      <%= render partial: "comments/template", locals: {commentable: @group, new_comment: @comment} if user_signed_in? %>
       <hr>
       <% @comments.each do |comment| %>
         <div class="large-12 columns">
