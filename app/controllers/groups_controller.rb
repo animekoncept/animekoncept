@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find params[:id]
-    @new_comment = Comment.build_from(@group, current_user.id, "")
+    @new_comment = Comment.build_from(@group, current_user.id, "") if user_signed_in?
     @comments = @group.comment_threads
   end
 
