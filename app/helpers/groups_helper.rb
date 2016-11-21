@@ -6,4 +6,12 @@ module GroupsHelper
     else
     end
   end
+
+  def join_button
+    if user_signed_in?
+      render partial: 'join', locals: {group: @group}
+    else
+      link_to "Join group", new_user_session_path, class: 'leave button expanded'
+    end
+  end
 end
