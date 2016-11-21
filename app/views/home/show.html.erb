@@ -21,17 +21,18 @@
     <%= render 'microposts/form' %>
     <br>
     <div class="microposts">
-      <% @microposts.each do |micropost| %>
+      <%= render partial: "comments/template", locals: {commentable: @user, new_comment: @comment} if user_signed_in? %>
+      <% @comments.each do |comment| %>
         <div class="media-object">
           <div class="media-object-section">
             <div class="thumbnail">
-              <%= link_to image_tag(micropost.user.avatar.url(:thumb)), micropost.user %>
+              <%= link_to image_tag(comment.user.avatar.url(:thumb)), comment.user %>
             </div>
           </div>
           <div class="media-object-section">
-            <%= micropost.user.username %>
-            <p><%= markdown(micropost.content) %></p>
-            <%= render partial: 'microposts/like', locals: {micropost: micropost} unless micropost.user_id == @user.id  %>
+            <%= comment.user.username %> posted to <%= comment.commentable_type %>
+            <p><%= markdown(comment.body) %></p>
+            <%#= render partial: 'commnetss/like', locals: {micropost: micropost} unless micropost.user_id == @user.id  %>
           </div>
         </div>
         <hr>
