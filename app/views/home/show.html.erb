@@ -36,7 +36,7 @@
                 </div>
               </div>
               <div class="media-object-section">
-                <%= micropost.user.username %>
+                <%= link_to micropost.user.username, micropost.user %>
                 <p><%= markdown(micropost.content) %></p>
               </div>
             </div>
