@@ -13,4 +13,7 @@ class Topic < ActiveRecord::Base
   scope :descending, ->() {
     joins(:posts).merge( Post.descending )
   }
+
+  include PublicActivity::Model
+  tracked
 end

@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     commentable = commentable_type.constantize.find(commentable_id)
     @comment = Comment.build_from(commentable, current_user.id, body)
     if @comment.save
+      @comment.create_activity :create, owner: current_user
       redirect_to :back
     else
       render :new

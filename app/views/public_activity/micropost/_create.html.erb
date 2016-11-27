@@ -1,0 +1,8 @@
+Added a post to their timeline
+<% if activity.trackable %>
+  <blockquote>
+    <p><%= markdown(activity.trackable.content) %></p>
+  </blockquote>
+<% else %>
+  which has been removed
+<% end %>

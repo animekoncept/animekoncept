@@ -1,6 +1,8 @@
 favorited
-<% if activity %>
-  <%= link_to activity.trackable.name, activity.trackable(:anime) %>
+<% if activity.trackable %>
+  <%= link_to activity.trackable.title, activity.trackable %>
+  <br>
+  <%= image_tag activity.trackable.cover_image.url(:medium) %>
 <% else %>
-something that has been unfavorited
+  something that has been unfavorited
 <% end %>

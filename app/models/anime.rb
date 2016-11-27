@@ -49,6 +49,9 @@
   include PgSearch
   multisearchable :against => [:title, :english, :slug]
 
+  include PublicActivity::Common
+  #tracked
+
 
   extend FriendlyId
   friendly_id :title, use: :slugged

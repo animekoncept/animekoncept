@@ -18,24 +18,53 @@
   </div>
 
   <div class="large-6 columns margin-top">
-    <%= render 'microposts/form' %>
+    <%#= render partial: "comments/template", locals: {commentable: @user, new_comment: @comment} if user_signed_in? %>
+    <%= render partial: "microposts/form" %>
     <br>
-    <div class="microposts">
-      <% @microposts.each do |micropost| %>
-        <div class="media-object">
-          <div class="media-object-section">
-            <div class="thumbnail">
-              <%= link_to image_tag(micropost.user.avatar.url(:thumb)), micropost.user %>
+    <ul class="tabs" data-tabs id="tabs">
+      <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">User activity</a></li>
+      <li class="tabs-title"><a href="#panel2">Timeline</a></li>
+    </ul>
+    <div class="tabs-content" data-tabs-content="tabs">
+      <div class="tabs-panel is-active" id="panel1">
+        <div class="microposts">
+          <% @microposts.each do |micropost| %>
+            <div class="media-object">
+              <div class="media-object-section">
+                <div class="thumbnail">
+                  <%= link_to image_tag(micropost.user.avatar.url(:thumb)), micropost.user %>
+                </div>
+              </div>
+              <div class="media-object-section">
+                <%= micropost.user.username %>
+                <p><%= markdown(micropost.content) %></p>
+              </div>
             </div>
-          </div>
-          <div class="media-object-section">
-            <%= micropost.user.username %>
-            <p><%= markdown(micropost.content) %></p>
-            <%= render partial: 'microposts/like', locals: {micropost: micropost} unless micropost.user_id == @user.id  %>
+            <hr>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="tabs-content" data-tabs-content="tabs">
+        <div class="tabs-panel" id="panel2">
+          <div class="microposts">
+            <% @activities.each do |activity| %>
+              <div class="media-object">
+                <div class="media-object-section">
+                  <div class="thumbnail">
+                    <%#= link_to image_tag(activity.user.avatar.url(:thumb)), comment.user %>
+                    <%= link_to image_tag(activity.owner.avatar.url(:thumb)), activity.owner if activity.owner %>
+                  </div>
+                </div>
+                <div class="media-object-section">
+                  <%= link_to activity.owner.username, activity.owner %> <%= render_activity activity %>
+                </div>
+              </div>
+              <hr>
+            <% end %>
           </div>
         </div>
-        <hr>
-      <% end %>
+      </div>
     </div>
   </div>
 

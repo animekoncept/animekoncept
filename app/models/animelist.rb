@@ -6,4 +6,7 @@ class Animelist < ActiveRecord::Base
   #validates :status, inclusion: {in: STATUSES}
 
   validates :anime, uniqueness: { scope: :user_id, message: "%{attribute} already added" }
+
+  include PublicActivity::Common
+
 end

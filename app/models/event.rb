@@ -21,6 +21,11 @@ class Event < ActiveRecord::Base
   validates_presence_of :ends_on
   validates_presence_of :age
 
+
+  include PublicActivity::Common
+  
+
+
   acts_as_punchable
 
   markable_as :attending
