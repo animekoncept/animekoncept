@@ -7,6 +7,7 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.new(micropost_params)
     @micropost.user_id = current_user.id
     if @micropost.save
+      @micropost.create_activity :create, owner: current_user
       flash[:success] = 'Success'
       redirect_to root_path
     else

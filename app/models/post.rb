@@ -5,4 +5,7 @@ class Post < ActiveRecord::Base
   belongs_to :category
   markable_as :like
   scope :descending, ->() { order(arel_table[:created_at].desc) }
+
+  include PublicActivity::Model
+  tracked
 end

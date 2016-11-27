@@ -31,6 +31,9 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :username, use: :slugged
 
+  include PublicActivity::Model
+  tracked
+
   belongs_to :role
   before_create :set_default_role
   has_many :animelists
