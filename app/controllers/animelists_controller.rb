@@ -7,6 +7,7 @@ class AnimelistsController < ApplicationController
     @animelist.user_id = current_user.id
     @animelist.update animelist_params
     #respond_with_bip(@animelist)
+    @animelist.create_activity :update, owner: current_user
     flash.now[:success] = "AnimeList has been updated!"
   end
 

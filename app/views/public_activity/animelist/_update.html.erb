@@ -1,0 +1,30 @@
+updated animelist
+<% if activity.trackable %>
+  <%= link_to activity.trackable.anime.title, activity.trackable.anime %>
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Status</th>
+        <th>Episodes</th>
+        <th>Re-Watched</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td width="10"><%= link_to image_tag(activity.trackable.anime.cover_image.url(:thumb)), activity.trackable.anime %></td>
+        <td width="200">
+          <%= activity.trackable.status %>
+        </td>
+        <td>
+          <%= activity.trackable.episodes_watched %>/ <%= activity.trackable.anime.episodes %>
+        </td>
+        <td>
+          <%= activity.trackable.rewatched %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% else %>
+  which has been removed
+<% end %>
