@@ -9,4 +9,6 @@ class Review < ActiveRecord::Base
   validates_presence_of :enjoyment
   validates_presence_of :overall
   validates_presence_of :content
+
+  include PublicActivity::Common
 end

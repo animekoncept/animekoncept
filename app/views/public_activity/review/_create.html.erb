@@ -1,0 +1,10 @@
+wrote a review for
+<% if activity.trackable %>
+  <%= link_to activity.trackable.anime.title, activity.trackable.anime %>
+  <blockquote>
+    <p><%= truncate(activity.trackable.content, length: 300) %></p>
+    <%= link_to "Read full review", activity.trackable.anime %>
+  </blockquote>
+<% else %>
+  which has been removed
+<% end %>
