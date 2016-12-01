@@ -36,8 +36,9 @@
                 </div>
               </div>
               <div class="media-object-section">
-                <%= micropost.user.username %>
+                <%= link_to micropost.user.username, micropost.user %>
                 <p><%= markdown(micropost.content) %></p>
+                <%= render partial: 'microposts/like', locals: {micropost: micropost} unless micropost.user_id == @user.id %>
               </div>
             </div>
             <hr>
