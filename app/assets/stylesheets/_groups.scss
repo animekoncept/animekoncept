@@ -44,3 +44,16 @@
     }
   }
 }
+
+.new-group-button {
+  margin-top: 10px;
+  a {
+    background-color: $orange;
+    font-size: 1em;
+    font-family: ProximaNovaBold;
+    &:hover {
+      background-color: $orange;
+    }
+  }
+
+}
