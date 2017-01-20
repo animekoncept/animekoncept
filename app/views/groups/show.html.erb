@@ -54,6 +54,11 @@
         <% end %>
       </div>
       <br>
+      <div class="group-leader">
+        <h4>Group Leader</h4>
+        <%= image_tag @group.user.avatar.url(:medium) %>
+      </div>
+      <br>
       <div class="friends hide-for-small-only">
         <h4>Group Members: <%= @group.users_have_marked_as_join.count %></h4>
         <% @group.users_have_marked_as_join.each do |friend| %>
