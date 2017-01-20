@@ -39,6 +39,9 @@
           <%= join_button %>
         </div>
       </div>
+      <div class="edit-group">
+        <%= link_to "Edit your group", edit_group_path, class: "button expanded" if @group.user == current_user %>
+      </div>
     </div>
   </div>
   <div class="row">
