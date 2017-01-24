@@ -17,6 +17,7 @@
 /public/system/categories
 /public/system/events
 /public/system/users
+/public/system/groups
 config/aws.yml
 
 # Ignore application configuration
