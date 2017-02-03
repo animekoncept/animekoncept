@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby  "2.3.1"
+ruby  "2.3.3"
 gem 'rails', '4.2.7'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0.4'
@@ -33,7 +33,7 @@ gem 'paperclip-optimizer'
 gem 'image_optim_pack'
 
 #Front-end framework
-gem 'foundation-rails'
+gem "foundation-rails", "6.3.0.0"
 
 gem 'bourbon'
 
@@ -69,7 +69,7 @@ gem 'wikipedia-client'
 #gem 'aws-sdk', '< 2.0'
 gem 'best_in_place', '~> 3.0.1'
 
-gem 'mailgun-ruby'
+#gem 'mailgun-ruby', '~> 1.1', '>= 1.1.3'
 
 gem "figaro"
 

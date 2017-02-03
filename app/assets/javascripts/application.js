@@ -52,3 +52,5 @@ $(document).ready(function() {
     $('.dropify').dropify();
 });
 //$(function(){ $(document).foundation(); });
+
+$(function(){ $(document).foundation(); });
