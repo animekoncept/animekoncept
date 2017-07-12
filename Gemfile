@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-ruby  "2.3.3"
-gem 'rails', '4.2.7'
+gem 'rails', '~> 4.2', '>= 4.2.9'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0.4'
 gem 'therubyracer'
@@ -69,11 +68,16 @@ gem 'wikipedia-client'
 #gem 'aws-sdk', '< 2.0'
 gem 'best_in_place', '~> 3.0.1'
 
+
+
 #gem 'mailgun-ruby', '~> 1.1', '>= 1.1.3'
 
 gem "figaro"
 
 gem 'acts_as_commentable_with_threading'
+
+#gem 'rake', '~> 12.0'
+gem 'myanimelist', '~> 1.0'
 
 
 group :development, :test do
